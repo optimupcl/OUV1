@@ -3,1346 +3,1329 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OptimUp | Optimización comercial para hoteles, rent a car y servicios</title>
-  <meta name="description" content="Diagnosticamos y optimizamos tu embudo comercial completo: tráfico, conversión, pricing, canales y medición. Especialistas en hotelería, rent a car y servicios." />
+  <title>OptimUp | Ingeniería para tu embudo de ventas</title>
+  <meta name="description" content="Atraemos más tráfico calificado, cerramos las fugas del embudo y optimizamos pricing y canales para que cada peso de revenue se traduzca en utilidad. Hoteles, rent a car y servicios." />
+  <meta name="theme-color" content="#1E3A5F" />
 
-  <!-- Favicons -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://optimup.cl" />
+  <meta property="og:title" content="OptimUp | Ingeniería para tu embudo de ventas" />
+  <meta property="og:description" content="Atraemos más tráfico calificado, cerramos las fugas del embudo y optimizamos pricing y canales. Hoteles, rent a car y servicios." />
+  <meta property="og:image" content="https://optimup.cl/og-image.png" />
+  <meta property="og:locale" content="es_CL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OptimUp | Ingeniería para tu embudo de ventas" />
+  <meta name="twitter:description" content="Atraemos más tráfico calificado, cerramos las fugas del embudo y optimizamos pricing y canales. Hoteles, rent a car y servicios." />
+  <meta name="twitter:image" content="https://optimup.cl/og-image.png" />
+
+  <!-- Favicons del kit oficial -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#0f2a44" />
 
-  <!-- Open Graph (previsualización al compartir en WhatsApp, LinkedIn, Facebook, etc.) -->
-  <meta property="og:title" content="OptimUp | Optimización del sistema comercial" />
-  <meta property="og:description" content="Diagnosticamos y optimizamos tu embudo comercial completo: tráfico, conversión, pricing, canales y medición." />
-  <meta property="og:image" content="https://optimup.cl/og-image.png" />
-  <meta property="og:url" content="https://optimup.cl" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="es_CL" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="OptimUp | Optimización del sistema comercial" />
-  <meta name="twitter:description" content="Diagnosticamos y optimizamos tu embudo comercial completo: tráfico, conversión, pricing, canales y medición." />
-  <meta name="twitter:image" content="https://optimup.cl/og-image.png" />
-
+  <!-- Inter — única familia tipográfica del sistema -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* ====== TOKENS DEL MANUAL DE MARCA ====== */
     :root {
-      --navy: #1e3a5f;
-      --navy-mid: #2a4f7c;
-      --navy-light: #345f94;
-      --orange: #e85d1a;           /* Para botones, fondos sólidos */
-      --orange-deep: #c44a12;      /* Para texto sobre fondos claros — mejor contraste */
-      --orange-light: #ff7a3d;
-      --cream: #f7f4ef;
-      --white: #ffffff;
-      --text-dark: #1e3a5f;
-      --text-mid: #4a5568;
-      --text-light: #8a97aa;
+      /* Colores */
+      --navy: #1E3A5F;
+      --navy-mid: #2A4F7C;
+      --navy-light: #345F94;
+      --orange: #E85D1A;
+      --orange-deep: #C44A12;
+      --orange-light: #FF7A3D;
+      --cream: #F7F4EF;
+      --white: #FFFFFF;
+      --text-dark: #1E3A5F;
+      --text-mid: #4A5568;
+      --text-light: #8A97AA;
       --border: rgba(30,58,95,0.10);
-      --font-display: 'Playfair Display', serif;
-      --font-body: 'DM Sans', sans-serif;
 
-      /* Escala modular áurea — ratio 1.618, base 16px */
-      --text-xs:   0.625rem;   /* 10px — labels, eyebrows */
-      --text-sm:   0.8rem;     /* 13px — captions, taglines */
-      --text-base: 1rem;       /* 16px — body */
-      --text-md:   1.125rem;   /* 18px — step titles, lead */
-      --text-lg:   1.3rem;     /* 21px — card titles */
-      --text-xl:   1.625rem;   /* 26px — section subtitles */
-      --text-2xl:  2.1rem;     /* 34px — section titles */
-      --text-3xl:  2.625rem;   /* 42px — hero menor */
-      --text-4xl:  3.4rem;     /* 55px — hero display */
+      /* Tipografía */
+      --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      /* Escala modular Major Third (1.250) */
+      --text-xs:   0.625rem;
+      --text-sm:   0.8rem;
+      --text-base: 1rem;
+      --text-md:   1.25rem;
+      --text-lg:   1.563rem;
+      --text-xl:   1.953rem;
+      --text-2xl:  2.441rem;
+      --text-3xl:  3.052rem;
+      --text-4xl:  3.052rem;  /* 49px — bajado desde 61px. 49px funciona mejor para titulares en español, que son ~20% más largos que en inglés. 61px se reserva para frases muy cortas (3-4 palabras). */
+
+      /* Espaciado — múltiplos de 8px */
+      --space-1:  0.5rem;
+      --space-2:  1rem;
+      --space-3:  1.5rem;
+      --space-4:  2rem;
+      --space-5:  3rem;
+      --space-6:  4rem;
+      --space-7:  6rem;
+      --space-8:  8rem;
+
+      /* Radios */
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 24px;
+
+      /* Sombras */
+      --shadow-sm: 0 2px 20px rgba(30,58,95,0.08);
+      --shadow-md: 0 8px 32px rgba(30,58,95,0.12);
     }
 
+    /* ====== BASE ====== */
+    *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: var(--font-body);
+      margin: 0;
+      font-family: var(--font-base);
       font-size: var(--text-base);
+      line-height: 1.6;
       color: var(--text-dark);
       background: var(--white);
-      line-height: 1.6;
-      overflow-x: hidden;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* ====== TIPOGRAFÍA ====== */
+    h1, h2, h3, h4 { color: var(--navy); margin: 0; line-height: 1.2; }
+    h1 { font-size: var(--text-4xl); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    h2 { font-size: var(--text-2xl); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+    h3 { font-size: var(--text-xl); font-weight: 600; line-height: 1.3; }
+    h4 { font-size: var(--text-md); font-weight: 600; line-height: 1.4; }
+    p  { margin: 0 0 var(--space-2) 0; color: var(--text-mid); }
+
+    .eyebrow {
+      font-size: 0.75rem; /* 12px — subido desde 10px para mejor ancla visual con el H2 que sigue */
+      font-weight: 600;
+      color: var(--orange-deep);
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      margin-bottom: var(--space-1); /* reducido desde --space-2 para anclar mejor al título */
+      display: inline-block;
+    }
+    .lead { font-size: var(--text-lg); color: var(--text-mid); line-height: 1.5; font-weight: 400; }
+
+    /* ====== LAYOUT ====== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: var(--space-3);
+      padding-right: var(--space-3);
+    }
+    section {
+      padding-top: var(--space-7);
+      padding-bottom: var(--space-7);
+    }
+    @media (min-width: 1024px) {
+      section { padding-top: var(--space-8); padding-bottom: var(--space-8); }
     }
 
-    /* NAV */
+    /* ====== NAV ====== */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      position: sticky;
+      top: 0;
       z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: box-shadow 200ms ease, border-color 200ms ease;
+    }
+    nav.scrolled {
+      box-shadow: var(--shadow-sm);
+      border-bottom-color: var(--border);
+    }
+    .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.2rem 5%;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      transition: box-shadow 0.3s;
+      padding-top: var(--space-2);
+      padding-bottom: var(--space-2);
     }
-
     .logo {
-      font-family: var(--font-display);
-      font-size: 1.55rem;
+      display: flex;
+      align-items: center;
       font-weight: 700;
       color: var(--navy);
-      text-decoration: none;
+      font-size: 2.25rem; /* 36px — wordmark con presencia, prioriza reconocimiento de marca sobre regla geométrica del manual mientras no exista símbolo gráfico integrado al header */
       letter-spacing: -0.02em;
+      line-height: 1;
     }
-    .logo span { color: var(--orange-deep); }
-
+    .logo .up { color: var(--orange-deep); }
     .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
+      display: none;
       align-items: center;
+      gap: var(--space-4);
+    }
+    @media (min-width: 900px) {
+      .nav-links { display: flex; }
     }
     .nav-links a {
-      font-size: var(--text-sm);
-      font-weight: 400;
-      color: var(--text-mid);
-      text-decoration: none;
-      transition: color 0.2s;
-      letter-spacing: 0.01em;
-    }
-    .nav-links a:hover { color: var(--navy); }
-    .nav-links .cta-nav {
-      background: var(--orange);
-      color: white;
-      padding: 0.55rem 1.25rem;
-      border-radius: 4px;
+      color: var(--text-dark);
+      font-size: var(--text-base);
       font-weight: 500;
-      transition: background 0.2s, transform 0.1s;
+      transition: color 200ms ease;
     }
-    .nav-links .cta-nav:hover { background: var(--orange-light); color: white; transform: translateY(-1px); }
+    .nav-links a:hover { color: var(--orange-deep); }
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white) !important;
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+    .nav-cta:hover { background: var(--orange-light); color: var(--white) !important; transform: translateY(-1px); }
 
-    /* HERO */
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      padding: 8px;
+    }
+    @media (min-width: 900px) { .nav-toggle { display: none; } }
+    .nav-toggle span {
+      width: 22px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+    }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      padding: var(--space-2) var(--space-3) var(--space-3);
+      border-top: 1px solid var(--border);
+      background: var(--white);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      padding: var(--space-2) 0;
+      font-size: var(--text-base);
+      font-weight: 500;
+      color: var(--text-dark);
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ====== HERO ====== */
     .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 7rem 5% 4rem;
+      padding-top: var(--space-5);
+      padding-bottom: var(--space-7);
+      background:
+        radial-gradient(circle at 85% 0%, rgba(232,93,26,0.06), transparent 50%),
+        radial-gradient(circle at 0% 100%, rgba(30,58,95,0.04), transparent 50%),
+        var(--cream);
       position: relative;
-      background: var(--cream);
       overflow: hidden;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      right: -10%;
-      top: -10%;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(232,93,26,0.08) 0%, transparent 70%);
-      pointer-events: none;
+    @media (min-width: 1024px) {
+      .hero { padding-top: var(--space-6); padding-bottom: var(--space-8); }
     }
-    .hero-text { max-width: 560px; }
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: var(--text-xs);
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .hero-grid { grid-template-columns: 1.1fr 1fr; gap: var(--space-6); }
+    }
+    .hero h1 .accent {
       color: var(--orange-deep);
-      margin-bottom: 1.5rem;
-      padding: 0.4rem 0.95rem;
-      border: 1px solid rgba(196,74,18,0.35);
-      border-radius: 2px;
-      background: rgba(232,93,26,0.06);
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(var(--text-3xl), 4vw, 3rem);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--navy);
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-    .hero h1 em {
       font-style: italic;
-      color: var(--orange);
+      font-weight: 700;
     }
-    .hero p {
-      font-size: var(--text-md);
-      color: var(--text-mid);
-      font-weight: 300;
-      line-height: 1.75;
-      margin-bottom: 2.5rem;
-      max-width: 460px;
+    .hero-lead {
+      margin-top: var(--space-3);
+      max-width: 540px;
     }
-    .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-
-    .btn-primary {
-      background: var(--orange);
-      color: white;
-      padding: 0.85rem 1.75rem;
-      border-radius: 4px;
-      font-size: var(--text-base);
-      font-weight: 500;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      display: inline-block;
+    .hero-actions {
+      margin-top: var(--space-4);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
     }
-    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); }
-
-    .btn-secondary {
-      color: var(--navy);
-      font-size: var(--text-base);
-      font-weight: 400;
-      text-decoration: none;
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      border-bottom: 1px solid var(--navy);
-      padding-bottom: 2px;
-      transition: gap 0.2s;
-    }
-    .btn-secondary:hover { gap: 0.7rem; }
-
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-left: 2rem;
-    }
-
-    .funnel-graphic {
-      width: 100%;
-      max-width: 380px;
-    }
-
-    /* STATS BAR */
-    .stats-bar {
-      background: var(--navy);
-      padding: 2.5rem 5%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      text-align: center;
-    }
-    .stat-item {}
-    .stat-num {
-      font-family: var(--font-display);
-      font-size: var(--text-3xl);
-      font-weight: 700;
-      color: var(--orange);
-      line-height: 1;
-      display: block;
-    }
-    .stat-label {
-      font-size: var(--text-xs);
-      color: rgba(255,255,255,0.65);
-      font-weight: 300;
-      margin-top: 0.4rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    /* SECTION COMMONS */
-    section { padding: 6rem 5%; }
-    .section-tag {
-      display: inline-block;
-      font-size: var(--text-xs);
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: var(--radius-sm);
       font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--orange-deep);
-      margin-bottom: 1rem;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.25rem;
-    }
-    .section-sub {
       font-size: var(--text-base);
-      color: var(--text-mid);
-      font-weight: 300;
-      line-height: 1.75;
-      max-width: 560px;
+      transition: all 200ms ease;
+      border: 1.5px solid transparent;
     }
+    .btn-primary { background: var(--orange); color: var(--white); }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); }
+    .btn-secondary { background: transparent; color: var(--navy); border-color: var(--navy); }
+    .btn-secondary:hover { background: var(--navy); color: var(--white); }
 
-    /* PROBLEMA */
-    .problema { background: var(--white); }
-    .problema-grid {
+    /* Hero diagrama del embudo */
+    .funnel {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      aspect-ratio: 1 / 1.05;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-      margin-top: 4rem;
-    }
-    .problema-left {}
-    .pain-list { list-style: none; margin-top: 2rem; }
-    .pain-list li {
-      display: flex;
-      gap: 1rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: var(--text-base);
-      color: var(--text-mid);
-      line-height: 1.6;
-    }
-    .pain-list li:last-child { border-bottom: none; }
-    .pain-icon {
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-      background: rgba(232,93,26,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 2px;
-    }
-    .pain-icon svg { width: 14px; height: 14px; }
-
-    .problema-right {
-      background: var(--navy);
-      border-radius: 8px;
-      padding: 2.5rem;
-      color: white;
-    }
-    .quote-block {
-      font-family: var(--font-display);
-      font-size: var(--text-lg);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 1.5rem;
-    }
-    .quote-source {
-      font-size: var(--text-sm);
-      color: rgba(255,255,255,0.45);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    /* QUÉ HACEMOS */
-    .que-hacemos { background: var(--cream); }
-    .funnel-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3.5rem;
+      gap: var(--space-1);
+      align-content: center;
     }
     .funnel-step {
       background: var(--white);
-      border-radius: 6px;
-      padding: 1.75rem;
       border: 1px solid var(--border);
-      transition: box-shadow 0.2s, transform 0.2s;
-      position: relative;
-      overflow: hidden;
+      border-radius: var(--radius-md);
+      padding: 0.875rem 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 200ms ease;
+      width: 100%;
     }
-    .funnel-step::before {
+    .funnel-step:hover { transform: translateX(4px); }
+    .funnel-step:nth-child(1) { width: 100%; }
+    .funnel-step:nth-child(2) { width: 92%; margin-left: 4%; }
+    .funnel-step:nth-child(3) { width: 84%; margin-left: 8%; }
+    .funnel-step:nth-child(4) { width: 76%; margin-left: 12%; }
+    .funnel-step:nth-child(5) { width: 68%; margin-left: 16%; }
+    .funnel-step:nth-child(6) { width: 60%; margin-left: 20%; }
+    .funnel-result {
+      margin-top: var(--space-2);
+      width: 50%;
+      margin-left: 25%;
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      text-align: center;
+      font-weight: 700;
+      font-size: var(--text-md);
+      padding: 0.875rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+    .funnel-step strong { color: var(--navy); display: block; font-size: var(--text-base); font-weight: 600; }
+    .funnel-step span { color: var(--text-light); font-size: var(--text-sm); }
+
+    /* ====== STATS BAR ====== */
+    .stats {
+      background: var(--navy);
+      color: var(--white);
+      padding-top: var(--space-5);
+      padding-bottom: var(--space-5);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
+    }
+    .stat-num {
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      color: var(--orange-light);
+      line-height: 1;
+      margin-bottom: var(--space-1);
+    }
+    .stat-label {
+      font-size: var(--text-base);
+      color: rgba(255,255,255,0.85);
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* ====== PROBLEMA ====== */
+    .problema-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+    @media (min-width: 1024px) {
+      .problema-grid { grid-template-columns: 1fr 1.2fr; gap: var(--space-6); }
+    }
+    .problema-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-3) 0 0 0;
+    }
+    .problema-list li {
+      padding: var(--space-2) 0;
+      padding-left: var(--space-3);
+      position: relative;
+      color: var(--text-mid);
+      border-bottom: 1px solid var(--border);
+    }
+    .problema-list li:last-child { border-bottom: none; }
+    .problema-list li::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--orange);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s;
+      left: 0;
+      top: 1.65rem;
+      width: 12px;
+      height: 1px;
+      background: var(--orange-deep);
     }
-    .funnel-step:hover { box-shadow: 0 8px 32px rgba(30,58,95,0.1); transform: translateY(-3px); }
-    .funnel-step:hover::before { transform: scaleX(1); }
-
-    .step-num {
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      font-weight: 700;
-      color: rgba(30,58,95,0.22);
-      line-height: 1;
-      margin-bottom: 0.75rem;
-    }
-    .step-title {
+    .quote-card {
+      background: var(--cream);
+      border-left: 4px solid var(--orange);
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
       font-size: var(--text-md);
-      font-weight: 500;
+      font-style: italic;
       color: var(--navy);
-      margin-bottom: 0.6rem;
-    }
-    .step-desc {
-      font-size: var(--text-base);
-      color: var(--text-mid);
-      font-weight: 300;
-      line-height: 1.65;
-    }
-
-    /* VERTICALES */
-    .verticales { background: var(--white); }
-    .verticales-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: end;
-      margin-bottom: 3.5rem;
-    }
-    .verticales-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .vertical-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: box-shadow 0.25s, transform 0.25s;
-      cursor: pointer;
-    }
-    .vertical-card:hover { box-shadow: 0 12px 40px rgba(30,58,95,0.12); transform: translateY(-4px); }
-    .vertical-header {
-      padding: 2rem 1.75rem 1.5rem;
-      background: var(--navy);
-      color: white;
-    }
-    .vertical-icon {
-      width: 44px;
-      height: 44px;
-      background: rgba(232,93,26,0.2);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.25rem;
-    }
-    .vertical-icon svg { width: 22px; height: 22px; }
-    .vertical-name {
-      font-family: var(--font-display);
-      font-size: var(--text-lg);
-      font-weight: 700;
-      color: white;
-      margin-bottom: 0.5rem;
-    }
-    .vertical-tagline {
-      font-size: var(--text-sm);
-      color: rgba(255,255,255,0.6);
-      font-weight: 300;
-    }
-    .vertical-body {
-      padding: 1.5rem 1.75rem;
-      background: var(--white);
-    }
-    .vertical-items {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .vertical-items li {
-      font-size: var(--text-base);
-      color: var(--text-mid);
-      font-weight: 300;
-      padding-left: 1rem;
-      position: relative;
       line-height: 1.5;
     }
-    .vertical-items li::before {
+
+    /* ====== APALANCAMIENTO / EBITDA ====== */
+    .leverage {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .leverage h2 { color: var(--white); }
+    .leverage p { color: rgba(255,255,255,0.82); }
+    .leverage .eyebrow { color: var(--orange-light); }
+    .leverage-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .leverage-grid { grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+    }
+    .leverage-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+    }
+    .leverage-table {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 0;
+      margin-top: var(--space-3);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .leverage-table > div {
+      padding: 0.875rem var(--space-2);
+      font-size: var(--text-sm);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+    .leverage-table .lh {
+      background: rgba(255,255,255,0.06);
+      font-weight: 600;
+      color: var(--white);
+      text-transform: uppercase;
+      font-size: var(--text-xs);
+      letter-spacing: 0.05em;
+    }
+    .leverage-table .num {
+      font-variant-numeric: tabular-nums;
+      color: rgba(255,255,255,0.92);
+      font-size: var(--text-base);
+      font-weight: 500;
+      text-align: right;
+    }
+    .leverage-table .label {
+      color: rgba(255,255,255,0.75);
+      font-size: var(--text-sm);
+    }
+    .leverage-table .highlight {
+      background: rgba(232,93,26,0.18);
+      color: var(--white);
+      font-weight: 700;
+      font-size: var(--text-md);
+    }
+    .leverage-disclaimer {
+      margin-top: var(--space-3);
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    /* ====== QUÉ HACEMOS ====== */
+    .que-intro {
+      max-width: 720px;
+      margin-bottom: var(--space-5);
+    }
+    .que-callout {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      margin-bottom: var(--space-5);
+      border-left: 4px solid var(--orange);
+    }
+    .que-callout h3 { margin-bottom: var(--space-1); }
+    .que-callout-flags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+      list-style: none;
+      padding: 0;
+    }
+    .que-callout-flags li {
+      font-size: var(--text-sm);
+      color: var(--navy);
+      font-weight: 500;
+      background: var(--white);
+      padding: 0.5rem 0.875rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+    .que-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+    @media (min-width: 700px) {
+      .que-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .que-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .que-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    }
+    .que-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+      border-color: var(--orange);
+    }
+    .que-num {
+      font-size: var(--text-md);
+      font-weight: 700;
+      color: var(--orange-deep);
+      letter-spacing: 0.02em;
+      margin-bottom: var(--space-2);
+      font-variant-numeric: tabular-nums;
+    }
+    .que-card h3 { margin-bottom: var(--space-1); font-size: var(--text-md); }
+    .que-card p { font-size: var(--text-base); margin: 0; }
+
+    /* ====== INDUSTRIAS ====== */
+    .industrias { background: var(--cream); }
+    .industrias-intro {
+      max-width: 720px;
+      margin-bottom: var(--space-5);
+    }
+    .ind-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+    @media (min-width: 768px) {
+      .ind-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .ind-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 200ms ease;
+    }
+    .ind-card:hover { transform: translateY(-3px); }
+    .ind-card h3 { margin-bottom: 0.25rem; }
+    .ind-card .ind-tag {
+      font-size: var(--text-sm);
+      color: var(--text-light);
+      margin-bottom: var(--space-2);
+    }
+    .ind-card ul {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-2) 0 var(--space-3) 0;
+      flex-grow: 1;
+    }
+    .ind-card ul li {
+      font-size: var(--text-base);
+      padding: 0.4rem 0 0.4rem 1.25rem;
+      position: relative;
+      color: var(--text-mid);
+    }
+    .ind-card ul li::before {
       content: '→';
       position: absolute;
       left: 0;
-      color: var(--orange);
-      font-size: var(--text-sm);
-    }
-    .vertical-link {
-      font-size: var(--text-sm);
-      font-weight: 600;
       color: var(--orange-deep);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: gap 0.2s, color 0.2s;
+      font-weight: 700;
     }
-    .vertical-link:hover { gap: 0.7rem; color: var(--orange); }
+    .ind-link {
+      color: var(--navy);
+      font-weight: 600;
+      font-size: var(--text-base);
+      align-self: flex-start;
+      border-bottom: 1.5px solid var(--orange);
+      padding-bottom: 2px;
+      transition: color 200ms ease;
+    }
+    .ind-link:hover { color: var(--orange-deep); }
 
-    /* MÉTODO */
-    .metodo { background: var(--cream); }
-    .metodo-steps {
+    /* ====== MÉTODO ====== */
+    .metodo-intro { max-width: 720px; margin-bottom: var(--space-5); }
+    .metodo-list {
       display: grid;
+      gap: var(--space-3);
       grid-template-columns: 1fr;
-      gap: 0;
-      margin-top: 3.5rem;
-      max-width: 700px;
+    }
+    @media (min-width: 768px) {
+      .metodo-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .metodo-list { grid-template-columns: repeat(5, 1fr); }
     }
     .metodo-step {
-      display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: 1.5rem;
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
+      position: relative;
+      padding: var(--space-3) 0 0 0;
+      border-top: 2px solid var(--orange);
     }
-    .metodo-step:last-child { border-bottom: none; }
     .metodo-num {
-      font-family: var(--font-display);
       font-size: var(--text-md);
       font-weight: 700;
       color: var(--orange-deep);
-      padding-top: 2px;
+      font-variant-numeric: tabular-nums;
+      margin-bottom: var(--space-1);
     }
-    .metodo-content {}
-    .metodo-title {
-      font-size: var(--text-md);
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
-    }
-    .metodo-desc {
-      font-size: var(--text-base);
-      color: var(--text-mid);
-      font-weight: 300;
-      line-height: 1.65;
-    }
+    .metodo-step h4 { margin-bottom: 0.5rem; font-size: var(--text-md); }
+    .metodo-step p { font-size: var(--text-base); margin: 0; }
 
-    /* CTA CENTRAL */
-    .cta-section {
-      background: var(--navy);
-      padding: 6rem 5%;
+    /* ====== CTA CENTRAL ====== */
+    .cta-central {
+      background: var(--cream);
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(232,93,26,0.15) 0%, transparent 70%);
-      pointer-events: none;
+    .cta-central h2 {
+      max-width: 720px;
+      margin: 0 auto var(--space-3);
     }
-    .cta-section .section-title { color: white; position: relative; }
-    .cta-section .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto 2.5rem; position: relative; }
-    .btn-primary-light {
-      background: var(--orange);
-      color: white;
-      padding: 1rem 2.25rem;
-      border-radius: 4px;
-      font-size: var(--text-md);
-      font-weight: 500;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      display: inline-block;
-      position: relative;
-    }
-    .btn-primary-light:hover { background: var(--orange-light); transform: translateY(-2px); }
+    .cta-central p { max-width: 580px; margin: 0 auto var(--space-4); }
 
-    /* NOSOTROS */
-    .nosotros { background: var(--white); position: relative; }
-    .nosotros-seal {
-      position: absolute;
-      top: 4rem;
-      right: 5%;
-      width: 90px;
-      height: 90px;
-      opacity: 0.85;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-    .nosotros-seal img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    .team-grid {
+    /* ====== EQUIPO ====== */
+    .equipo-intro { max-width: 720px; margin-bottom: var(--space-5); }
+    .equipo-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 3.5rem;
-      max-width: 800px;
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
     }
-    .team-card {
+    @media (min-width: 768px) {
+      .equipo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .persona {
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem;
-      transition: box-shadow 0.2s;
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
     }
-    .team-card:hover { box-shadow: 0 8px 32px rgba(30,58,95,0.08); }
-    .team-avatar {
-      width: 60px;
-      height: 60px;
+    .persona-head {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .persona-avatar {
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       background: var(--navy);
+      color: var(--white);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-display);
-      font-size: var(--text-lg);
       font-weight: 700;
-      color: var(--orange);
-      margin-bottom: 1.25rem;
-    }
-    .team-name {
       font-size: var(--text-md);
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 0.25rem;
+      flex-shrink: 0;
     }
-    .team-role {
+    .persona-info h4 { font-size: var(--text-md); margin-bottom: 2px; }
+    .persona-role {
       font-size: var(--text-xs);
       color: var(--orange-deep);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: 0.75rem;
     }
-    .team-bio {
-      font-size: var(--text-base);
-      color: var(--text-mid);
-      font-weight: 300;
-      line-height: 1.65;
-    }
-    .team-tags {
+    .persona p { font-size: var(--text-base); margin: 0; }
+    .persona-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 1rem;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
     }
-    .tag {
-      font-size: var(--text-xs);
-      padding: 0.25rem 0.65rem;
+    .persona-tags span {
+      font-size: var(--text-sm);
+      color: var(--navy);
       background: var(--cream);
-      color: var(--text-mid);
-      border-radius: 2px;
-      font-weight: 400;
+      padding: 0.25rem 0.625rem;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
     }
 
-    /* CONTACTO */
-    .contacto {
-      background: var(--cream);
-      padding: 6rem 5%;
-    }
+    /* ====== CONTACTO ====== */
+    .contacto { background: var(--navy); color: var(--white); }
+    .contacto h2 { color: var(--white); }
+    .contacto p { color: rgba(255,255,255,0.85); }
+    .contacto .eyebrow { color: var(--orange-light); }
     .contacto-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-      margin-top: 3rem;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
     }
-    .form-group {
-      margin-bottom: 1.25rem;
+    @media (min-width: 1024px) {
+      .contacto-grid { grid-template-columns: 1.1fr 1fr; gap: var(--space-6); }
     }
-    .form-group label {
+    .form-card {
+      background: var(--white);
+      color: var(--text-dark);
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-2);
+      margin-bottom: var(--space-2);
+    }
+    @media (min-width: 600px) {
+      .form-row.dual { grid-template-columns: 1fr 1fr; }
+    }
+    .form-card label {
       display: block;
-      font-size: var(--text-xs);
+      font-size: 0.875rem;
       font-weight: 500;
       color: var(--navy);
-      margin-bottom: 0.4rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      margin-bottom: 0.375rem;
     }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
+    .form-card input,
+    .form-card select,
+    .form-card textarea {
       width: 100%;
       padding: 0.75rem 1rem;
       border: 1px solid var(--border);
-      border-radius: 4px;
-      font-family: var(--font-body);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
       font-size: var(--text-base);
       color: var(--text-dark);
       background: var(--white);
+      transition: border-color 200ms ease;
+    }
+    .form-card input:focus,
+    .form-card select:focus,
+    .form-card textarea:focus {
       outline: none;
-      transition: border-color 0.2s;
+      border-color: var(--orange-deep);
     }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--orange);
-    }
-    .form-group textarea { height: 120px; resize: vertical; }
+    .form-card textarea { resize: vertical; min-height: 96px; }
     .form-submit {
       width: 100%;
-      padding: 0.9rem;
       background: var(--orange);
-      color: white;
+      color: var(--white);
       border: none;
-      border-radius: 4px;
-      font-family: var(--font-body);
+      padding: 0.875rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
       font-size: var(--text-base);
-      font-weight: 500;
-      cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 0.5rem;
+      transition: background 200ms ease, transform 200ms ease;
+      margin-top: var(--space-2);
     }
-    .form-submit:hover { background: var(--orange-light); }
-
-    .contacto-info {}
-    .contacto-claim {
-      font-family: var(--font-display);
-      font-size: var(--text-xl);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--navy);
-      line-height: 1.5;
-      margin-bottom: 2rem;
-    }
-    .contacto-bullets { list-style: none; }
-    .contacto-bullets li {
-      font-size: var(--text-base);
-      color: var(--text-mid);
-      font-weight: 300;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-    }
-    .contacto-bullets li span { color: var(--orange); font-weight: 500; }
-
-    /* FOOTER */
-    footer {
-      background: var(--navy);
-      padding: 4rem 5% 2rem;
-    }
-    .footer-main {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .footer-col-brand .footer-logo {
-      font-family: var(--font-display);
-      font-size: var(--text-lg);
-      font-weight: 700;
-      color: white;
-      text-decoration: none;
-      display: inline-block;
-      margin-bottom: 1rem;
-    }
-    .footer-col-brand .footer-logo span { color: var(--orange); }
-    .footer-tagline {
-      font-size: var(--text-sm);
-      color: rgba(255,255,255,0.55);
-      font-weight: 300;
-      line-height: 1.6;
-      max-width: 320px;
-    }
-    .footer-col h4 {
-      font-size: var(--text-xs);
-      font-weight: 500;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 1.25rem;
-    }
-    .footer-links-col {
-      list-style: none;
+    .form-submit:hover { background: var(--orange-light); transform: translateY(-1px); }
+    .contacto-side {
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
-    }
-    .footer-links-col a {
-      font-size: var(--text-sm);
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-links-col a:hover { color: var(--orange); }
-
-    .footer-contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.85rem;
-      font-size: var(--text-sm);
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-contact-item:hover { color: white; }
-    .footer-contact-item:hover .footer-icon { background: var(--orange); }
-    .footer-icon {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-      display: inline-flex;
-      align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-      transition: background 0.2s;
+      gap: var(--space-3);
     }
-    .footer-icon svg { width: 14px; height: 14px; }
-
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding-top: 2rem;
+    .contacto-quote {
+      font-size: var(--text-md);
+      font-style: italic;
+      color: rgba(255,255,255,0.92);
+      padding-left: var(--space-3);
+      border-left: 3px solid var(--orange);
     }
-    .footer-copy {
-      font-size: var(--text-xs);
-      color: rgba(255,255,255,0.35);
-    }
-    .footer-legal {
-      display: flex;
-      gap: 1.5rem;
+    .contacto-checks {
       list-style: none;
+      padding: 0;
+      margin: 0;
     }
-    .footer-legal a {
+    .contacto-checks li {
+      padding: 0.625rem 0;
+      color: rgba(255,255,255,0.92);
+      font-size: var(--text-base);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+    }
+    .contacto-checks li::before {
+      content: '✓';
+      color: var(--orange-light);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--cream);
+      padding-top: var(--space-5);
+      padding-bottom: var(--space-3);
+      border-top: 1px solid var(--border);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; gap: var(--space-5); }
+    }
+    .footer-brand p {
+      font-size: var(--text-sm);
+      color: var(--text-mid);
+      max-width: 360px;
+      margin-top: var(--space-2);
+    }
+    .footer-logo {
+      gap: 0.625rem;
+      font-size: 1.5rem; /* 24px en footer, según manual */
+    }
+    .footer-logo img {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+    .footer-col h5 {
       font-size: var(--text-xs);
-      color: rgba(255,255,255,0.35);
-      text-decoration: none;
-      transition: color 0.2s;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      margin: 0 0 var(--space-2) 0;
     }
-    .footer-legal a:hover { color: rgba(255,255,255,0.7); }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col ul li { padding: 0.25rem 0; }
+    .footer-col a {
+      color: var(--text-mid);
+      font-size: var(--text-base);
+      transition: color 200ms ease;
+    }
+    .footer-col a:hover { color: var(--orange-deep); }
+    .footer-bottom {
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      align-items: flex-start;
+      justify-content: space-between;
+      font-size: var(--text-sm);
+      color: var(--text-light);
+    }
+    @media (min-width: 768px) {
+      .footer-bottom { flex-direction: row; align-items: center; }
+    }
+    .footer-bottom-links { display: flex; gap: var(--space-3); }
+    .footer-bottom-links a { color: var(--text-light); font-size: var(--text-sm); }
+    .footer-bottom-links a:hover { color: var(--orange-deep); }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; padding-top: 6rem; }
-      .hero-visual { display: none; }
-      .problema-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .verticales-header { grid-template-columns: 1fr; }
-      .verticales-cards { grid-template-columns: 1fr; }
-      .funnel-steps { grid-template-columns: 1fr; }
-      .stats-bar { grid-template-columns: 1fr; gap: 1.5rem; }
-      .contacto-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: 1fr; }
-      .footer-main { grid-template-columns: 1fr; gap: 2rem; }
-      .nosotros-seal { width: 60px; height: 60px; top: 2rem; right: 5%; }
+    /* ====== ANIMACIONES ====== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
     }
+    .fade-in { animation: fadeInUp 700ms ease-out backwards; }
+    .delay-1 { animation-delay: 100ms; }
+    .delay-2 { animation-delay: 200ms; }
+    .delay-3 { animation-delay: 300ms; }
 
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-eyebrow { animation: fadeUp 0.5s ease both; }
-    .hero h1 { animation: fadeUp 0.55s 0.1s ease both; }
-    .hero p { animation: fadeUp 0.55s 0.2s ease both; }
-    .hero-actions { animation: fadeUp 0.55s 0.3s ease both; }
+    /* Honeypot anti-bot */
+    .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="logo">Optim<span>Up</span></a>
-  <ul class="nav-links">
-    <li><a href="#que-hacemos">Qué hacemos</a></li>
-    <li><a href="#verticales">Industrias</a></li>
-    <li><a href="#metodo">Método</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#contacto" class="cta-nav">Agenda diagnóstico</a></li>
-  </ul>
+<!-- ============ NAV ============ -->
+<nav id="topnav">
+  <div class="container nav-inner">
+    <a href="#" class="logo" aria-label="OptimUp inicio">
+      <span>Optim<span class="up">Up</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#que-hacemos">Qué hacemos</a>
+      <a href="#verticales">Industrias</a>
+      <a href="#metodo">Método</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto" class="nav-cta">Agenda diagnóstico</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menú" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#que-hacemos" onclick="toggleMenu()">Qué hacemos</a>
+    <a href="#verticales" onclick="toggleMenu()">Industrias</a>
+    <a href="#metodo" onclick="toggleMenu()">Método</a>
+    <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
+    <a href="#contacto" onclick="toggleMenu()">Agenda diagnóstico</a>
+  </div>
 </nav>
 
-<!-- HERO -->
+<!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-text">
-    <span class="hero-eyebrow">Consultoría de revenue y embudo comercial</span>
-    <h1>Optimiza tu embudo de ventas.<br/><em>Haz crecer tus ingresos.</em></h1>
-    <p>Detectamos las fugas que están frenando tu crecimiento y trabajamos sobre el embudo completo: tráfico, conversión, pricing, canales y medición. Hoteles, rent a car y empresas de servicios.</p>
-    <div class="hero-actions">
-      <a href="#contacto" class="btn-primary">Agenda un diagnóstico gratuito</a>
-      <a href="#que-hacemos" class="btn-secondary">Cómo trabajamos →</a>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow fade-in">Consultoría de revenue para negocios de servicios</span>
+      <h1 class="fade-in delay-1">Ingeniería para tu <span class="accent">embudo de ventas.</span></h1>
+      <p class="lead hero-lead fade-in delay-2">Atraemos más tráfico calificado, cerramos las fugas en cada etapa del embudo y optimizamos pricing y canales — para que cada peso adicional de revenue se traduzca en utilidad. Hoteles, rent a car y empresas de servicios.</p>
+      <div class="hero-actions fade-in delay-3">
+        <a href="#contacto" class="btn btn-primary">Agenda un diagnóstico gratuito</a>
+        <a href="#que-hacemos" class="btn btn-secondary">Cómo trabajamos →</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-visual">
-    <svg class="funnel-graphic" viewBox="0 0 340 460" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Bloque 1: Tráfico — ancho completo -->
-      <rect x="10" y="10" width="320" height="56" rx="6" fill="#0f2240" fill-opacity="0.07" stroke="#0f2240" stroke-opacity="0.15" stroke-width="1"/>
-      <text x="170" y="34" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="500" fill="#0f2240">Tráfico</text>
-      <text x="170" y="53" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#4a5568">SEO · SEM · Meta · GEO</text>
-
-      <!-- Bloque 2: Conversión -->
-      <rect x="28" y="76" width="284" height="56" rx="6" fill="#0f2240" fill-opacity="0.07" stroke="#0f2240" stroke-opacity="0.15" stroke-width="1"/>
-      <text x="170" y="100" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="500" fill="#0f2240">Conversión</text>
-      <text x="170" y="119" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#4a5568">Web · IBE · UX · Contact center</text>
-
-      <!-- Bloque 3: Pricing -->
-      <rect x="48" y="142" width="244" height="56" rx="6" fill="#0f2240" fill-opacity="0.07" stroke="#0f2240" stroke-opacity="0.15" stroke-width="1"/>
-      <text x="170" y="166" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="500" fill="#0f2240">Pricing</text>
-      <text x="170" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#4a5568">Revenue management · Canales</text>
-
-      <!-- Bloque 4: Cierre -->
-      <rect x="70" y="208" width="200" height="56" rx="6" fill="#e85d1a" fill-opacity="0.12" stroke="#e85d1a" stroke-opacity="0.3" stroke-width="1"/>
-      <text x="170" y="232" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="500" fill="#c44a12">Cierre</text>
-      <text x="170" y="251" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#4a5568">Medios de pago · Seguimiento</text>
-
-      <!-- Bloque 5: Medición -->
-      <rect x="95" y="274" width="150" height="56" rx="6" fill="#e85d1a" fill-opacity="0.18" stroke="#e85d1a" stroke-opacity="0.4" stroke-width="1"/>
-      <text x="170" y="298" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="500" fill="#c44a12">Medición</text>
-      <text x="170" y="317" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#4a5568">KPIs · Dashboards</text>
-
-      <!-- Bloque final: Venta UP -->
-      <rect x="120" y="344" width="100" height="56" rx="6" fill="#e85d1a"/>
-      <text x="170" y="369" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="500" fill="white">Venta</text>
-      <text x="170" y="389" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.8)">UP</text>
-
-      <!-- Conectores verticales -->
-      <line x1="170" y1="66" x2="170" y2="76" stroke="#0f2240" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3,3"/>
-      <line x1="170" y1="132" x2="170" y2="142" stroke="#0f2240" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3,3"/>
-      <line x1="170" y1="198" x2="170" y2="208" stroke="#0f2240" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3,3"/>
-      <line x1="170" y1="264" x2="170" y2="274" stroke="#e85d1a" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="3,3"/>
-      <line x1="170" y1="330" x2="170" y2="344" stroke="#e85d1a" stroke-opacity="0.4" stroke-width="1" stroke-dasharray="3,3"/>
-    </svg>
+    <div class="funnel fade-in delay-3" aria-hidden="true">
+      <div class="funnel-step"><strong>Tráfico</strong><span>SEO · SEM · Meta · GEO</span></div>
+      <div class="funnel-step"><strong>Conversión</strong><span>Web · IBE · UX · Contact center</span></div>
+      <div class="funnel-step"><strong>Pricing</strong><span>Revenue management</span></div>
+      <div class="funnel-step"><strong>Canales</strong><span>Directo · OTAs · Partners</span></div>
+      <div class="funnel-step"><strong>Cierre</strong><span>Pagos · Seguimiento</span></div>
+      <div class="funnel-step"><strong>Medición</strong><span>KPIs · Dashboards</span></div>
+      <div class="funnel-result">Venta UP ↑</div>
+    </div>
   </div>
 </section>
 
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stat-item">
-    <span class="stat-num">3×</span>
-    <span class="stat-label">aumento de reservas directas en hoteles asesorados</span>
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">3×</div>
+        <div class="stat-label">aumento de reservas directas en hoteles asesorados</div>
+      </div>
+      <div>
+        <div class="stat-num">−50%</div>
+        <div class="stat-label">peso de OTAs en la mezcla de canales</div>
+      </div>
+      <div>
+        <div class="stat-num">15+</div>
+        <div class="stat-label">años dirigiendo áreas comerciales y de revenue</div>
+      </div>
+    </div>
   </div>
-  <div class="stat-item">
-    <span class="stat-num">–17%</span>
-    <span class="stat-label">menos comisiones pagadas a OTAs</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">15+</span>
-    <span class="stat-label">años dirigiendo áreas comerciales y de revenue</span>
-  </div>
-</div>
+</section>
 
-<!-- QUÉ HACEMOS -->
-<section class="que-hacemos" id="que-hacemos">
-  <span class="section-tag">El problema</span>
-  <h2 class="section-title">Tu negocio puede estar perdiendo ventas sin verlo</h2>
-  <p class="section-sub">En negocios con inventario perecible o capacidad limitada, cada oportunidad perdida hoy no vuelve mañana. El problema rara vez es falta de esfuerzo. Es que el embudo tiene fugas.</p>
+<!-- ============ PROBLEMA ============ -->
+<section id="problema">
+  <div class="container">
+    <div class="problema-grid">
+      <div>
+        <span class="eyebrow">El problema</span>
+        <h2>Tu negocio puede estar perdiendo ventas sin verlo</h2>
+        <p style="margin-top: var(--space-3);">En negocios con inventario perecible o capacidad limitada, cada oportunidad perdida hoy no vuelve mañana. El problema rara vez es falta de esfuerzo. Es que el embudo tiene fugas.</p>
+        <div class="quote-card" style="margin-top: var(--space-4);">
+          "En negocios con inventario perecible, los pequeños errores repetidos tienen impacto enorme. El margen se pierde en silencio, día a día."
+        </div>
+      </div>
+      <div>
+        <ul class="problema-list">
+          <li><strong style="color: var(--navy); font-weight: 600;">Tráfico que llega pero no convierte</strong> — UX deficiente, propuesta confusa o fricción en el motor de reservas</li>
+          <li><strong style="color: var(--navy); font-weight: 600;">Precios mal calibrados</strong> — sin lógica de revenue, sin estacionalidad, sin lectura de demanda real</li>
+          <li><strong style="color: var(--navy); font-weight: 600;">Dependencia excesiva de OTAs o intermediarios</strong> — pagando comisiones que pueden quedarse en la empresa</li>
+          <li><strong style="color: var(--navy); font-weight: 600;">Falta de métricas útiles</strong> — decisiones reactivas, sin trazabilidad entre marketing, reservas y revenue</li>
+          <li><strong style="color: var(--navy); font-weight: 600;">Campañas que generan tráfico pero no reservas</strong> — inversión sin retorno medible</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div class="problema-grid" style="margin-top:4rem;">
-    <div class="problema-left">
-      <ul class="pain-list">
-        <li>
-          <span class="pain-icon">
-            <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="#e85d1a" stroke-width="1.5"/><path d="M7 4v3l2 2" stroke="#e85d1a" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </span>
-          Tráfico que llega pero no convierte — por UX deficiente, propuesta confusa o fricción en el motor de reservas
-        </li>
-        <li>
-          <span class="pain-icon">
-            <svg viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="#e85d1a" stroke-width="1.5"/><path d="M5 7h4M7 5v4" stroke="#e85d1a" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </span>
-          Precios mal calibrados — sin lógica de revenue, sin estacionalidad, sin lectura de demanda real
-        </li>
-        <li>
-          <span class="pain-icon">
-            <svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="#e85d1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          Dependencia excesiva de OTAs o intermediarios — pagando comisiones que pueden quedarse en la empresa
-        </li>
-        <li>
-          <span class="pain-icon">
-            <svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#e85d1a" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </span>
-          Falta de métricas útiles — decisiones reactivas, sin trazabilidad entre marketing, reservas y revenue
-        </li>
-        <li>
-          <span class="pain-icon">
-            <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="#e85d1a" stroke-width="1.5"/><path d="M5 5l4 4M9 5l-4 4" stroke="#e85d1a" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </span>
-          Campañas que generan tráfico pero no reservas — inversión sin retorno medible
-        </li>
+<!-- ============ APALANCAMIENTO / EBITDA ============ -->
+<section class="leverage">
+  <div class="container">
+    <div class="leverage-grid">
+      <div>
+        <span class="eyebrow">Por qué importa tanto</span>
+        <h2>Cada peso adicional de revenue cae casi entero al EBITDA</h2>
+        <p class="lead" style="color: rgba(255,255,255,0.88); margin-top: var(--space-3);">En hotelería, rent a car y servicios con capacidad instalada, la mayor parte de los costos ya están comprometidos: arriendo, personal base, sistemas, mantención.</p>
+        <p style="margin-top: var(--space-2);">Cuando subes el revenue, el costo marginal de atender esa venta adicional es bajo. La mejora no se diluye en costos variables: se traduce casi directamente en utilidad. Por eso optimizar el embudo en estos negocios no es solo vender más — es ganar mucho más.</p>
+      </div>
+      <div class="leverage-card">
+        <span class="eyebrow" style="margin: 0;">Ejemplo simplificado · Hotel</span>
+        <h3 style="color: var(--white); margin-top: var(--space-2);">+10% en revenue → +45% en EBITDA</h3>
+        <div class="leverage-table">
+          <div class="lh">Línea</div>
+          <div class="lh num">Hoy</div>
+          <div class="lh num">+10% revenue</div>
+
+          <div class="label">Revenue</div>
+          <div class="num">$1.000</div>
+          <div class="num">$1.100</div>
+
+          <div class="label">Costos fijos (70%)</div>
+          <div class="num">$700</div>
+          <div class="num">$700</div>
+
+          <div class="label">Costos variables (10%)</div>
+          <div class="num">$100</div>
+          <div class="num">$110</div>
+
+          <div class="label highlight">EBITDA</div>
+          <div class="num highlight">$200</div>
+          <div class="num highlight">$290</div>
+        </div>
+        <p class="leverage-disclaimer">Ejemplo ilustrativo. El efecto exacto depende de la estructura de costos de cada operación, pero el principio es consistente en negocios con alta proporción de costos fijos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUÉ HACEMOS ============ -->
+<section id="que-hacemos">
+  <div class="container">
+    <div class="que-intro">
+      <span class="eyebrow">Qué hacemos</span>
+      <h2>Diagnosticamos y optimizamos el funnel de punta a punta</h2>
+    </div>
+    <div class="que-callout">
+      <span class="eyebrow">El problema real</span>
+      <h3>Marketing, ventas y operaciones suelen trabajar como islas.</h3>
+      <p>Marketing invierte en tráfico que no convierte. Ventas cierra a precios que erosionan margen. Operaciones no tiene visibilidad sobre qué canales generan más rentabilidad. Cada área ve una parte del problema, nadie ve el sistema completo. OptimUp trabaja sobre el embudo entero para que tus canales, equipos y datos hablen el mismo idioma — y el crecimiento deje de ser reactivo.</p>
+      <ul class="que-callout-flags">
+        <li>→ Menos fricción entre áreas</li>
+        <li>→ Una sola lectura del negocio</li>
+        <li>→ Decisiones basadas en datos</li>
+        <li>→ Crecimiento predecible, no reactivo</li>
       </ul>
     </div>
-    <div class="problema-right">
-      <p class="quote-block">"En negocios con inventario perecible, los pequeños errores repetidos tienen impacto enorme. El margen se pierde en silencio, día a día."</p>
-      <span class="quote-source">El problema que resolvemos</span>
-    </div>
-  </div>
-
-  <div class="funnel-steps" style="margin-top:5rem;">
-    <div style="grid-column: 1/-1; margin-bottom: 0.5rem;">
-      <span class="section-tag">Qué hacemos</span>
-      <h3 class="section-title" style="font-size:1.8rem;">Diagnosticamos y optimizamos el funnel de punta a punta</h3>
-    </div>
-
-    <!-- ALINEACIÓN CALLOUT -->
-    <div style="grid-column: 1/-1; background: var(--navy); border-radius: 8px; padding: 2rem 2.25rem; margin-bottom: 1rem; display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: start;">
-      <div style="background: rgba(232,93,26,0.2); border-radius: 6px; padding: 0.6rem 0.9rem; font-size: 0.75rem; font-weight: 500; color: #e85d1a; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; margin-top: 2px;">El problema real</div>
-      <div>
-        <p style="font-size: 0.95rem; color: white; font-weight: 400; margin-bottom: 0.5rem; line-height: 1.6;"><strong style="font-weight:500;">Marketing, ventas y operaciones suelen trabajar como islas.</strong> El resultado: esfuerzo que no se traduce en ingresos.</p>
-        <p style="font-size: 0.875rem; color: rgba(255,255,255,0.55); font-weight: 300; line-height: 1.65;">Marketing invierte en tráfico que no convierte. Ventas cierra a precios que erosionan margen. Operaciones no tiene visibilidad sobre qué canales generan más rentabilidad. Cada área ve una parte del problema, nadie ve el sistema completo. OptimUp trabaja sobre el embudo entero para que tus canales, equipos y datos hablen el mismo idioma — y el crecimiento deje de ser reactivo.</p>
-        <div style="display: flex; gap: 1.5rem; margin-top: 1.25rem; flex-wrap: wrap;">
-          <div style="font-size: 0.78rem; color: rgba(255,255,255,0.5);"><span style="color: #e85d1a; font-weight: 500;">→</span> Menos fricción entre áreas</div>
-          <div style="font-size: 0.78rem; color: rgba(255,255,255,0.5);"><span style="color: #e85d1a; font-weight: 500;">→</span> Una sola lectura del negocio</div>
-          <div style="font-size: 0.78rem; color: rgba(255,255,255,0.5);"><span style="color: #e85d1a; font-weight: 500;">→</span> Decisiones basadas en datos reales</div>
-          <div style="font-size: 0.78rem; color: rgba(255,255,255,0.5);"><span style="color: #e85d1a; font-weight: 500;">→</span> Crecimiento predecible, no reactivo</div>
-        </div>
+    <div class="que-grid">
+      <div class="que-card">
+        <div class="que-num">01</div>
+        <h3>Tráfico</h3>
+        <p>Campañas, SEO, GEO, pauta digital, calidad de visitas. Traer el visitante correcto, no solo más visitantes.</p>
       </div>
-    </div>
-    <div class="funnel-step">
-      <div class="step-num">01</div>
-      <div class="step-title">Tráfico</div>
-      <p class="step-desc">Campañas, SEO, GEO, pauta digital, calidad de visitas. Traer el visitante correcto, no solo más visitantes.</p>
-    </div>
-    <div class="funnel-step">
-      <div class="step-num">02</div>
-      <div class="step-title">Conversión y UX</div>
-      <p class="step-desc">Sitio web, landing pages, motor de reservas, formularios, WhatsApp, contact center. Menos fricción, más cierres.</p>
-    </div>
-    <div class="funnel-step">
-      <div class="step-num">03</div>
-      <div class="step-title">Pricing</div>
-      <p class="step-desc">Tarifas, revenue management, estacionalidad, sensibilidad de demanda. El precio correcto en el momento correcto.</p>
-    </div>
-    <div class="funnel-step">
-      <div class="step-num">04</div>
-      <div class="step-title">Canales</div>
-      <p class="step-desc">Venta directa, OTAs, intermediarios, partners. Optimizar el mix para maximizar margen, no solo volumen.</p>
-    </div>
-    <div class="funnel-step">
-      <div class="step-num">05</div>
-      <div class="step-title">Cierre y pagos</div>
-      <p class="step-desc">Medios de pago, abandono, velocidad de respuesta, seguimiento comercial. El último tramo donde se gana o se pierde.</p>
-    </div>
-    <div class="funnel-step">
-      <div class="step-num">06</div>
-      <div class="step-title">Medición</div>
-      <p class="step-desc">KPIs, dashboards, trazabilidad. Decisiones con datos, no intuición. Saber qué funciona y dónde está el potencial.</p>
+      <div class="que-card">
+        <div class="que-num">02</div>
+        <h3>Conversión y UX</h3>
+        <p>Sitio web, landing pages, motor de reservas, formularios, WhatsApp, contact center. Menos fricción, más cierres.</p>
+      </div>
+      <div class="que-card">
+        <div class="que-num">03</div>
+        <h3>Pricing</h3>
+        <p>Tarifas, revenue management, estacionalidad, sensibilidad de demanda. El precio correcto en el momento correcto.</p>
+      </div>
+      <div class="que-card">
+        <div class="que-num">04</div>
+        <h3>Canales</h3>
+        <p>Venta directa, OTAs, intermediarios, partners. Optimizar el mix para maximizar margen, no solo volumen.</p>
+      </div>
+      <div class="que-card">
+        <div class="que-num">05</div>
+        <h3>Cierre y pagos</h3>
+        <p>Medios de pago, abandono, velocidad de respuesta, seguimiento comercial. El último tramo donde se gana o se pierde.</p>
+      </div>
+      <div class="que-card">
+        <div class="que-num">06</div>
+        <h3>Medición</h3>
+        <p>KPIs, dashboards, trazabilidad. Decisiones con datos, no intuición. Saber qué funciona y dónde está el potencial.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- VERTICALES -->
-<section class="verticales" id="verticales">
-  <div class="verticales-header">
-    <div>
-      <span class="section-tag">Industrias</span>
-      <h2 class="section-title">Donde generamos más valor</h2>
+<!-- ============ INDUSTRIAS ============ -->
+<section id="verticales" class="industrias">
+  <div class="container">
+    <div class="industrias-intro">
+      <span class="eyebrow">Industrias</span>
+      <h2>Donde generamos más valor</h2>
+      <p style="margin-top: var(--space-3);">Nos especializamos en negocios con inventario perecible, demanda variable y venta digital: sectores donde optimizar el embudo tiene impacto directo en el resultado — y donde los costos fijos hacen que cada peso adicional de revenue se traduzca casi entero en EBITDA.</p>
     </div>
-    <p class="section-sub">Nos especializamos en negocios con inventario perecible, demanda variable y venta digital: sectores donde optimizar el embudo tiene impacto directo en el resultado.</p>
-  </div>
-
-  <div class="verticales-cards">
-    <!-- Hoteles -->
-    <div class="vertical-card">
-      <div class="vertical-header">
-        <div class="vertical-icon">
-          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="8" width="18" height="12" rx="2" stroke="#e85d1a" stroke-width="1.5"/>
-            <path d="M6 8V5a5 5 0 0110 0v3" stroke="#e85d1a" stroke-width="1.5"/>
-            <rect x="9" y="14" width="4" height="6" rx="1" fill="#e85d1a" opacity="0.5"/>
-          </svg>
-        </div>
-        <div class="vertical-name">Hoteles</div>
-        <div class="vertical-tagline">Hoteles boutique, lodges, cabañas, apart-hoteles y alojamientos turísticos</div>
-      </div>
-      <div class="vertical-body">
-        <ul class="vertical-items">
+    <div class="ind-grid">
+      <article class="ind-card">
+        <h3>Hoteles</h3>
+        <div class="ind-tag">Hoteles boutique, lodges, cabañas, apart-hoteles</div>
+        <ul>
           <li>Optimización de venta directa y motor de reservas</li>
           <li>Pricing dinámico y revenue management</li>
           <li>Reducción de dependencia de OTAs</li>
           <li>Mejora de conversión web y UX</li>
           <li>Integración con tecnología hotelera (IBE, PMS, Channel Manager)</li>
         </ul>
-        <a href="#contacto" class="vertical-link">Ver solución →</a>
-      </div>
-    </div>
-
-    <!-- Rent a Car -->
-    <div class="vertical-card">
-      <div class="vertical-header">
-        <div class="vertical-icon">
-          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="9" width="18" height="8" rx="3" stroke="#e85d1a" stroke-width="1.5"/>
-            <path d="M5 9l2-4h8l2 4" stroke="#e85d1a" stroke-width="1.5" stroke-linejoin="round"/>
-            <circle cx="6" cy="17" r="2" fill="#e85d1a" opacity="0.6"/>
-            <circle cx="16" cy="17" r="2" fill="#e85d1a" opacity="0.6"/>
-          </svg>
-        </div>
-        <div class="vertical-name">Rent a Car</div>
-        <div class="vertical-tagline">Utilización · Tarifa media · Conversión digital</div>
-      </div>
-      <div class="vertical-body">
-        <ul class="vertical-items">
+        <a href="#contacto" class="ind-link">Ver solución →</a>
+      </article>
+      <article class="ind-card">
+        <h3>Rent a Car</h3>
+        <div class="ind-tag">Utilización · Tarifa media · Conversión digital</div>
+        <ul>
           <li>Optimización de utilización de flota</li>
           <li>Pricing por segmento, categoría y anticipación</li>
           <li>Mejora del funnel de cotización y reserva</li>
           <li>Análisis de canales: corporativos, turismo, reemplazo</li>
           <li>Revenue management y benchmarking tarifario</li>
         </ul>
-        <a href="#contacto" class="vertical-link">Ver solución →</a>
-      </div>
-    </div>
-
-    <!-- Servicios -->
-    <div class="vertical-card">
-      <div class="vertical-header">
-        <div class="vertical-icon">
-          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="11" cy="11" r="8" stroke="#e85d1a" stroke-width="1.5"/>
-            <path d="M11 7v4l3 3" stroke="#e85d1a" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="vertical-name">Servicios</div>
-        <div class="vertical-tagline">Tours · Spa · Espacios · B2B con leads</div>
-      </div>
-      <div class="vertical-body">
-        <ul class="vertical-items">
+        <a href="#contacto" class="ind-link">Ver solución →</a>
+      </article>
+      <article class="ind-card">
+        <h3>Servicios</h3>
+        <div class="ind-tag">Tours · Spa · Espacios · B2B con leads</div>
+        <ul>
           <li>Diagnóstico de embudo para empresas de servicios</li>
           <li>Optimización de tráfico, UX y conversión digital</li>
           <li>Pricing y gestión de capacidad</li>
           <li>Mejora de cierre: formularios, WhatsApp, respuesta</li>
           <li>Métricas de conversión y rentabilidad por canal</li>
         </ul>
-        <a href="#contacto" class="vertical-link">Ver solución →</a>
+        <a href="#contacto" class="ind-link">Ver solución →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MÉTODO ============ -->
+<section id="metodo">
+  <div class="container">
+    <div class="metodo-intro">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2>No intervenimos piezas sueltas. Trabajamos sobre el sistema completo.</h2>
+      <p style="margin-top: var(--space-3);">Nuestro método parte siempre por entender el negocio real antes de recomendar cualquier acción. Primero diagnosticamos, luego priorizamos, luego optimizamos.</p>
+    </div>
+    <div class="metodo-list">
+      <div class="metodo-step">
+        <div class="metodo-num">01</div>
+        <h4>Entendemos el negocio</h4>
+        <p>Analizamos el modelo comercial, fuentes de ingreso, canales, clientes y puntos críticos. Sin atajos.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="metodo-num">02</div>
+        <h4>Mapeamos el funnel</h4>
+        <p>Revisamos cómo llega, avanza y convierte cada oportunidad. Buscamos las fugas donde se pierde tráfico, conversión o margen.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="metodo-num">03</div>
+        <h4>Priorizamos oportunidades</h4>
+        <p>Ordenamos las acciones según impacto, dificultad y velocidad de implementación. Quick wins primero.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="metodo-num">04</div>
+        <h4>Entregamos el diagnóstico</h4>
+        <p>Mapa del funnel, fugas detectadas, oportunidades priorizadas y plan de acción concreto. Implementable.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="metodo-num">05</div>
+        <h4>Acompañamos la ejecución</h4>
+        <p>Apoyamos la implementación, medición y optimización continua. El diagnóstico es el punto de partida, no el final.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MÉTODO -->
-<section class="metodo" id="metodo">
-  <span class="section-tag">Cómo trabajamos</span>
-  <h2 class="section-title">No optimizamos piezas sueltas.<br/>Optimizamos el sistema completo.</h2>
-  <p class="section-sub">Nuestro método parte siempre por entender el negocio real antes de recomendar cualquier acción. Primero diagnosticamos, luego priorizamos, luego optimizamos.</p>
+<!-- ============ CTA CENTRAL ============ -->
+<section class="cta-central">
+  <div class="container">
+    <span class="eyebrow">El primer paso</span>
+    <h2>Si tu empresa ya vende, casi seguro puede vender mejor</h2>
+    <p>Conversemos 30 minutos. Sin compromiso. Te decimos dónde vemos el mayor potencial de mejora — y si no lo vemos, también te lo decimos.</p>
+    <a href="#contacto" class="btn btn-primary">Agenda una conversación</a>
+  </div>
+</section>
 
-  <div class="metodo-steps">
-    <div class="metodo-step">
-      <div class="metodo-num">01</div>
-      <div class="metodo-content">
-        <div class="metodo-title">Entendemos el negocio</div>
-        <p class="metodo-desc">Analizamos el modelo comercial, fuentes de ingreso, canales, clientes y puntos críticos. Sin atajos. Primero entender, luego opinar.</p>
-      </div>
+<!-- ============ EQUIPO ============ -->
+<section id="nosotros">
+  <div class="container">
+    <div class="equipo-intro">
+      <span class="eyebrow">El equipo</span>
+      <h2>Consultores con experiencia real de dirección</h2>
+      <p style="margin-top: var(--space-3);">No somos analistas que diagnostican desde afuera. Hemos estado del otro lado: tomando decisiones, gestionando equipos y enfrentando las mismas presiones que nuestros clientes.</p>
     </div>
-    <div class="metodo-step">
-      <div class="metodo-num">02</div>
-      <div class="metodo-content">
-        <div class="metodo-title">Mapeamos el funnel</div>
-        <p class="metodo-desc">Revisamos cómo llega, avanza y convierte cada oportunidad comercial. Buscamos las fugas donde se pierde tráfico, conversión o margen.</p>
+    <div class="equipo-grid">
+      <div class="persona">
+        <div class="persona-head">
+          <div class="persona-avatar">IS</div>
+          <div class="persona-info">
+            <h4>José Ignacio Sarmiento</h4>
+            <span class="persona-role">Socio · Venta directa hotelera</span>
+          </div>
+        </div>
+        <p>Consultor senior en revenue management, transformación digital y propuesta de valor para hoteles independientes y boutique. Asesor estratégico de Hotel Magnolia, Corralco y Parque Futangue, donde ha liderado prácticas de revenue, omnichannel y marketing digital — duplicando los ingresos de Hotel Magnolia en un año. Ingeniero Comercial PUC y MBA UC. Trayectoria previa en áreas comerciales de Embotelladora Andina, Entel, Cocha y Tanica.</p>
+        <div class="persona-tags">
+          <span>Hotelería</span>
+          <span>Revenue Management</span>
+          <span>Venta directa</span>
+          <span>Omnichannel</span>
+        </div>
       </div>
-    </div>
-    <div class="metodo-step">
-      <div class="metodo-num">03</div>
-      <div class="metodo-content">
-        <div class="metodo-title">Priorizamos oportunidades</div>
-        <p class="metodo-desc">Ordenamos las acciones según impacto esperado, dificultad y velocidad de implementación. Quick wins primero, mejoras estructurales después.</p>
-      </div>
-    </div>
-    <div class="metodo-step">
-      <div class="metodo-num">04</div>
-      <div class="metodo-content">
-        <div class="metodo-title">Entregamos el diagnóstico</div>
-        <p class="metodo-desc">Mapa del funnel, fugas detectadas, oportunidades priorizadas y plan de acción concreto. Un documento que puedes implementar.</p>
-      </div>
-    </div>
-    <div class="metodo-step">
-      <div class="metodo-num">05</div>
-      <div class="metodo-content">
-        <div class="metodo-title">Acompañamos la ejecución</div>
-        <p class="metodo-desc">Podemos quedarnos apoyando la implementación, medición y optimización continua. El diagnóstico es el punto de partida, no el punto final.</p>
+      <div class="persona">
+        <div class="persona-head">
+          <div class="persona-avatar">GF</div>
+          <div class="persona-info">
+            <h4>Gonzalo Fernández</h4>
+            <span class="persona-role">Socio · Revenue & Canales</span>
+          </div>
+        </div>
+        <p>Fundador y ex Gerente General de Atrápalo Chile, donde construyó la operación desde cero hasta USD 25 MM en ventas anuales y 60 colaboradores. Ex Gerente de Canales y Ventas Latam Travel para Chile, Argentina, Perú y Colombia. Ex Subdirector de Marketing de Sernatur, donde profesionalizó la promoción turística internacional de Chile. Ex Gerente Comercial de Econorent, donde lideró la reestructuración comercial que triplicó el EBITDA. Ingeniero Comercial PUC y MBA CEU San Pablo (Madrid).</p>
+        <div class="persona-tags">
+          <span>Revenue Management</span>
+          <span>Canales digitales</span>
+          <span>Turismo</span>
+          <span>Rent a Car</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA CENTRAL -->
-<section class="cta-section">
-  <span class="section-tag" style="color: rgba(255,255,255,0.5);">El primer paso</span>
-  <h2 class="section-title">Si tu empresa ya vende,<br/>casi seguro puede vender mejor</h2>
-  <p class="section-sub">Conversemos 30 minutos. Sin compromiso. Te decimos dónde vemos el mayor potencial de mejora — y si no lo vemos, también te lo decimos.</p>
-  <a href="#contacto" class="btn-primary-light">Agenda una conversación</a>
-</section>
-
-<!-- NOSOTROS -->
-<section class="nosotros" id="nosotros">
-  <!-- Sello logo OptimUp en esquina superior derecha -->
-  <div class="nosotros-seal" aria-hidden="true">
-    <img src="/optimup_logo_512.png" alt="" />
-  </div>
-
-  <span class="section-tag">El equipo</span>
-  <h2 class="section-title">Consultores con experiencia real de dirección</h2>
-  <p class="section-sub">No somos analistas que diagnostican desde afuera. Hemos estado del otro lado: tomando decisiones, gestionando equipos y enfrentando las mismas presiones que nuestros clientes.</p>
-
-  <div class="team-grid">
-    <div class="team-card">
-      <div class="team-avatar">GF</div>
-      <div class="team-name">Gonzalo Fernández</div>
-      <div class="team-role">Socio · Revenue & Canales</div>
-      <p class="team-bio">Ex Director de Marketing Sernatur. Fundador de Atrápalo Chile. Ex Gerente Comercial Econorent. Más de 15 años optimizando canales de venta, pricing y embudo digital en turismo y movilidad.</p>
-      <div class="team-tags">
-        <span class="tag">Revenue Management</span>
-        <span class="tag">Canales digitales</span>
-        <span class="tag">Turismo</span>
-        <span class="tag">Rent a Car</span>
+<!-- ============ CONTACTO ============ -->
+<section id="contacto" class="contacto">
+  <div class="container">
+    <div class="contacto-grid">
+      <div>
+        <span class="eyebrow">Contacto</span>
+        <h2>Agenda un diagnóstico comercial</h2>
+        <p style="margin-top: var(--space-3); margin-bottom: var(--space-4);">Cuéntanos brevemente sobre tu negocio. Si vemos potencial real de mejora, te lo decimos. Si no, también.</p>
+        <form class="form-card" onsubmit="handleSubmit(event)">
+          <input type="text" name="hp" class="hp-field" tabindex="-1" autocomplete="off" />
+          <div class="form-row dual">
+            <div>
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" required />
+            </div>
+            <div>
+              <label for="empresa">Empresa</label>
+              <input id="empresa" name="empresa" type="text" required />
+            </div>
+          </div>
+          <div class="form-row dual">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div>
+              <label for="telefono">Teléfono / WhatsApp (opcional)</label>
+              <input id="telefono" name="telefono" type="tel" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="industria">Industria</label>
+              <select id="industria" name="industria" required>
+                <option value="">Selecciona tu industria</option>
+                <option>Hotel / Alojamiento turístico</option>
+                <option>Rent a Car</option>
+                <option>Tours y experiencias</option>
+                <option>Servicios B2B</option>
+                <option>Otro servicio</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="mensaje">¿Qué quieres mejorar?</label>
+              <textarea id="mensaje" name="mensaje" rows="3"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="form-submit">Enviar solicitud →</button>
+        </form>
       </div>
-    </div>
-    <div class="team-card">
-      <div class="team-avatar">IS</div>
-      <div class="team-name">Ignacio Sarmiento</div>
-      <div class="team-role">Socio · Venta directa hotelera</div>
-      <p class="team-bio">Especialista en incremento de canal directo para hoteles independientes y cadenas boutique. Ha triplicado las reservas directas de clientes como Termas de Chillán, Corralco y Parque Futangue.</p>
-      <div class="team-tags">
-        <span class="tag">Hotelería</span>
-        <span class="tag">IBE · OTAs</span>
-        <span class="tag">Venta directa</span>
-        <span class="tag">B2D</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACTO -->
-<section class="contacto" id="contacto">
-  <span class="section-tag">Contacto</span>
-  <h2 class="section-title">Agenda un diagnóstico comercial</h2>
-
-  <div class="contacto-grid">
-    <form name="contacto-optimup" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
-      <input type="hidden" name="form-name" value="contacto-optimup" />
-      <p style="display:none;">
-        <label>No llenar: <input name="bot-field" /></label>
-      </p>
-      <div class="form-group">
-        <label>Nombre</label>
-        <input type="text" name="nombre" placeholder="Tu nombre" required />
-      </div>
-      <div class="form-group">
-        <label>Empresa</label>
-        <input type="text" name="empresa" placeholder="Nombre de la empresa" required />
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="tu@empresa.com" required />
-      </div>
-      <div class="form-group">
-        <label>Teléfono / WhatsApp <span style="text-transform:none; letter-spacing:0; color:var(--text-light); font-weight:300;">(opcional)</span></label>
-        <input type="tel" name="telefono" placeholder="+56 9 ..." />
-      </div>
-      <div class="form-group">
-        <label>Industria</label>
-        <select name="industria" required>
-          <option value="">Selecciona tu industria</option>
-          <option>Hotel / Alojamiento turístico</option>
-          <option>Rent a Car</option>
-          <option>Tours y experiencias</option>
-          <option>Servicios B2B</option>
-          <option>Otro servicio</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>¿Qué quieres mejorar?</label>
-        <textarea name="mensaje" placeholder="Cuéntanos brevemente: ¿cuál es tu mayor desafío comercial hoy?"></textarea>
-      </div>
-      <button type="submit" class="form-submit">Enviar solicitud →</button>
-    </form>
-
-    <div class="contacto-info">
-      <p class="contacto-claim">"El primer paso es detectar dónde está el mayor potencial de mejora."</p>
-      <ul class="contacto-bullets">
-        <li><span>✓</span> Diagnóstico inicial gratuito y sin compromiso</li>
-        <li><span>✓</span> Respuesta en menos de 24 horas hábiles</li>
-        <li><span>✓</span> Primera reunión: 30 minutos online</li>
-        <li><span>✓</span> Sin contratos a largo plazo para empezar</li>
-        <li><span>✓</span> Nos adaptamos a tu industria y tamaño</li>
-      </ul>
+      <aside class="contacto-side">
+        <div class="contacto-quote">"El primer paso es detectar dónde está el mayor potencial de mejora."</div>
+        <ul class="contacto-checks">
+          <li>Diagnóstico inicial gratuito y sin compromiso</li>
+          <li>Respuesta en menos de 24 horas hábiles</li>
+          <li>Primera reunión: 30 minutos online</li>
+          <li>Sin contratos a largo plazo para empezar</li>
+          <li>Nos adaptamos a tu industria y tamaño</li>
+        </ul>
+      </aside>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ============ FOOTER ============ -->
 <footer>
-  <div class="footer-main">
-    <div class="footer-col footer-col-brand">
-      <a href="#" class="footer-logo">Optim<span>Up</span></a>
-      <p class="footer-tagline">Optimización del embudo comercial para hoteles, rent a car y empresas de servicios. Diagnosticamos, priorizamos y acompañamos la ejecución.</p>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo footer-logo" aria-label="OptimUp inicio">
+          <img src="/optimup_logo_512.png" alt="" width="40" height="40" />
+          <span>Optim<span class="up">Up</span></span>
+        </a>
+        <p>Optimización del embudo comercial para hoteles, rent a car y empresas de servicios. Diagnosticamos, priorizamos y acompañamos la ejecución.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#que-hacemos">Qué hacemos</a></li>
+          <li><a href="#verticales">Industrias</a></li>
+          <li><a href="#metodo">Método</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Conversemos</h5>
+        <ul>
+          <li><a href="mailto:contacto@optimup.cl">contacto@optimup.cl</a></li>
+          <li><a href="https://wa.me/56932466582?text=Hola%20Gonzalo%2C%20te%20escribo%20desde%20la%20web%20de%20OptimUp" target="_blank" rel="noopener">WhatsApp +56 9 3246 6582</a></li>
+        </ul>
+      </div>
     </div>
-
-    <div class="footer-col">
-      <h4>Navegación</h4>
-      <ul class="footer-links-col">
-        <li><a href="#que-hacemos">Qué hacemos</a></li>
-        <li><a href="#verticales">Industrias</a></li>
-        <li><a href="#metodo">Método</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <span>© 2026 OptimUp. Todos los derechos reservados.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Términos de uso</a>
+      </div>
     </div>
-
-    <div class="footer-col">
-      <h4>Conversemos</h4>
-      <a href="mailto:contacto@optimup.cl" class="footer-contact-item">
-        <span class="footer-icon">
-          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1.5" y="3" width="11" height="8" rx="1" stroke="white" stroke-width="1.2"/>
-            <path d="M1.5 4l5.5 4 5.5-4" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        contacto@optimup.cl
-      </a>
-      <a href="https://wa.me/56932466582?text=Hola%20Gonzalo%2C%20te%20escribo%20desde%20la%20web%20de%20OptimUp" target="_blank" rel="noopener" class="footer-contact-item">
-        <span class="footer-icon">
-          <svg viewBox="0 0 14 14" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 1.2C3.8 1.2 1.2 3.8 1.2 7c0 1 .3 2 .8 2.9L1.2 12.8l3-.7c.9.5 1.8.7 2.8.7 3.2 0 5.8-2.6 5.8-5.8S10.2 1.2 7 1.2zm0 10.5c-.9 0-1.7-.2-2.5-.7l-.2-.1-1.8.5.5-1.7-.1-.2c-.5-.8-.7-1.6-.7-2.5 0-2.6 2.1-4.7 4.7-4.7s4.7 2.1 4.7 4.7-2.1 4.7-4.7 4.7zm2.6-3.5c-.1-.1-.8-.4-1-.5s-.2 0-.3.1l-.4.5c-.1.1-.2.1-.3 0-.7-.3-1.2-.7-1.7-1.5-.1-.2 0-.2.1-.3l.3-.3c.1-.1.1-.2 0-.3 0-.1-.3-.7-.4-1-.1-.3-.2-.2-.3-.2h-.3c-.1 0-.3 0-.4.2-.2.2-.6.6-.6 1.4 0 .8.6 1.7.7 1.8s1.2 1.9 3 2.5c1.3.4 1.6.4 1.9.3.3 0 .8-.3 1-.7.1-.3.1-.6.1-.7 0-.1-.2-.1-.3-.2z"/>
-          </svg>
-        </span>
-        WhatsApp +56 9 3246 6582
-      </a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2026 OptimUp. Todos los derechos reservados.</span>
-    <ul class="footer-legal">
-      <li><a href="#">Política de privacidad</a></li>
-      <li><a href="#">Términos de uso</a></li>
-    </ul>
   </div>
 </footer>
 
 <script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    const form = e.target;
-    const btn = form.querySelector('.form-submit');
-    const data = new FormData(form);
+  // Sombra al scroll
+  const nav = document.getElementById('topnav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 16) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
 
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data).toString()
-    })
-    .then(() => {
-      btn.textContent = '¡Solicitud enviada! Te contactamos pronto.';
-      btn.style.background = '#2d7a4f';
-      form.reset();
-    })
-    .catch(() => {
-      btn.textContent = 'Error. Intenta nuevamente o escríbenos a contacto@optimup.cl';
-      btn.style.background = '#a02828';
-      btn.disabled = false;
-    });
+  // Menú mobile
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
   }
 
-  // Nav shadow on scroll
-  window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    nav.style.boxShadow = window.scrollY > 20
-      ? '0 2px 20px rgba(15,34,64,0.08)'
-      : 'none';
-  });
+  // Form submit (mock — luego se conecta a Formspree/Zapier)
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (e.target.hp.value) return; // honeypot
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Solicitud enviada. Te contactamos pronto.';
+    btn.style.background = '#2d7a4f';
+    btn.disabled = true;
+  }
 </script>
 
 </body>
