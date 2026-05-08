@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gracias por escribirnos | OptimUp</title>
-  <meta name="description" content="Gracias por escribirnos. Recibimos tu mensaje y te contactaremos pronto." />
+  <title>Recibimos tu mensaje | OptimUp</title>
+  <meta name="description" content="Recibimos tu mensaje. Te contactaremos en menos de 24 horas hábiles." />
+  <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#1E3A5F" />
 
   <link rel="icon" href="/brand/favicon.ico" sizes="any" />
@@ -18,124 +19,327 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
+    /* ====== TOKENS DEL MANUAL DE MARCA ====== */
     :root {
       --navy: #1E3A5F;
+      --navy-mid: #2A4F7C;
       --orange: #E85D1A;
       --orange-deep: #C44A12;
       --orange-light: #FF7A3D;
       --cream: #F7F4EF;
       --white: #FFFFFF;
       --text-mid: #4A5568;
+      --text-light: #8A97AA;
       --border: rgba(30,58,95,0.10);
-      --shadow-md: 0 18px 60px rgba(30,58,95,0.12);
+      --shadow-sm: 0 2px 20px rgba(30,58,95,0.08);
+      --shadow-md: 0 8px 32px rgba(30,58,95,0.12);
       --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --radius-sm: 6px;
-      --radius-lg: 16px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 24px;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       min-height: 100vh;
       font-family: var(--font-base);
       color: var(--navy);
-      background: var(--cream);
+      background:
+        radial-gradient(circle at 85% 10%, rgba(232,93,26,0.06), transparent 50%),
+        radial-gradient(circle at 5% 90%, rgba(30,58,95,0.04), transparent 50%),
+        var(--cream);
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
+      flex-direction: column;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    .card {
-      width: 100%;
-      max-width: 640px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-md);
-      padding: clamp(2rem, 5vw, 3.5rem);
+    /* ====== NAV ====== */
+    nav {
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
     }
 
     .logo {
-      display: inline-block;
-      color: var(--navy);
-      font-size: 2rem;
+      display: inline-flex;
+      align-items: center;
       font-weight: 700;
-      line-height: 1;
+      color: var(--navy);
+      font-size: 2.25rem;
       letter-spacing: -0.02em;
+      line-height: 1;
       text-decoration: none;
-      margin-bottom: 2.5rem;
     }
-
     .logo .up { color: var(--orange-deep); }
 
+    /* ====== CONTENIDO PRINCIPAL ====== */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 600px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      padding: 3rem;
+      text-align: left;
+    }
+
+    /* Ícono de confirmación */
+    .check-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(232,93,26,0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .check-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--orange-deep);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Eyebrow */
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--orange-deep);
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
     h1 {
-      margin: 0 0 0.25rem 0;
-      max-width: 540px;
-      color: var(--text-mid);
-      font-size: 1.125rem;
-      font-weight: 400;
-      line-height: 1.65;
-      letter-spacing: normal;
+      margin: 0 0 1rem 0;
+      font-size: 2.441rem; /* --text-2xl */
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
     }
 
-    p {
-      margin: 0;
-      max-width: 540px;
-      color: var(--text-mid);
+    .lead {
       font-size: 1.125rem;
+      color: var(--text-mid);
       line-height: 1.65;
+      margin: 0 0 2rem 0;
     }
 
+    /* Qué pasa ahora */
+    .steps {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-text strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.125rem;
+    }
+
+    .step-text span {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    /* Acciones */
     .actions {
       display: flex;
-      justify-content: center;
-      margin-top: 2rem;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 0.875rem 1.5rem;
+      padding: 0.875rem 1.75rem;
       border-radius: var(--radius-sm);
-      background: var(--orange);
-      color: var(--white);
-      text-decoration: none;
+      font-family: var(--font-base);
       font-size: 1rem;
       font-weight: 600;
       line-height: 1.2;
-      transition: transform 200ms ease, background 200ms ease;
+      text-decoration: none;
+      transition: all 200ms ease;
+      border: 1.5px solid transparent;
     }
 
-    .btn:hover {
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+    }
+    .btn-primary:hover {
       background: var(--orange-light);
       transform: translateY(-1px);
     }
 
-    @media (max-width: 600px) {
-      body { padding: 1rem; }
-      .card { padding: 2rem 1.5rem; }
-      .logo { font-size: 1.75rem; margin-bottom: 2rem; }
-      .actions { justify-content: stretch; }
-      .btn { width: 100%; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--navy);
     }
+    .btn-secondary:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-address {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 600px) {
+      .card {
+        padding: 2rem 1.5rem;
+        border-radius: var(--radius-lg);
+      }
+      h1 { font-size: 1.953rem; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ====== ANIMACIÓN ====== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card { animation: fadeInUp 500ms ease-out backwards; }
   </style>
 </head>
 <body>
-  <main class="card">
+
+  <!-- NAV -->
+  <nav>
     <a href="/" class="logo" aria-label="OptimUp inicio">Optim<span class="up">Up</span></a>
+  </nav>
 
-    <h1>Gracias por escribirnos</h1>
-    <p>Recibimos tu mensaje. Te contactaremos pronto para coordinar una primera conversación.</p>
+  <!-- CONTENIDO -->
+  <main>
+    <div class="card">
 
-    <div class="actions">
-      <a href="/" class="btn">Volver al inicio</a>
+      <!-- Ícono check -->
+      <div class="check-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <span class="eyebrow">Mensaje recibido</span>
+      <h1>Gracias por escribirnos.</h1>
+      <p class="lead">Revisamos tu mensaje y te contactamos en menos de 24 horas hábiles para coordinar una primera conversación.</p>
+
+      <!-- Qué pasa ahora -->
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <strong>Revisamos tu solicitud</strong>
+            <span>Leemos la información que nos compartiste para entender tu negocio antes de llamarte.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <strong>Te contactamos en 24 horas hábiles</strong>
+            <span>Por email o WhatsApp, según lo que hayas indicado. Si es urgente, escríbenos directo al +56 9 3246 6582.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <strong>Primera conversación — 30 minutos</strong>
+            <span>Sin compromiso. Conversamos sobre tu negocio y evaluamos juntos si hay potencial real de mejora.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acciones -->
+      <div class="actions">
+        <a href="/" class="btn btn-primary">Volver al inicio</a>
+        <a href="https://wa.me/56932466582?text=Hola%2C%20acabo%20de%20enviar%20un%20formulario%20en%20OptimUp%20y%20quería%20coordinar%20directamente." target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp directo →</a>
+      </div>
+
     </div>
   </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-address">
+      Av. Presidente Kennedy 4420, Oficina 113, Piso 3 · Vitacura, Santiago de Chile
+    </span>
+    <span class="footer-copy">© 2026 OptimUp</span>
+  </footer>
+
 </body>
 </html>
