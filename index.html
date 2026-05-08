@@ -1209,8 +1209,12 @@
         <span class="eyebrow">Contacto</span>
         <h2>Agenda un diagnóstico comercial</h2>
         <p style="margin-top: var(--space-3); margin-bottom: var(--space-4);">Cuéntanos brevemente sobre tu negocio. Si vemos potencial real de mejora, te lo decimos. Si no, también.</p>
-        <form class="form-card" onsubmit="handleSubmit(event)">
-          <input type="text" name="hp" class="hp-field" tabindex="-1" autocomplete="off" />
+        <form class="form-card" name="diagnostico-optimup" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias.html">
+          <input type="hidden" name="form-name" value="diagnostico-optimup" />
+          <input type="hidden" name="subject" data-remove-prefix value="Nuevo diagnóstico OptimUp desde la web" />
+          <p class="hp-field">
+            <label>No completar: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
           <div class="form-row dual">
             <div>
               <label for="nombre">Nombre</label>
@@ -1319,15 +1323,6 @@
     document.getElementById('mobileMenu').classList.toggle('open');
   }
 
-  // Form submit (mock — luego se conecta a Formspree/Zapier)
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (e.target.hp.value) return; // honeypot
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = '✓ Solicitud enviada. Te contactamos pronto.';
-    btn.style.background = '#2d7a4f';
-    btn.disabled = true;
-  }
 </script>
 
 </body>

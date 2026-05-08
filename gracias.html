@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gracias por escribirnos | OptimUp</title>
+  <meta name="description" content="Gracias por escribirnos. Recibimos tu mensaje y te contactaremos pronto." />
+  <meta name="theme-color" content="#1E3A5F" />
+
+  <link rel="icon" href="/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/brand/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png" />
+  <link rel="manifest" href="/brand/site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #1E3A5F;
+      --orange: #E85D1A;
+      --orange-deep: #C44A12;
+      --orange-light: #FF7A3D;
+      --cream: #F7F4EF;
+      --white: #FFFFFF;
+      --text-mid: #4A5568;
+      --border: rgba(30,58,95,0.10);
+      --shadow-md: 0 18px 60px rgba(30,58,95,0.12);
+      --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --radius-sm: 6px;
+      --radius-lg: 16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-base);
+      color: var(--navy);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 640px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .logo {
+      display: inline-block;
+      color: var(--navy);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo .up { color: var(--orange-deep); }
+
+    h1 {
+      margin: 0 0 0.25rem 0;
+      max-width: 540px;
+      color: var(--text-mid);
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 1.65;
+      letter-spacing: normal;
+    }
+
+    p {
+      margin: 0;
+      max-width: 540px;
+      color: var(--text-mid);
+      font-size: 1.125rem;
+      line-height: 1.65;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.875rem 1.5rem;
+      border-radius: var(--radius-sm);
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+      transition: transform 200ms ease, background 200ms ease;
+    }
+
+    .btn:hover {
+      background: var(--orange-light);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+      .card { padding: 2rem 1.5rem; }
+      .logo { font-size: 1.75rem; margin-bottom: 2rem; }
+      .actions { justify-content: stretch; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <a href="/" class="logo" aria-label="OptimUp inicio">Optim<span class="up">Up</span></a>
+
+    <h1>Gracias por escribirnos</h1>
+    <p>Recibimos tu mensaje. Te contactaremos pronto para coordinar una primera conversación.</p>
+
+    <div class="actions">
+      <a href="/" class="btn">Volver al inicio</a>
+    </div>
+  </main>
+</body>
+</html>
