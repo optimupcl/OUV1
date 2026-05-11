@@ -185,7 +185,7 @@
     .nav-cta {
       background: var(--orange);
       color: var(--white) !important;
-      padding: 0.5rem 1.25rem;
+      padding: 0.35rem 0.9rem;
       border-radius: var(--radius-sm);
       font-size: var(--text-base);
       line-height: 1.2;
@@ -867,6 +867,66 @@
 
     /* Honeypot anti-bot */
     .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+    /* ====== WHATSAPP FLOTANTE ====== */
+    .whatsapp-float {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--navy);
+      font-family: var(--font-base);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(30, 58, 95, 0.12);
+      box-shadow: 0 10px 28px rgba(30, 58, 95, 0.16);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(30, 58, 95, 0.22);
+      background: var(--cream);
+    }
+    .whatsapp-float .wa-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #25D366;
+      color: white;
+      flex-shrink: 0;
+    }
+    .whatsapp-float .wa-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: white;
+    }
+    .whatsapp-float .wa-text {
+      white-space: nowrap;
+    }
+    @media (max-width: 640px) {
+      .whatsapp-float {
+        right: 18px;
+        bottom: 18px;
+        padding: 12px;
+      }
+      .whatsapp-float .wa-text {
+        display: none;
+      }
+      .whatsapp-float .wa-icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -931,7 +991,7 @@
       </div>
       <div>
         <div class="stat-num">−50%</div>
-        <div class="stat-label">peso de OTAs en la mezcla de canales</div>
+        <div class="stat-label">reducción en comisiones a intermediarios</div>
       </div>
       <div>
         <div class="stat-num">15+</div>
@@ -1167,22 +1227,6 @@
     <div class="equipo-grid">
       <div class="persona">
         <div class="persona-head">
-          <div class="persona-avatar">IS</div>
-          <div class="persona-info">
-            <h4>José Ignacio Sarmiento</h4>
-            <span class="persona-role">Socio · Venta directa hotelera</span>
-          </div>
-        </div>
-        <p>Consultor senior en revenue management, transformación digital y propuesta de valor para hoteles independientes y boutique. Asesor estratégico de Hotel Magnolia, Corralco y Parque Futangue, donde ha liderado prácticas de revenue, omnichannel y marketing digital — duplicando los ingresos de Hotel Magnolia en un año. Ingeniero Comercial PUC y MBA UC. Trayectoria previa en áreas comerciales de Embotelladora Andina, Entel, Cocha y Tanica.</p>
-        <div class="persona-tags">
-          <span>Hotelería</span>
-          <span>Revenue Management</span>
-          <span>Venta directa</span>
-          <span>Omnichannel</span>
-        </div>
-      </div>
-      <div class="persona">
-        <div class="persona-head">
           <div class="persona-avatar">GF</div>
           <div class="persona-info">
             <h4>Gonzalo Fernández</h4>
@@ -1195,6 +1239,22 @@
           <span>Canales digitales</span>
           <span>Turismo</span>
           <span>Rent a Car</span>
+        </div>
+      </div>
+      <div class="persona">
+        <div class="persona-head">
+          <div class="persona-avatar">IS</div>
+          <div class="persona-info">
+            <h4>José Ignacio Sarmiento</h4>
+            <span class="persona-role">Socio · Venta directa hotelera</span>
+          </div>
+        </div>
+        <p>Consultor senior en revenue management, transformación digital y propuesta de valor para hoteles independientes y boutique. Asesor estratégico de Hotel Magnolia, Corralco y Parque Futangue, donde ha liderado prácticas de revenue, omnichannel y marketing digital — duplicando los ingresos de Hotel Magnolia en un año. Ingeniero Comercial PUC y MBA UC. Trayectoria previa en áreas comerciales de Embotelladora Andina, Entel, Cocha y Tanica.</p>
+        <div class="persona-tags">
+          <span>Hotelería</span>
+          <span>Revenue Management</span>
+          <span>Venta directa</span>
+          <span>Omnichannel</span>
         </div>
       </div>
     </div>
@@ -1296,7 +1356,7 @@
         <h5>Conversemos</h5>
         <ul>
           <li><a href="mailto:contacto@optimup.cl">contacto@optimup.cl</a></li>
-          <li><a href="https://wa.me/56932466582?text=Hola%20Gonzalo%2C%20te%20escribo%20desde%20la%20web%20de%20OptimUp" target="_blank" rel="noopener">WhatsApp +56 9 3246 6582</a></li>
+          <li><a href="https://wa.me/56959622236?text=Hola%2C%20te%20escribo%20desde%20la%20web%20de%20OptimUp" target="_blank" rel="noopener">WhatsApp +56 9 5962 2236</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1319,6 +1379,22 @@
     </div>
   </div>
 </footer>
+
+<!-- ============ WHATSAPP FLOTANTE ============ -->
+<a
+  href="https://wa.me/56959622236?text=Hola%2C%20quiero%20conversar%20sobre%20OptimUp."
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Escribir por WhatsApp a OptimUp"
+>
+  <span class="wa-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </span>
+  <span class="wa-text">Hablemos por WhatsApp</span>
+</a>
 
 <script>
   // Sombra al scroll
