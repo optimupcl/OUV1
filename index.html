@@ -11,20 +11,20 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OptimUp | Consultoría de revenue, pricing y canales</title>
-  <meta name="description" content="Consultoría de revenue, pricing y canales para hoteles, rent a car y servicios. Optimización del embudo comercial para vender más con mejor margen." />
+  <title>OptimUp | Consultoría de revenue, marketing y canales</title>
+  <meta name="description" content="Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta." />
   <link rel="canonical" href="https://optimup.cl/" />
   <meta name="theme-color" content="#1E3A5F" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://optimup.cl/" />
-  <meta property="og:title" content="OptimUp | Consultoría de revenue, pricing y canales" />
-  <meta property="og:description" content="Consultoría de revenue, pricing y canales para hoteles, rent a car y servicios. Optimizamos el embudo comercial para vender más con mejor margen." />
+  <meta property="og:title" content="OptimUp | Consultoría de revenue, marketing y canales" />
+  <meta property="og:description" content="Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta." />
   <meta property="og:image" content="https://optimup.cl/brand/og-image.png" />
   <meta property="og:locale" content="es_CL" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="OptimUp | Consultoría de revenue, pricing y canales" />
-  <meta name="twitter:description" content="Consultoría de revenue, pricing y canales para hoteles, rent a car y servicios. Optimizamos el embudo comercial para vender más con mejor margen." />
+  <meta name="twitter:title" content="OptimUp | Consultoría de revenue, marketing y canales" />
+  <meta name="twitter:description" content="Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta." />
   <meta name="twitter:image" content="https://optimup.cl/brand/og-image.png" />
 
 
@@ -36,7 +36,7 @@
     "url": "https://optimup.cl/",
     "logo": "https://optimup.cl/brand/optimup_logo_512.png",
     "image": "https://optimup.cl/brand/og-image.png",
-    "description": "Consultoría de revenue, pricing y canales para hoteles, rent a car y empresas de servicios.",
+    "description": "Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta.",
     "email": "contacto@optimup.cl",
     "telephone": "+56959622236",
     "address": {
@@ -704,6 +704,7 @@
       font-size: var(--text-md);
       flex-shrink: 0;
     }
+    .persona-avatar--orange { background: var(--orange); }
     .persona-info h4 { font-size: var(--text-md); margin-bottom: 2px; }
     .persona-role {
       font-size: var(--text-xs);
@@ -914,57 +915,76 @@
       right: 24px;
       bottom: 24px;
       z-index: 999;
-      display: inline-flex;
+      width: 56px;
+      height: 56px;
+      display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: var(--white);
-      color: var(--navy);
-      font-family: var(--font-base);
-      font-size: 14px;
-      font-weight: 600;
+      justify-content: center;
+      border-radius: 50%;
+      background: #25D366;
+      color: var(--white);
       text-decoration: none;
-      border: 1px solid rgba(30, 58, 95, 0.12);
-      box-shadow: 0 10px 28px rgba(30, 58, 95, 0.16);
+      box-shadow: 0 10px 28px rgba(30, 58, 95, 0.22);
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
     .whatsapp-float:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 34px rgba(30, 58, 95, 0.22);
-      background: var(--cream);
+      box-shadow: 0 14px 34px rgba(30, 58, 95, 0.28);
+      background: #20BD5A;
+    }
+    .whatsapp-float:focus-visible {
+      outline: 3px solid rgba(37, 211, 102, 0.32);
+      outline-offset: 4px;
+    }
+    .whatsapp-float::before {
+      content: attr(data-tooltip);
+      position: absolute;
+      right: calc(100% + 12px);
+      top: 50%;
+      transform: translateY(-50%) translateX(4px);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-base);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      box-shadow: var(--shadow-sm);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    }
+    .whatsapp-float:hover::before,
+    .whatsapp-float:focus-visible::before {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(-50%) translateX(0);
     }
     .whatsapp-float .wa-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: inline-flex;
+      width: 100%;
+      height: 100%;
+      display: flex;
       align-items: center;
       justify-content: center;
-      background: #25D366;
-      color: white;
-      flex-shrink: 0;
     }
     .whatsapp-float .wa-icon svg {
-      width: 16px;
-      height: 16px;
-      fill: white;
-    }
-    .whatsapp-float .wa-text {
-      white-space: nowrap;
+      width: 30px;
+      height: 30px;
+      fill: currentColor;
     }
     @media (max-width: 640px) {
       .whatsapp-float {
         right: 18px;
         bottom: 18px;
-        padding: 12px;
+        width: 52px;
+        height: 52px;
       }
-      .whatsapp-float .wa-text {
-        display: none;
-      }
-      .whatsapp-float .wa-icon {
-        width: 30px;
-        height: 30px;
+      .whatsapp-float .wa-icon svg {
+        width: 28px;
+        height: 28px;
       }
     }
 
@@ -1129,7 +1149,7 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow fade-in">Consultoría de revenue para negocios de servicios</span>
+      <span class="eyebrow fade-in">Consultoría de revenue y marketing para empresas de servicios</span>
       <h1 class="fade-in delay-1">Ingeniería para tu <span class="accent">embudo de ventas.</span></h1>
       <p class="lead hero-lead fade-in delay-2">Atraemos más tráfico calificado, cerramos las fugas en cada etapa del embudo y optimizamos pricing y canales — para que cada peso adicional de revenue se traduzca en utilidad. Hoteles, rent a car y empresas de servicios.</p>
       <div class="hero-actions fade-in delay-3">
@@ -1445,34 +1465,34 @@
     <div class="equipo-grid">
       <div class="persona">
         <div class="persona-head">
-          <div class="persona-avatar">GF</div>
+          <div class="persona-avatar">IS</div>
           <div class="persona-info">
-            <h4>Gonzalo Fernández</h4>
-            <span class="persona-role">Socio · Revenue & Canales</span>
+            <h4>José Ignacio Sarmiento</h4>
+            <span class="persona-role">Socio Director · Hotelería</span>
           </div>
         </div>
-        <p>Fundador y ex Gerente General de Atrápalo Chile, donde construyó la operación desde cero hasta USD 25 MM en ventas anuales y 60 colaboradores. Ex Gerente de Canales y Ventas Latam Travel para Chile, Argentina, Perú y Colombia. Ex Subdirector de Marketing de Sernatur, donde profesionalizó la promoción turística internacional de Chile. Ex Gerente Comercial de Econorent, donde lideró la reestructuración comercial que triplicó el EBITDA. Ingeniero Comercial PUC y MBA CEU San Pablo (Madrid).</p>
+        <p>Especialista en revenue management y estrategia comercial hotelera. Fundador de Book2Dream y ex Gerente Comercial de Tánica Hoteles, con más de 20 años de experiencia en el sector.</p>
         <div class="persona-tags">
           <span>Revenue Management</span>
-          <span>Canales digitales</span>
-          <span>Turismo</span>
-          <span>Rent a Car</span>
+          <span>Venta directa</span>
+          <span>Distribución</span>
+          <span>Tecnología aplicada</span>
         </div>
       </div>
       <div class="persona">
         <div class="persona-head">
-          <div class="persona-avatar">IS</div>
+          <div class="persona-avatar persona-avatar--orange">GF</div>
           <div class="persona-info">
-            <h4>José Ignacio Sarmiento</h4>
-            <span class="persona-role">Socio · Venta directa hotelera</span>
+            <h4>Gonzalo Fernández</h4>
+            <span class="persona-role">Socio Director · Rent a Car</span>
           </div>
         </div>
-        <p>Consultor senior en revenue management, transformación digital y propuesta de valor para hoteles independientes y boutique. Asesor estratégico de Hotel Magnolia, Corralco y Parque Futangue, donde ha liderado prácticas de revenue, omnichannel y marketing digital — duplicando los ingresos de Hotel Magnolia en un año. Ingeniero Comercial PUC y MBA UC. Trayectoria previa en áreas comerciales de Embotelladora Andina, Entel, Cocha y Tanica.</p>
+        <p>Fundador de Atrápalo Chile. Ha sido gerente general y gerente comercial en empresas de turismo, movilidad y servicios, con posiciones de liderazgo en Latam Travel, Sernatur y Econorent.</p>
         <div class="persona-tags">
-          <span>Hotelería</span>
-          <span>Revenue Management</span>
-          <span>Venta directa</span>
-          <span>Omnichannel</span>
+          <span>Estrategia comercial</span>
+          <span>Canales</span>
+          <span>Marketing digital</span>
+          <span>Desarrollo de negocios</span>
         </div>
       </div>
     </div>
@@ -1605,13 +1625,13 @@
   target="_blank"
   rel="noopener noreferrer"
   aria-label="Escribir por WhatsApp a OptimUp"
+  data-tooltip="Hablemos por WhatsApp"
 >
   <span class="wa-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </span>
-  <span class="wa-text">Hablemos por WhatsApp</span>
 </a>
 
 <script>
