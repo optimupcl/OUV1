@@ -320,49 +320,43 @@
     .btn-secondary { background: transparent; color: var(--navy); border-color: var(--navy); }
     .btn-secondary:hover { background: var(--navy); color: var(--white); }
 
-    /* Hero diagrama del embudo */
-    .funnel {
-      position: relative;
+    /* Hero diagrama del embudo (SVG) */
+    .ou-funnel-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
+    }
+    .ou-funnel {
+      width: 100%;
+      height: auto;
       max-width: 480px;
-      margin: 0 auto;
-      aspect-ratio: 1 / 1.05;
-      display: grid;
-      gap: var(--space-1);
-      align-content: center;
     }
-    .funnel-step {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 0.875rem 1.25rem;
-      box-shadow: var(--shadow-sm);
-      transition: transform 200ms ease;
-      width: 100%;
+    .ou-funnel text { font-family: var(--font-base); }
+
+    /* Animación de entrada del embudo */
+    .ou-funnel .lvl { opacity: 0; transform: translateY(10px); }
+    .ou-funnel.is-in .lvl { animation: ouRise 500ms cubic-bezier(.2,.7,.3,1) both; }
+    .ou-funnel.is-in .lvl:nth-of-type(1) { animation-delay: 60ms; }
+    .ou-funnel.is-in .lvl:nth-of-type(2) { animation-delay: 160ms; }
+    .ou-funnel.is-in .lvl:nth-of-type(3) { animation-delay: 260ms; }
+    .ou-funnel.is-in .lvl:nth-of-type(4) { animation-delay: 360ms; }
+    .ou-funnel.is-in .lvl:nth-of-type(5) { animation-delay: 460ms; }
+    .ou-funnel.is-in .lvl:nth-of-type(6) { animation-delay: 560ms; }
+    .ou-funnel.is-in .lvl:nth-of-type(7) { animation-delay: 660ms; }
+    .ou-funnel .end { opacity: 0; }
+    .ou-funnel.is-in .end { animation: ouPop 550ms cubic-bezier(.2,.9,.3,1.4) 840ms both; }
+    @keyframes ouRise { to { opacity: 1; transform: translateY(0); } }
+    @keyframes ouPop { from { opacity: 0; transform: scale(.86); } to { opacity: 1; transform: scale(1); } }
+
+    /* En móvil los subtextos quedarían ilegibles al escalar: solo títulos */
+    @media (max-width: 767px) {
+      .ou-funnel .lvl-sub { display: none; }
+      .ou-funnel .lvl-title { font-size: 19px; }
     }
-    .funnel-step:hover { transform: translateX(4px); }
-    .funnel-step:nth-child(1) { width: 100%; }
-    .funnel-step:nth-child(2) { width: 92%; margin-left: 4%; }
-    .funnel-step:nth-child(3) { width: 84%; margin-left: 8%; }
-    .funnel-step:nth-child(4) { width: 76%; margin-left: 12%; }
-    .funnel-step:nth-child(5) { width: 68%; margin-left: 16%; }
-    .funnel-step:nth-child(6) { width: 60%; margin-left: 20%; }
-    .funnel-result {
-      margin-top: var(--space-2);
-      width: 50%;
-      margin-left: 25%;
-      background: var(--orange);
-      color: var(--white);
-      border: none;
-      text-align: center;
-      font-weight: 700;
-      font-size: var(--text-md);
-      padding: 0.875rem;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-md);
+    @media (prefers-reduced-motion: reduce) {
+      .ou-funnel .lvl, .ou-funnel .end { opacity: 1; transform: none; animation: none; }
     }
-    .funnel-step strong { color: var(--navy); display: block; font-size: var(--text-base); font-weight: 600; }
-    .funnel-step span { color: var(--text-light); font-size: var(--text-sm); }
 
     /* ====== STATS BAR ====== */
     .stats {
@@ -1149,7 +1143,7 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow fade-in">Consultoría de revenue y marketing para empresas de servicios</span>
+      <span class="eyebrow fade-in">Consultoría de revenue y marketing</span>
       <h1 class="fade-in delay-1">Ingeniería para tu <span class="accent">embudo de ventas.</span></h1>
       <p class="lead hero-lead fade-in delay-2">Atraemos más tráfico calificado, cerramos las fugas en cada etapa del embudo y optimizamos pricing y canales — para que cada peso adicional de revenue se traduzca en utilidad. Hoteles, rent a car y empresas de servicios.</p>
       <div class="hero-actions fade-in delay-3">
@@ -1157,14 +1151,60 @@
         <a href="#que-hacemos" class="btn btn-secondary">Cómo trabajamos →</a>
       </div>
     </div>
-    <div class="funnel fade-in delay-3" aria-hidden="true">
-      <div class="funnel-step"><strong>Tráfico</strong><span>SEO · SEM · Meta · GEO</span></div>
-      <div class="funnel-step"><strong>Conversión</strong><span>Web · IBE · UX · Contact center</span></div>
-      <div class="funnel-step"><strong>Pricing</strong><span>Revenue management</span></div>
-      <div class="funnel-step"><strong>Canales</strong><span>Directo · OTAs · Partners</span></div>
-      <div class="funnel-step"><strong>Cierre</strong><span>Pagos · Seguimiento</span></div>
-      <div class="funnel-step"><strong>Medición</strong><span>KPIs · Dashboards</span></div>
-      <div class="funnel-result">Venta UP ↑</div>
+    <div class="ou-funnel-wrap fade-in delay-3">
+      <svg class="ou-funnel" viewBox="0 0 420 550" role="img"
+           aria-label="Embudo comercial de siete niveles: demanda, tráfico, canales, pricing, conversión, fidelización y medición, que converge en rentabilidad.">
+
+        <g class="lvl">
+          <path d="M16 18 H404 L391 72 H29 Z" fill="#1E3A5F" fill-opacity=".05" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="41" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Demanda</text>
+          <text class="lvl-sub" x="210" y="59" font-size="9.5" fill="#4A5568" text-anchor="middle">Forecast · Estacionalidad · Anticipación · Segmentación</text>
+        </g>
+
+        <g class="lvl">
+          <path d="M29 78 H391 L378 132 H42 Z" fill="#1E3A5F" fill-opacity=".075" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="101" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Tráfico</text>
+          <text class="lvl-sub" x="210" y="119" font-size="9.5" fill="#4A5568" text-anchor="middle">SEO · SEM · GEO · Metabuscadores · Contenido</text>
+        </g>
+
+        <g class="lvl">
+          <path d="M42 138 H378 L365 202 H55 Z" fill="#1E3A5F" fill-opacity=".10" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="160" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Canales</text>
+          <text class="lvl-sub" x="210" y="176" font-size="9.5" fill="#4A5568" text-anchor="middle">Directo: online · contact center · fuerza de venta</text>
+          <text class="lvl-sub" x="210" y="191" font-size="9.5" fill="#4A5568" text-anchor="middle">OTAs · agencias · convenios · mix y margen por canal</text>
+        </g>
+
+        <g class="lvl">
+          <path d="M55 208 H365 L352 262 H68 Z" fill="#1E3A5F" fill-opacity=".125" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="231" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Pricing</text>
+          <text class="lvl-sub" x="210" y="249" font-size="9.5" fill="#4A5568" text-anchor="middle">Arquitectura tarifaria · Pricing dinámico · Paridad</text>
+        </g>
+
+        <g class="lvl">
+          <path d="M68 268 H352 L339 322 H81 Z" fill="#1E3A5F" fill-opacity=".15" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="291" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Conversión</text>
+          <text class="lvl-sub" x="210" y="309" font-size="9.5" fill="#4A5568" text-anchor="middle">UX · Motor de reservas · Pagos · Upsell · Cross-sell</text>
+        </g>
+
+        <g class="lvl">
+          <path d="M81 328 H339 L326 382 H94 Z" fill="#1E3A5F" fill-opacity=".175" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="351" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Fidelización</text>
+          <text class="lvl-sub" x="210" y="369" font-size="9.5" fill="#4A5568" text-anchor="middle">CRM · Remarketing · Reseñas · Reactivación</text>
+        </g>
+
+        <g class="lvl">
+          <path d="M94 388 H326 L313 442 H107 Z" fill="#1E3A5F" fill-opacity=".21" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="411" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Medición</text>
+          <text class="lvl-sub" x="210" y="429" font-size="9.5" fill="#4A5568" text-anchor="middle">Analítica · Atribución · Dashboards · KPIs</text>
+        </g>
+
+        <g class="end">
+          <path d="M107 442 L210 478 L313 442" fill="none" stroke="#E85D1A" stroke-width="1.8" opacity=".65"/>
+          <rect x="94" y="474" width="232" height="58" rx="11" fill="#E85D1A"/>
+          <text x="210" y="501" font-size="19" font-weight="700" fill="#FFFFFF" text-anchor="middle">Rentabilidad</text>
+          <text x="210" y="520" font-size="10" fill="#FFE0CE" text-anchor="middle">Ingreso · Margen</text>
+        </g>
+      </svg>
     </div>
   </div>
 </section>
@@ -1646,6 +1686,19 @@
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
+
+  // Animación de entrada del embudo del hero
+  (function () {
+    var funnel = document.querySelector('.ou-funnel');
+    if (!funnel) return;
+    if (!('IntersectionObserver' in window)) { funnel.classList.add('is-in'); return; }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.25 });
+    obs.observe(funnel);
+  })();
 
 </script>
 
