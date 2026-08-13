@@ -330,7 +330,7 @@
     .ou-funnel {
       width: 100%;
       height: auto;
-      max-width: 480px;
+      max-width: 540px;
     }
     .ou-funnel text { font-family: var(--font-base); }
 
@@ -356,6 +356,67 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .ou-funnel .lvl, .ou-funnel .end { opacity: 1; transform: none; animation: none; }
+    }
+
+    /* ====== ORDEN DE INTERVENCIÓN ====== */
+    .orden { background: var(--cream); }
+    .orden-intro { max-width: 62ch; }
+    .orden-intro h2 em { font-style: italic; color: var(--orange); }
+    .orden-seq {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.625rem;
+      margin-top: var(--space-5);
+    }
+    .orden-item {
+      background: var(--white);
+      border: 1.5px solid var(--navy);
+      border-radius: var(--radius-md);
+      padding: 1rem 0.5rem;
+      text-align: center;
+    }
+    .orden-item .on {
+      display: block; font-size: 0.6875rem; font-weight: 700;
+      color: var(--navy); opacity: 0.45; margin-bottom: 0.375rem;
+    }
+    .orden-item .ot {
+      font-size: 0.9rem; font-weight: 700; color: var(--navy); line-height: 1.2;
+    }
+    .orden-item.is-last { background: var(--orange); border-color: var(--orange); }
+    .orden-item.is-last .on { color: var(--white); opacity: 0.85; }
+    .orden-item.is-last .ot { color: var(--white); }
+    .orden-cap {
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+      margin-top: 0.75rem; font-size: var(--text-sm); font-weight: 600; color: var(--text-light);
+    }
+    .orden-cap .r { color: var(--orange-deep); }
+    .orden-palancas {
+      display: flex; align-items: flex-start; gap: 1.5rem;
+      margin-top: var(--space-5); padding: 1.5rem 1.625rem;
+      background: rgba(232,93,26,0.07);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .orden-palancas .big {
+      font-size: 2.6rem; font-weight: 700; color: var(--orange-deep);
+      line-height: 1; white-space: nowrap; padding-top: 2px;
+    }
+    .orden-palancas .txt { font-size: var(--text-base); color: var(--navy); }
+    .orden-chips { display: flex; flex-wrap: wrap; gap: 0.4375rem; margin-top: 0.875rem; }
+    .orden-chips span {
+      font-size: 0.76rem; font-weight: 500; color: var(--navy);
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 20px; padding: 0.3125rem 0.6875rem; white-space: nowrap;
+    }
+    .orden-kicker {
+      margin-top: var(--space-3); padding: 1.125rem 1.375rem;
+      background: rgba(30,58,95,0.04); border-radius: var(--radius-md);
+      font-size: 0.9rem; color: var(--text-mid);
+    }
+    .orden-kicker b { color: var(--navy); font-weight: 600; }
+    @media (max-width: 820px) {
+      .orden-seq { grid-template-columns: repeat(2, 1fr); }
+      .orden-palancas { flex-direction: column; gap: 0.75rem; }
     }
 
     /* ====== STATS BAR ====== */
@@ -1152,57 +1213,58 @@
       </div>
     </div>
     <div class="ou-funnel-wrap fade-in delay-3">
-      <svg class="ou-funnel" viewBox="0 0 420 550" role="img"
+      <svg class="ou-funnel" viewBox="0 0 420 560" role="img"
            aria-label="Embudo comercial de siete niveles: demanda, tráfico, canales, pricing, conversión, fidelización y medición, que converge en rentabilidad.">
 
         <g class="lvl">
-          <path d="M16 18 H404 L391 72 H29 Z" fill="#1E3A5F" fill-opacity=".05" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="41" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Demanda</text>
-          <text class="lvl-sub" x="210" y="59" font-size="9.5" fill="#4A5568" text-anchor="middle">Forecast · Estacionalidad · Anticipación · Segmentación</text>
+          <path d="M16 18 H404 L394 72 H26 Z" fill="#1E3A5F" fill-opacity=".05" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="41" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Demanda</text>
+          <text class="lvl-sub" x="210" y="60" font-size="10.5" fill="#4A5568" text-anchor="middle">Forecast · Estacionalidad · Anticipación · Segmentación</text>
         </g>
 
         <g class="lvl">
-          <path d="M29 78 H391 L378 132 H42 Z" fill="#1E3A5F" fill-opacity=".075" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="101" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Tráfico</text>
-          <text class="lvl-sub" x="210" y="119" font-size="9.5" fill="#4A5568" text-anchor="middle">SEO · SEM · GEO · Metabuscadores · Contenido</text>
+          <path d="M26 78 H394 L384 132 H36 Z" fill="#1E3A5F" fill-opacity=".075" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="101" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Tráfico</text>
+          <text class="lvl-sub" x="210" y="120" font-size="10.5" fill="#4A5568" text-anchor="middle">SEO · SEM · GEO · Metabuscadores · Contenido</text>
         </g>
 
         <g class="lvl">
-          <path d="M42 138 H378 L365 202 H55 Z" fill="#1E3A5F" fill-opacity=".10" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="160" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Canales</text>
-          <text class="lvl-sub" x="210" y="176" font-size="9.5" fill="#4A5568" text-anchor="middle">Directo: online · contact center · fuerza de venta</text>
-          <text class="lvl-sub" x="210" y="191" font-size="9.5" fill="#4A5568" text-anchor="middle">OTAs · agencias · convenios · mix y margen por canal</text>
+          <path d="M36 138 H384 L374 202 H46 Z" fill="#1E3A5F" fill-opacity=".10" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="160" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Canales</text>
+          <text class="lvl-sub" x="210" y="177" font-size="10.5" fill="#4A5568" text-anchor="middle">Directo: online · contact center · fuerza de venta</text>
+          <text class="lvl-sub" x="210" y="193" font-size="10.5" fill="#4A5568" text-anchor="middle">OTAs · agencias · convenios · mix y margen por canal</text>
         </g>
 
         <g class="lvl">
-          <path d="M55 208 H365 L352 262 H68 Z" fill="#1E3A5F" fill-opacity=".125" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="231" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Pricing</text>
-          <text class="lvl-sub" x="210" y="249" font-size="9.5" fill="#4A5568" text-anchor="middle">Arquitectura tarifaria · Pricing dinámico · Paridad</text>
+          <path d="M46 208 H374 L364 262 H56 Z" fill="#1E3A5F" fill-opacity=".125" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="231" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Pricing</text>
+          <text class="lvl-sub" x="210" y="249" font-size="10.5" fill="#4A5568" text-anchor="middle">Arquitectura tarifaria · Pricing dinámico · Paridad</text>
         </g>
 
         <g class="lvl">
-          <path d="M68 268 H352 L339 322 H81 Z" fill="#1E3A5F" fill-opacity=".15" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="291" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Conversión</text>
-          <text class="lvl-sub" x="210" y="309" font-size="9.5" fill="#4A5568" text-anchor="middle">UX · Motor de reservas · Pagos · Upsell · Cross-sell</text>
+          <path d="M56 268 H364 L354 332 H66 Z" fill="#1E3A5F" fill-opacity=".15" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="290" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Conversión</text>
+          <text class="lvl-sub" x="210" y="307" font-size="10.5" fill="#4A5568" text-anchor="middle">UX · Motor de reservas · Medios de pago</text>
+          <text class="lvl-sub" x="210" y="323" font-size="10.5" fill="#4A5568" text-anchor="middle">Upsell · Cross-sell · Contact center</text>
         </g>
 
         <g class="lvl">
-          <path d="M81 328 H339 L326 382 H94 Z" fill="#1E3A5F" fill-opacity=".175" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="351" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Fidelización</text>
-          <text class="lvl-sub" x="210" y="369" font-size="9.5" fill="#4A5568" text-anchor="middle">CRM · Remarketing · Reseñas · Reactivación</text>
+          <path d="M66 338 H354 L344 392 H76 Z" fill="#1E3A5F" fill-opacity=".175" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="361" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Fidelización</text>
+          <text class="lvl-sub" x="210" y="380" font-size="10.5" fill="#4A5568" text-anchor="middle">CRM · Remarketing · Reputación · Reactivación</text>
         </g>
 
         <g class="lvl">
-          <path d="M94 388 H326 L313 442 H107 Z" fill="#1E3A5F" fill-opacity=".21" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="411" font-size="15.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Medición</text>
-          <text class="lvl-sub" x="210" y="429" font-size="9.5" fill="#4A5568" text-anchor="middle">Analítica · Atribución · Dashboards · KPIs</text>
+          <path d="M76 398 H344 L334 452 H86 Z" fill="#1E3A5F" fill-opacity=".21" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="421" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Medición</text>
+          <text class="lvl-sub" x="210" y="440" font-size="10.5" fill="#4A5568" text-anchor="middle">Analítica · Atribución · Dashboards · KPIs</text>
         </g>
 
         <g class="end">
-          <path d="M107 442 L210 478 L313 442" fill="none" stroke="#E85D1A" stroke-width="1.8" opacity=".65"/>
-          <rect x="94" y="474" width="232" height="58" rx="11" fill="#E85D1A"/>
-          <text x="210" y="501" font-size="19" font-weight="700" fill="#FFFFFF" text-anchor="middle">Rentabilidad</text>
-          <text x="210" y="520" font-size="10" fill="#FFE0CE" text-anchor="middle">Ingreso · Margen</text>
+          <path d="M86 452 L210 488 L334 452" fill="none" stroke="#E85D1A" stroke-width="1.8" opacity=".65"/>
+          <rect x="94" y="484" width="232" height="58" rx="11" fill="#E85D1A"/>
+          <text x="210" y="511" font-size="19" font-weight="700" fill="#FFFFFF" text-anchor="middle">Rentabilidad</text>
+          <text x="210" y="530" font-size="10.5" fill="#FFE0CE" text-anchor="middle">Ingreso · Margen</text>
         </g>
       </svg>
     </div>
@@ -1481,6 +1543,53 @@
         <p>Apoyamos la implementación, medición y optimización continua. El diagnóstico es el punto de partida, no el final.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ ORDEN DE INTERVENCIÓN ============ -->
+<section id="orden" class="orden">
+  <div class="container">
+    <div class="orden-intro">
+      <span class="eyebrow">El orden de intervención</span>
+      <h2>Casi todos parten por tráfico. <em>Nosotros partimos por el final.</em></h2>
+      <p style="margin-top: var(--space-3);">Invertir en tráfico sobre un embudo que gotea multiplica el gasto, no el resultado. Por eso ordenamos la intervención al revés de lo habitual: primero la demanda proyectada y el precio, después los canales y la conversión, luego la fidelización y la medición. El tráfico va último — cuando cada peso que entra ya tiene dónde convertirse en margen.</p>
+    </div>
+
+    <div class="orden-seq">
+      <div class="orden-item"><span class="on">01</span><span class="ot">Demanda</span></div>
+      <div class="orden-item"><span class="on">02</span><span class="ot">Pricing</span></div>
+      <div class="orden-item"><span class="on">03</span><span class="ot">Canales</span></div>
+      <div class="orden-item"><span class="on">04</span><span class="ot">Conversión</span></div>
+      <div class="orden-item"><span class="on">05</span><span class="ot">Fidelización</span></div>
+      <div class="orden-item"><span class="on">06</span><span class="ot">Medición</span></div>
+      <div class="orden-item is-last"><span class="on">07</span><span class="ot">Tráfico</span></div>
+    </div>
+    <div class="orden-cap">
+      <span>Primero se arregla la máquina</span>
+      <span class="r">…y recién entonces se le echa combustible</span>
+    </div>
+
+    <div class="orden-palancas">
+      <div class="big">120+</div>
+      <div class="txt">
+        <b>palancas diagnosticadas.</b> Revisamos el sistema completo. El plan que sale de ahí es corto: las pocas que mueven tu resultado.
+        <div class="orden-chips">
+          <span>Forecast y estacionalidad</span>
+          <span>Arquitectura tarifaria</span>
+          <span>Paridad</span>
+          <span>Mix y margen por canal</span>
+          <span>Dependencia de OTAs</span>
+          <span>Motor de reservas</span>
+          <span>Fricción de pago</span>
+          <span>Upselling y extras</span>
+          <span>Reputación y reseñas</span>
+          <span>CRM y recompra</span>
+          <span>Atribución</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="orden-kicker"><b>Por qué la medición va antes que el tráfico:</b> sin atribución instalada, no sabes qué campaña trajo qué reserva. Escalar inversión a ciegas es la forma más cara de aprender.</div>
   </div>
 </section>
 
