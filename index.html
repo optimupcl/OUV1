@@ -57,6 +57,22 @@
       "Asesoría comercial",
       "Dirección comercial fraccional",
       "Tecnología aplicada"
+    ],
+    "founder": [
+      {
+        "@type": "Person",
+        "name": "Gonzalo Fernández",
+        "jobTitle": "Socio Director",
+        "image": "https://optimup.cl/brand/equipo/gonzalo-fernandez-288.jpg",
+        "sameAs": "https://www.linkedin.com/in/gonzalofernandezm/"
+      },
+      {
+        "@type": "Person",
+        "name": "José Ignacio Sarmiento",
+        "jobTitle": "Socio Director",
+        "image": "https://optimup.cl/brand/equipo/jose-ignacio-sarmiento-288.jpg",
+        "sameAs": "https://www.linkedin.com/in/jos%C3%A9-ignacio-sarmiento-parcha-3b12a453/"
+      }
     ]
   }
   </script>
@@ -908,22 +924,33 @@
     .persona-head {
       display: flex;
       align-items: center;
-      gap: var(--space-2);
+      gap: var(--space-3);
     }
-    .persona-avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: var(--text-md);
+    .persona-foto {
+      width: 96px;
+      aspect-ratio: 4 / 5;
       flex-shrink: 0;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: #D2DCE7;
     }
-    .persona-avatar--orange { background: var(--orange); }
+    .persona-foto img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    /* Bajo 768px la grilla es de una columna: la ficha apila foto sobre nombre. */
+    @media (max-width: 767px) {
+      .persona-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+      }
+      .persona-foto { width: 84px; }
+    }
     .persona-info h4 { font-size: var(--text-md); margin-bottom: 2px; }
     .persona-role {
       font-size: var(--text-xs);
@@ -946,6 +973,39 @@
       padding: 0.25rem 0.625rem;
       border-radius: var(--radius-sm);
       font-weight: 500;
+    }
+    .persona-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      align-self: flex-start;
+      margin-top: auto;
+      padding-top: var(--space-1);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: color 200ms ease;
+    }
+    .persona-linkedin svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+      flex-shrink: 0;
+      opacity: 0.75;
+      transition: opacity 200ms ease;
+    }
+    .persona-linkedin span { border-bottom: 1px solid transparent; transition: border-color 200ms ease; }
+    .persona-linkedin .persona-linkedin-ext { border-bottom: 0; font-size: 0.8em; line-height: 1; }
+    .persona-linkedin:hover,
+    .persona-linkedin:focus-visible { color: var(--navy); }
+    .persona-linkedin:hover svg,
+    .persona-linkedin:focus-visible svg { opacity: 1; }
+    .persona-linkedin:hover span { border-bottom-color: var(--border); }
+    .persona-linkedin:focus-visible {
+      outline: 2px solid var(--orange-deep);
+      outline-offset: 4px;
     }
 
     /* ====== CONTACTO ====== */
@@ -1874,7 +1934,21 @@
     <div class="equipo-grid">
       <div class="persona">
         <div class="persona-head">
-          <div class="persona-avatar">GF</div>
+          <div class="persona-foto">
+            <picture>
+              <source type="image/avif"
+                      srcset="/brand/equipo/gonzalo-fernandez-96.avif 96w, /brand/equipo/gonzalo-fernandez-192.avif 192w, /brand/equipo/gonzalo-fernandez-288.avif 288w"
+                      sizes="96px" />
+              <source type="image/webp"
+                      srcset="/brand/equipo/gonzalo-fernandez-96.webp 96w, /brand/equipo/gonzalo-fernandez-192.webp 192w, /brand/equipo/gonzalo-fernandez-288.webp 288w"
+                      sizes="96px" />
+              <img src="/brand/equipo/gonzalo-fernandez-192.jpg"
+                   srcset="/brand/equipo/gonzalo-fernandez-96.jpg 96w, /brand/equipo/gonzalo-fernandez-192.jpg 192w, /brand/equipo/gonzalo-fernandez-288.jpg 288w"
+                   sizes="96px" width="96" height="120"
+                   alt="Gonzalo Fernández, socio de OptimUp"
+                   loading="lazy" decoding="async" />
+            </picture>
+          </div>
           <div class="persona-info">
             <h4>Gonzalo Fernández</h4>
             <span class="persona-role">Socio Director · Rent a Car</span>
@@ -1887,10 +1961,31 @@
           <span>Marketing digital</span>
           <span>Desarrollo de negocios</span>
         </div>
+        <a class="persona-linkedin"
+           href="https://www.linkedin.com/in/gonzalofernandezm/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Perfil de LinkedIn de Gonzalo Fernández (se abre en una pestaña nueva)">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          <span>LinkedIn</span><span class="persona-linkedin-ext" aria-hidden="true">↗</span>
+        </a>
       </div>
       <div class="persona">
         <div class="persona-head">
-          <div class="persona-avatar persona-avatar--orange">IS</div>
+          <div class="persona-foto">
+            <picture>
+              <source type="image/avif"
+                      srcset="/brand/equipo/jose-ignacio-sarmiento-96.avif 96w, /brand/equipo/jose-ignacio-sarmiento-192.avif 192w, /brand/equipo/jose-ignacio-sarmiento-288.avif 288w"
+                      sizes="96px" />
+              <source type="image/webp"
+                      srcset="/brand/equipo/jose-ignacio-sarmiento-96.webp 96w, /brand/equipo/jose-ignacio-sarmiento-192.webp 192w, /brand/equipo/jose-ignacio-sarmiento-288.webp 288w"
+                      sizes="96px" />
+              <img src="/brand/equipo/jose-ignacio-sarmiento-192.jpg"
+                   srcset="/brand/equipo/jose-ignacio-sarmiento-96.jpg 96w, /brand/equipo/jose-ignacio-sarmiento-192.jpg 192w, /brand/equipo/jose-ignacio-sarmiento-288.jpg 288w"
+                   sizes="96px" width="96" height="120"
+                   alt="José Ignacio Sarmiento, socio de OptimUp"
+                   loading="lazy" decoding="async" />
+            </picture>
+          </div>
           <div class="persona-info">
             <h4>José Ignacio Sarmiento</h4>
             <span class="persona-role">Socio Director · Hotelería</span>
@@ -1903,6 +1998,13 @@
           <span>Distribución</span>
           <span>Tecnología aplicada</span>
         </div>
+        <a class="persona-linkedin"
+           href="https://www.linkedin.com/in/jos%C3%A9-ignacio-sarmiento-parcha-3b12a453/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Perfil de LinkedIn de José Ignacio Sarmiento (se abre en una pestaña nueva)">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          <span>LinkedIn</span><span class="persona-linkedin-ext" aria-hidden="true">↗</span>
+        </a>
       </div>
     </div>
   </div>
