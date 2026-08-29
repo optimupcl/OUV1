@@ -12,19 +12,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OptimUp | Consultoría de revenue, marketing y canales</title>
-  <meta name="description" content="Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta." />
+  <meta name="description" content="Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta. Asesoría, dirección comercial fraccional y tecnología aplicada." />
   <link rel="canonical" href="https://optimup.cl/" />
   <meta name="theme-color" content="#1E3A5F" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://optimup.cl/" />
   <meta property="og:title" content="OptimUp | Consultoría de revenue, marketing y canales" />
-  <meta property="og:description" content="Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta." />
+  <meta property="og:description" content="Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta. Asesoría, dirección comercial fraccional y tecnología aplicada." />
   <meta property="og:image" content="https://optimup.cl/brand/og-image.png" />
   <meta property="og:locale" content="es_CL" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="OptimUp | Consultoría de revenue, marketing y canales" />
-  <meta name="twitter:description" content="Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta." />
+  <meta name="twitter:description" content="Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta. Asesoría, dirección comercial fraccional y tecnología aplicada." />
   <meta name="twitter:image" content="https://optimup.cl/brand/og-image.png" />
 
 
@@ -36,7 +36,7 @@
     "url": "https://optimup.cl/",
     "logo": "https://optimup.cl/brand/optimup_logo_512.png",
     "image": "https://optimup.cl/brand/og-image.png",
-    "description": "Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta.",
+    "description": "Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta. Asesoría, dirección comercial fraccional y tecnología aplicada.",
     "email": "contacto@optimup.cl",
     "telephone": "+56959622236",
     "address": {
@@ -53,7 +53,10 @@
       "Optimización de canales",
       "Optimización del embudo comercial",
       "Consultoría para hoteles",
-      "Consultoría para rent a car"
+      "Consultoría para rent a car",
+      "Asesoría comercial",
+      "Dirección comercial fraccional",
+      "Tecnología aplicada"
     ]
   }
   </script>
@@ -751,6 +754,127 @@
     .metodo-step h4 { margin-bottom: 0.5rem; font-size: var(--text-md); }
     .metodo-step p { font-size: var(--text-base); margin: 0; }
 
+    /* ====== SERVICIOS ====== */
+    .servicios-intro { max-width: 760px; margin-bottom: var(--space-5); }
+    .serv-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+    @media (min-width: 768px) {
+      .serv-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .serv-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    }
+    .serv-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--orange);
+    }
+    .serv-card h3 { font-size: var(--text-lg); margin-bottom: 0.5rem; }
+    .serv-lead {
+      font-size: var(--text-base);
+      color: var(--navy);
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 0 0 var(--space-2) 0;
+    }
+    .serv-desc { font-size: var(--text-base); margin: 0 0 var(--space-3) 0; }
+    .serv-inc-label {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      color: var(--text-light);
+      margin: 0 0 var(--space-2) 0;
+    }
+    .serv-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--space-3) 0;
+      flex-grow: 1;
+    }
+    .serv-list li {
+      font-size: var(--text-sm);
+      padding: 0.3rem 0 0.3rem 1.25rem;
+      position: relative;
+      color: var(--text-mid);
+      line-height: 1.4;
+    }
+    .serv-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--orange-deep);
+      font-weight: 700;
+    }
+    .serv-idea {
+      font-size: var(--text-base);
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.45;
+      padding: var(--space-2);
+      margin: 0 0 var(--space-3) 0;
+      background: rgba(232,93,26,0.05);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .serv-foot {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: auto;
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--border);
+    }
+    .serv-price {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: var(--text-sm);
+      color: var(--text-light);
+    }
+    .serv-price strong {
+      color: var(--navy);
+      font-weight: 700;
+      font-size: var(--text-md);
+    }
+    .serv-tech-value {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .serv-tech-value strong {
+      color: var(--navy);
+      font-weight: 700;
+      font-size: var(--text-base);
+      line-height: 1.35;
+    }
+    .serv-tech-value span {
+      font-size: var(--text-sm);
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+    .serv-cta {
+      color: var(--navy);
+      font-weight: 600;
+      font-size: var(--text-base);
+      align-self: flex-start;
+      border-bottom: 1.5px solid var(--orange);
+      padding-bottom: 2px;
+      transition: color 200ms ease;
+    }
+    .serv-cta:hover { color: var(--orange-deep); }
+
     /* ====== CTA CENTRAL ====== */
     .cta-central {
       background: var(--cream);
@@ -1224,6 +1348,7 @@
       <a href="#que-hacemos">Qué hacemos</a>
       <a href="#verticales">Industrias</a>
       <a href="#metodo">Método</a>
+      <a href="#servicios">Servicios</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#contacto" class="nav-cta">Agendar diagnóstico</a>
     </div>
@@ -1235,6 +1360,7 @@
     <a href="#que-hacemos" onclick="toggleMenu()">Qué hacemos</a>
     <a href="#verticales" onclick="toggleMenu()">Industrias</a>
     <a href="#metodo" onclick="toggleMenu()">Método</a>
+    <a href="#servicios" onclick="toggleMenu()">Servicios</a>
     <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
     <a href="#contacto" onclick="toggleMenu()">Agendar diagnóstico</a>
   </div>
@@ -1560,7 +1686,7 @@
 <section id="metodo">
   <div class="container">
     <div class="metodo-intro">
-      <span class="eyebrow">Cómo trabajamos</span>
+      <span class="eyebrow">Método</span>
       <h2>No intervenimos piezas sueltas. Trabajamos sobre el sistema completo.</h2>
       <p style="margin-top: var(--space-3);">Nuestro método parte siempre por entender el negocio real antes de recomendar cualquier acción. Primero diagnosticamos, luego priorizamos, luego optimizamos.</p>
     </div>
@@ -1588,7 +1714,7 @@
       <div class="metodo-step">
         <div class="metodo-num">05</div>
         <h4>Acompañamos la ejecución</h4>
-        <p>Apoyamos la implementación, medición y optimización continua. El diagnóstico es el punto de partida, no el final.</p>
+        <p>Apoyamos la implementación, la medición y la optimización continua — desde el acompañamiento al equipo hasta asumir un rol ejecutivo en la gestión, según el nivel que cada empresa necesite. El diagnóstico es el punto de partida, no el final.</p>
       </div>
     </div>
   </div>
@@ -1647,6 +1773,86 @@
   </div>
 </section>
 
+<!-- ============ SERVICIOS ============ -->
+<section id="servicios">
+  <div class="container">
+    <div class="servicios-intro">
+      <span class="eyebrow">Servicios</span>
+      <h2>Tres formas de trabajar con OptimUp</h2>
+      <p class="lead" style="margin-top: var(--space-3);">Desde acompañamiento experto hasta gestión ejecutiva y tecnología especializada. El nivel de involucramiento depende de las capacidades internas y las necesidades de cada empresa.</p>
+    </div>
+    <div class="serv-grid">
+
+      <!-- Asesoría -->
+      <article class="serv-card">
+        <h3>Asesoría</h3>
+        <p class="serv-lead">Dirección experta para equipos con capacidad interna de ejecución.</p>
+        <p class="serv-desc">Analizamos el negocio, identificamos oportunidades y acompañamos al equipo en la toma de decisiones y la priorización de iniciativas.</p>
+        <p class="serv-inc-label">Puede incluir, según las prioridades del negocio</p>
+        <ul class="serv-list">
+          <li>Diagnóstico y definición de oportunidades</li>
+          <li>Revenue management y estrategia de pricing</li>
+          <li>Optimización de canales y venta directa</li>
+          <li>Marketing digital, conversión y experiencia de compra</li>
+          <li>Revisión de KPIs y priorización de iniciativas</li>
+          <li>Reuniones periódicas de seguimiento</li>
+        </ul>
+        <p class="serv-idea">Te ayudamos a decidir mejor: OptimUp analiza, recomienda y acompaña; tu equipo ejecuta.</p>
+        <div class="serv-foot">
+          <div class="serv-price"><span>Desde</span> <strong>15 UF / mes</strong> <span>+ IVA</span></div>
+          <a href="#contacto" class="serv-cta">Agendar diagnóstico →</a>
+        </div>
+      </article>
+
+      <!-- Dirección Comercial Fraccional -->
+      <article class="serv-card">
+        <h3>Dirección Comercial Fraccional</h3>
+        <p class="serv-lead">Capacidad ejecutiva senior integrada a tu operación, sin incorporar un director full time.</p>
+        <p class="serv-desc">Nos integramos a la gestión comercial y asumimos un rol activo en la ejecución, el seguimiento y la coordinación de las iniciativas acordadas.</p>
+        <p class="serv-inc-label">Puede incluir, según el alcance acordado</p>
+        <ul class="serv-list">
+          <li>Definición y ejecución de la estrategia comercial</li>
+          <li>Revenue management, pricing y gestión de canales</li>
+          <li>Desarrollo de la venta directa</li>
+          <li>Planificación, forecast y seguimiento de resultados</li>
+          <li>Coordinación de marketing, tecnología, proveedores y equipo interno</li>
+          <li>Implementación y seguimiento de iniciativas prioritarias</li>
+        </ul>
+        <p class="serv-idea">Nos integramos a tu operación y ayudamos a que las cosas ocurran. No solo recomendamos: ejecutamos contigo.</p>
+        <div class="serv-foot">
+          <div class="serv-price"><span>Desde</span> <strong>50 UF / mes</strong> <span>+ IVA</span></div>
+          <a href="#contacto" class="serv-cta">Agendar diagnóstico →</a>
+        </div>
+      </article>
+
+      <!-- Tecnología Aplicada -->
+      <article class="serv-card">
+        <h3>Tecnología Aplicada</h3>
+        <p class="serv-lead">Tecnología seleccionada por su impacto comercial, no por moda.</p>
+        <p class="serv-desc">Cuando una herramienta puede mejorar ventas, conversión, pricing o distribución, te ayudamos a elegir e implementar la solución adecuada con partners seleccionados y acompañamiento experto.</p>
+        <p class="serv-inc-label">Puede incluir</p>
+        <ul class="serv-list">
+          <li>Motores de reserva y venta directa</li>
+          <li>Revenue management y pricing</li>
+          <li>Channel managers y distribución</li>
+          <li>Medios de pago</li>
+          <li>Automatización, IA y CRM comercial</li>
+          <li>Integraciones con partners especializados</li>
+        </ul>
+        <p class="serv-idea">Incorporamos tecnología cuando genera impacto comercial real. La herramienta es el medio; vender más y capturar margen, el objetivo.</p>
+        <div class="serv-foot">
+          <div class="serv-tech-value">
+            <strong>Mismo precio de la tecnología. Acompañamiento experto incluido.</strong>
+            <span>Aplica a soluciones de partners seleccionados y según alcance del proyecto.</span>
+          </div>
+          <a href="#contacto" class="serv-cta">Agendar diagnóstico →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <!-- ============ CTA CENTRAL ============ -->
 <section class="cta-central">
   <div class="container">
@@ -1668,7 +1874,23 @@
     <div class="equipo-grid">
       <div class="persona">
         <div class="persona-head">
-          <div class="persona-avatar">IS</div>
+          <div class="persona-avatar">GF</div>
+          <div class="persona-info">
+            <h4>Gonzalo Fernández</h4>
+            <span class="persona-role">Socio Director · Rent a Car</span>
+          </div>
+        </div>
+        <p>Fundador y ex Gerente General de Atrápalo Chile, y ex Gerente Comercial de Econorent. Ha liderado canales y marketing en Latam Travel y Sernatur, con más de 20 años en turismo, movilidad y servicios.</p>
+        <div class="persona-tags">
+          <span>Estrategia comercial</span>
+          <span>Canales</span>
+          <span>Marketing digital</span>
+          <span>Desarrollo de negocios</span>
+        </div>
+      </div>
+      <div class="persona">
+        <div class="persona-head">
+          <div class="persona-avatar persona-avatar--orange">IS</div>
           <div class="persona-info">
             <h4>José Ignacio Sarmiento</h4>
             <span class="persona-role">Socio Director · Hotelería</span>
@@ -1680,22 +1902,6 @@
           <span>Venta directa</span>
           <span>Distribución</span>
           <span>Tecnología aplicada</span>
-        </div>
-      </div>
-      <div class="persona">
-        <div class="persona-head">
-          <div class="persona-avatar persona-avatar--orange">GF</div>
-          <div class="persona-info">
-            <h4>Gonzalo Fernández</h4>
-            <span class="persona-role">Socio Director · Rent a Car</span>
-          </div>
-        </div>
-        <p>Fundador de Atrápalo Chile. Ha sido gerente general y gerente comercial en empresas de turismo, movilidad y servicios, con posiciones de liderazgo en Latam Travel, Sernatur y Econorent.</p>
-        <div class="persona-tags">
-          <span>Estrategia comercial</span>
-          <span>Canales</span>
-          <span>Marketing digital</span>
-          <span>Desarrollo de negocios</span>
         </div>
       </div>
     </div>
@@ -1781,7 +1987,7 @@
           <img src="/brand/optimup_logo_512.png" alt="" width="40" height="40" />
           <span>Optim<span class="up">Up</span></span>
         </a>
-        <p>Optimización del embudo comercial para hoteles, rent a car y empresas de servicios. Diagnosticamos, priorizamos y acompañamos la ejecución.</p>
+        <p>Optimización del embudo comercial para hoteles, rent a car y empresas de servicios. Diagnosticamos, priorizamos y ejecutamos, desde la asesoría hasta la dirección comercial fraccional.</p>
       </div>
       <div class="footer-col">
         <h5>Navegación</h5>
@@ -1789,6 +1995,7 @@
           <li><a href="#que-hacemos">Qué hacemos</a></li>
           <li><a href="#verticales">Industrias</a></li>
           <li><a href="#metodo">Método</a></li>
+          <li><a href="#servicios">Servicios</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
