@@ -771,7 +771,11 @@
     .metodo-step p { font-size: var(--text-base); margin: 0; }
 
     /* ====== SERVICIOS ====== */
-    .servicios-intro { max-width: 760px; margin-bottom: var(--space-5); }
+    .servicios-intro { max-width: 760px; margin-bottom: var(--space-4); }
+    /* Cabecera más corta que el resto de las secciones: el trabajo de esta sección
+       es comparar los tres planes de un vistazo, así que el precio tiene que entrar en pantalla. */
+    #servicios { padding-top: var(--space-6); }
+    @media (min-width: 1024px) { #servicios { padding-top: var(--space-6); } }
     .serv-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -804,6 +808,12 @@
       margin: 0 0 var(--space-2) 0;
     }
     .serv-desc { font-size: var(--text-base); margin: 0 0 var(--space-3) 0; }
+    .serv-price-hint {
+      font-size: var(--text-base);
+      color: var(--navy);
+      margin: var(--space-2) 0 0 0;
+    }
+    .serv-price-hint strong { font-weight: 700; }
     .serv-inc-label {
       font-size: var(--text-xs);
       text-transform: uppercase;
@@ -832,24 +842,21 @@
       color: var(--orange-deep);
       font-weight: 700;
     }
-    .serv-idea {
-      font-size: var(--text-base);
-      font-style: italic;
-      color: var(--navy);
-      line-height: 1.45;
-      padding: var(--space-2);
-      margin: 0 0 var(--space-3) 0;
-      background: rgba(232,93,26,0.05);
-      border-left: 3px solid var(--orange);
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    }
-    .serv-foot {
+    /* Fila de decisión: precio + CTA, arriba y compacta para comparar de un vistazo */
+    .serv-decision {
       display: flex;
       flex-direction: column;
       gap: var(--space-2);
-      margin-top: auto;
-      padding-top: var(--space-3);
+      padding: var(--space-3) 0;
+      margin: 0 0 var(--space-3) 0;
       border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .serv-note {
+      margin: 0.375rem 0 0 0;
+      font-size: var(--text-xs);
+      color: var(--text-light);
+      line-height: 1.45;
     }
     .serv-price {
       display: flex;
@@ -864,27 +871,31 @@
       font-weight: 700;
       font-size: var(--text-md);
     }
-    .serv-tech-value {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
+    .serv-price--tech strong { font-size: var(--text-base); line-height: 1.35; }
+    @media (min-width: 768px) {
+      .serv-card h3 { min-height: 2.6em; }
     }
-    .serv-tech-value strong {
-      color: var(--navy);
-      font-weight: 700;
-      font-size: var(--text-base);
-      line-height: 1.35;
-    }
-    .serv-tech-value span {
-      font-size: var(--text-sm);
-      color: var(--text-light);
-      line-height: 1.4;
+    /* Alinea título, bajada, descripción y fila de precio entre las tres tarjetas,
+       para que se puedan comparar en horizontal. Si el navegador no soporta subgrid,
+       las tarjetas siguen funcionando con el flex de arriba. */
+    @supports (grid-template-rows: subgrid) {
+      @media (min-width: 768px) {
+        .serv-grid { grid-template-rows: auto auto auto auto auto auto; }
+        .serv-card {
+          display: grid;
+          grid-row: span 6;
+          grid-template-rows: subgrid;
+          gap: 0;
+        }
+        .serv-card h3 { min-height: 0; }
+      }
     }
     .serv-cta {
       color: var(--navy);
       font-weight: 600;
       font-size: var(--text-base);
       align-self: flex-start;
+      margin-top: auto;
       border-bottom: 1.5px solid var(--orange);
       padding-bottom: 2px;
       transition: color 200ms ease;
@@ -1837,76 +1848,68 @@
 <section id="servicios">
   <div class="container">
     <div class="servicios-intro">
-      <span class="eyebrow">Servicios</span>
+      <span class="eyebrow">Servicios y precios</span>
       <h2>Tres formas de trabajar con OptimUp</h2>
-      <p class="lead" style="margin-top: var(--space-3);">Desde acompañamiento experto hasta gestión ejecutiva y tecnología especializada. El nivel de involucramiento depende de las capacidades internas y las necesidades de cada empresa.</p>
+      <p class="lead" style="margin-top: var(--space-2);">Desde acompañamiento experto hasta gestión ejecutiva y tecnología especializada, según las capacidades y necesidades de cada empresa.</p>
+      <p class="serv-price-hint"><strong>Planes desde 15 UF/mes + IVA.</strong> El primer paso siempre es un diagnóstico gratuito.</p>
     </div>
     <div class="serv-grid">
 
       <!-- Asesoría -->
       <article class="serv-card">
         <h3>Asesoría</h3>
-        <p class="serv-lead">Dirección experta para equipos con capacidad interna de ejecución.</p>
-        <p class="serv-desc">Analizamos el negocio, identificamos oportunidades y acompañamos al equipo en la toma de decisiones y la priorización de iniciativas.</p>
+        <p class="serv-lead">Dirección experta para equipos con capacidad interna de ejecución. OptimUp analiza, recomienda y acompaña; tu equipo ejecuta.</p>
+        <p class="serv-desc">Aportamos criterio externo y método para decidir con datos y en el orden correcto.</p>
+        <div class="serv-decision">
+          <div class="serv-price"><span>Desde</span> <strong>15 UF / mes</strong> <span>+ IVA</span></div>
+          <a href="#contacto" class="serv-cta">Agendar diagnóstico →</a>
+        </div>
         <p class="serv-inc-label">Puede incluir, según las prioridades del negocio</p>
         <ul class="serv-list">
           <li>Diagnóstico y definición de oportunidades</li>
           <li>Revenue management y estrategia de pricing</li>
-          <li>Optimización de canales y venta directa</li>
-          <li>Marketing digital, conversión y experiencia de compra</li>
-          <li>Revisión de KPIs y priorización de iniciativas</li>
-          <li>Reuniones periódicas de seguimiento</li>
+          <li>Canales, venta directa y marketing digital</li>
+          <li>KPIs, priorización de iniciativas y seguimiento</li>
         </ul>
-        <p class="serv-idea">Te ayudamos a decidir mejor: OptimUp analiza, recomienda y acompaña; tu equipo ejecuta.</p>
-        <div class="serv-foot">
-          <div class="serv-price"><span>Desde</span> <strong>15 UF / mes</strong> <span>+ IVA</span></div>
-          <a href="#contacto" class="serv-cta">Agendar diagnóstico →</a>
-        </div>
       </article>
 
       <!-- Dirección Comercial Fraccional -->
       <article class="serv-card">
         <h3>Dirección Comercial Fraccional</h3>
-        <p class="serv-lead">Capacidad ejecutiva senior integrada a tu operación, sin incorporar un director full time.</p>
-        <p class="serv-desc">Nos integramos a la gestión comercial y asumimos un rol activo en la ejecución, el seguimiento y la coordinación de las iniciativas acordadas.</p>
-        <p class="serv-inc-label">Puede incluir, según el alcance acordado</p>
-        <ul class="serv-list">
-          <li>Definición y ejecución de la estrategia comercial</li>
-          <li>Revenue management, pricing y gestión de canales</li>
-          <li>Desarrollo de la venta directa</li>
-          <li>Planificación, forecast y seguimiento de resultados</li>
-          <li>Coordinación de marketing, tecnología, proveedores y equipo interno</li>
-          <li>Implementación y seguimiento de iniciativas prioritarias</li>
-        </ul>
-        <p class="serv-idea">Nos integramos a tu operación y ayudamos a que las cosas ocurran. No solo recomendamos: ejecutamos contigo.</p>
-        <div class="serv-foot">
+        <p class="serv-lead">Capacidad ejecutiva senior integrada a tu operación, sin incorporar un director full time. No solo recomendamos: ejecutamos contigo.</p>
+        <p class="serv-desc">Asumimos un rol activo en la ejecución, el seguimiento y la coordinación.</p>
+        <div class="serv-decision">
           <div class="serv-price"><span>Desde</span> <strong>50 UF / mes</strong> <span>+ IVA</span></div>
           <a href="#contacto" class="serv-cta">Agendar diagnóstico →</a>
         </div>
+        <p class="serv-inc-label">Puede incluir, según el alcance acordado</p>
+        <ul class="serv-list">
+          <li>Definición y ejecución de la estrategia comercial</li>
+          <li>Revenue management, pricing, canales y venta directa</li>
+          <li>Planificación, forecast y seguimiento de resultados</li>
+          <li>Coordinación de marketing, tecnología, proveedores y equipo interno</li>
+        </ul>
       </article>
 
       <!-- Tecnología Aplicada -->
       <article class="serv-card">
         <h3>Tecnología Aplicada</h3>
-        <p class="serv-lead">Tecnología seleccionada por su impacto comercial, no por moda.</p>
-        <p class="serv-desc">Cuando una herramienta puede mejorar ventas, conversión, pricing o distribución, te ayudamos a elegir e implementar la solución adecuada con partners seleccionados y acompañamiento experto.</p>
-        <p class="serv-inc-label">Puede incluir</p>
-        <ul class="serv-list">
-          <li>Motores de reserva y venta directa</li>
-          <li>Revenue management y pricing</li>
-          <li>Channel managers y distribución</li>
-          <li>Medios de pago</li>
-          <li>Automatización, IA y CRM comercial</li>
-          <li>Integraciones con partners especializados</li>
-        </ul>
-        <p class="serv-idea">Incorporamos tecnología cuando genera impacto comercial real. La herramienta es el medio; vender más y capturar margen, el objetivo.</p>
-        <div class="serv-foot">
-          <div class="serv-tech-value">
-            <strong>Mismo precio de la tecnología. Acompañamiento experto incluido.</strong>
-            <span>Aplica a soluciones de partners seleccionados y según alcance del proyecto.</span>
+        <p class="serv-lead">Tecnología seleccionada por su impacto comercial, no por moda. La herramienta es el medio; vender más y capturar margen, el objetivo.</p>
+        <p class="serv-desc">Elegimos e implementamos la solución adecuada con partners seleccionados.</p>
+        <div class="serv-decision">
+          <div>
+            <div class="serv-price serv-price--tech"><strong>Mismo precio de la tecnología</strong></div>
+            <p class="serv-note">Acompañamiento experto incluido. Aplica a soluciones de partners seleccionados y según alcance del proyecto.</p>
           </div>
           <a href="#contacto" class="serv-cta">Agendar diagnóstico →</a>
         </div>
+        <p class="serv-inc-label">Puede incluir</p>
+        <ul class="serv-list">
+          <li>Motores de reserva y venta directa</li>
+          <li>Revenue management, pricing y distribución</li>
+          <li>Channel managers y medios de pago</li>
+          <li>Automatización, IA y CRM comercial</li>
+        </ul>
       </article>
 
     </div>
@@ -2098,6 +2101,7 @@
           <li><a href="#verticales">Industrias</a></li>
           <li><a href="#metodo">Método</a></li>
           <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#servicios">Precios</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
