@@ -296,6 +296,10 @@
       position: relative;
       overflow: hidden;
     }
+    @media (max-width: 1023px) {
+      /* la imagen cierra el hero: no hace falta padding extra debajo */
+      .hero { padding-bottom: 0; }
+    }
     @media (min-width: 1024px) {
       .hero { padding-top: var(--space-6); padding-bottom: var(--space-8); }
     }
@@ -306,7 +310,106 @@
       align-items: center;
     }
     @media (min-width: 1024px) {
-      .hero-grid { grid-template-columns: 1.1fr 1fr; gap: var(--space-6); }
+      .hero-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero-copy { max-width: 560px; }
+    }
+
+    /* --- Imagen del hero: al lado del texto, a sangre por la derecha --- */
+    .hero-media {
+      position: relative;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      height: 38vh;
+      min-height: 240px;
+      max-height: 360px;
+      margin-top: var(--space-4);
+      order: -1;
+      background-image: url('/brand/hero-espiral.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+    @media (min-width: 1024px) {
+      .hero-media {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: auto;
+        width: 46vw;
+        max-width: 880px;
+        height: auto;
+        max-height: none;
+        margin: 0;
+        order: 0;
+        pointer-events: none;
+        /* encuadre: la esfera cae en el centro óptico del panel */
+        background-size: cover;
+        background-position: 50% 50%;
+        /* disuelve el borde izquierdo en el crema del hero: curva larga, sin banda visible */
+        -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            rgba(0,0,0,.04) 9%,
+            rgba(0,0,0,.13) 16%,
+            rgba(0,0,0,.28) 23%,
+            rgba(0,0,0,.47) 30%,
+            rgba(0,0,0,.68) 36%,
+            rgba(0,0,0,.86) 41%,
+            rgba(0,0,0,.96) 45%,
+            #000 50%);
+                mask-image: linear-gradient(to right,
+            transparent 0%,
+            rgba(0,0,0,.04) 9%,
+            rgba(0,0,0,.13) 16%,
+            rgba(0,0,0,.28) 23%,
+            rgba(0,0,0,.47) 30%,
+            rgba(0,0,0,.68) 36%,
+            rgba(0,0,0,.86) 41%,
+            rgba(0,0,0,.96) 45%,
+            #000 50%);
+      }
+    }
+
+    /* --- Franja de prueba bajo los CTAs --- */
+    .hero-proof {
+      margin-top: var(--space-4);
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--border);
+      max-width: 540px;
+    }
+    .hero-proof-label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin: 0 0 var(--space-2) 0;
+    }
+    .hero-proof-logos {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+    .hero-proof-logos img {
+      height: 22px;
+      width: auto;
+      opacity: .62;
+      filter: grayscale(1);
+    }
+    .hero-proof-more {
+      font-size: var(--text-sm);
+      color: var(--text-mid);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .hero-proof-more.is-sm { display: none; }
+    @media (max-width: 560px) {
+      .hero-proof-logos { gap: var(--space-2); }
+      .hero-proof-logos img { height: 18px; }
+      .hero-proof-logos img:nth-of-type(4) { display: none; }
+      .hero-proof-more.is-lg { display: none; }
+      .hero-proof-more.is-sm { display: inline; }
     }
     .hero h1 .accent {
       color: var(--orange-deep);
@@ -505,11 +608,12 @@
       height: 1px;
       background: var(--orange-deep);
     }
+    /* la cita convive con la caja de la causa en la misma sección: si ambas
+       fueran cajas crema con filo naranja, competirían. La cita se aligera y
+       deja la caja para la conclusión. */
     .quote-card {
-      background: var(--cream);
-      border-left: 4px solid var(--orange);
-      padding: var(--space-4);
-      border-radius: var(--radius-md);
+      border-left: 3px solid var(--orange);
+      padding: var(--space-1) 0 var(--space-1) var(--space-3);
       font-size: var(--text-md);
       font-style: italic;
       color: var(--navy);
@@ -623,64 +727,111 @@
       max-width: 720px;
       margin-bottom: var(--space-5);
     }
-    .que-callout {
+    /* la causa de fondo cierra #problema: es la conclusión de la lista de fugas */
+    .problema-causa {
       background: var(--cream);
       border-radius: var(--radius-lg);
       padding: var(--space-4);
-      margin-bottom: var(--space-5);
+      margin-top: var(--space-5);
       border-left: 4px solid var(--orange);
     }
-    .que-callout h3 { margin-bottom: var(--space-1); }
-    .que-callout-flags {
+    .problema-causa h3 { margin-bottom: var(--space-2); }
+    .problema-causa p:last-child { margin-bottom: 0; }
+
+    /* --- Qué hacemos: el embudo pone los nombres; el texto al lado, el criterio --- */
+    .que-sistema {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+    @media (min-width: 1024px) {
+      .que-sistema { grid-template-columns: 1.05fr 0.95fr; gap: var(--space-6); align-items: stretch; }
+    }
+    .que-funnel { display: flex; justify-content: center; align-items: flex-start; }
+    #que-hacemos .ou-funnel { max-width: 560px; }
+
+    /* móvil/tablet: lista normal, con el nombre de la etapa como ancla */
+    .que-notas { list-style: none; margin: 0; padding: 0; }
+    .que-notas li {
+      padding: var(--space-2) 0 var(--space-2) var(--space-3);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .que-notas li:last-child { border-bottom: none; }
+    .que-notas li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 1.55rem;
+      width: 12px; height: 1px;
+      background: var(--orange-deep);
+    }
+    .que-notas .qt {
+      display: block;
+      font-size: var(--text-md);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 0.15rem;
+    }
+
+    .que-sistema > div:last-child { position: relative; }
+    .que-cierre {
+      margin: var(--space-3) 0 0;
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    /* desktop: cada frase se alinea con el centro de su etapa en el embudo.
+       Los porcentajes son el centro vertical de cada nivel del viewBox (0 0 420 560),
+       así que la alineación se mantiene a cualquier ancho. */
+    @media (min-width: 1024px) {
+      .que-notas {
+        position: relative;
+        height: 100%;
+      }
+      .que-notas li {
+        position: absolute;
+        top: var(--y);
+        transform: translateY(-50%);
+        left: 0; right: 0;
+        padding: 0 0 0 var(--space-3);
+        border-bottom: none;
+        margin: 0;
+      }
+      .que-notas li::before { top: 0.72rem; width: 18px; }
+      /* el nombre lo pone el embudo: aquí sobraría */
+      .que-notas .qt { display: none; }
+      .que-cierre {
+        position: absolute;
+        top: var(--y);
+        transform: translateY(-50%);
+        left: 0; right: 0;
+        margin: 0;
+        padding-left: var(--space-3);
+      }
+    }
+
+    .que-resultados {
       display: flex;
       flex-wrap: wrap;
       gap: var(--space-2);
-      margin-top: var(--space-3);
       list-style: none;
       padding: 0;
+      margin: var(--space-5) 0 0;
     }
-    .que-callout-flags li {
+    .que-resultados li {
       font-size: var(--text-sm);
       color: var(--navy);
       font-weight: 500;
-      background: var(--white);
+      background: var(--cream);
       padding: 0.5rem 0.875rem;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
     }
-    .que-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-3);
-    }
-    @media (min-width: 700px) {
-      .que-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .que-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .que-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: var(--space-4);
-      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
-    }
-    .que-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-      border-color: var(--orange);
-    }
-    .que-num {
-      font-size: var(--text-md);
-      font-weight: 700;
-      color: var(--orange-deep);
-      letter-spacing: 0.02em;
-      margin-bottom: var(--space-2);
-      font-variant-numeric: tabular-nums;
-    }
-    .que-card h3 { margin-bottom: var(--space-1); font-size: var(--text-md); }
-    .que-card p { font-size: var(--text-base); margin: 0; }
 
     /* ====== INDUSTRIAS ====== */
     .industrias { background: var(--cream); }
@@ -1440,7 +1591,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="container hero-grid">
-    <div>
+    <div class="hero-copy">
       <span class="eyebrow fade-in">Consultoría de revenue y marketing</span>
       <h1 class="fade-in delay-1">Ingeniería para tu <span class="accent">embudo de ventas.</span></h1>
       <p class="lead hero-lead fade-in delay-2">Más venta directa, mejor mix de canales y más margen. Trabajamos pricing, marketing, canales y conversión como un solo sistema, no como piezas sueltas. Hoteles, rent a car y empresas de servicios.</p>
@@ -1448,64 +1599,20 @@
         <a href="#contacto" class="btn btn-primary">Agenda un diagnóstico gratuito</a>
         <a href="#que-hacemos" class="btn btn-secondary">Cómo trabajamos →</a>
       </div>
-    </div>
-    <div class="ou-funnel-wrap fade-in delay-3">
-      <svg class="ou-funnel" viewBox="0 0 420 560" role="img"
-           aria-label="Embudo comercial de siete niveles: demanda, tráfico, canales, pricing, conversión, fidelización y medición, que converge en rentabilidad.">
-
-        <g class="lvl">
-          <path d="M16 18 H404 L394 72 H26 Z" fill="#1E3A5F" fill-opacity=".05" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="41" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Demanda</text>
-          <text class="lvl-sub" x="210" y="60" font-size="10.5" fill="#4A5568" text-anchor="middle">Forecast · Estacionalidad · Anticipación · Segmentación</text>
-        </g>
-
-        <g class="lvl">
-          <path d="M26 78 H394 L384 132 H36 Z" fill="#1E3A5F" fill-opacity=".075" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="101" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Tráfico</text>
-          <text class="lvl-sub" x="210" y="120" font-size="10.5" fill="#4A5568" text-anchor="middle">SEO · SEM · GEO · Metabuscadores · Contenido</text>
-        </g>
-
-        <g class="lvl">
-          <path d="M36 138 H384 L374 202 H46 Z" fill="#1E3A5F" fill-opacity=".10" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="160" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Canales</text>
-          <text class="lvl-sub" x="210" y="177" font-size="10.5" fill="#4A5568" text-anchor="middle">Directo: online · contact center · fuerza de venta</text>
-          <text class="lvl-sub" x="210" y="193" font-size="10.5" fill="#4A5568" text-anchor="middle">OTAs · agencias · convenios · mix y margen por canal</text>
-        </g>
-
-        <g class="lvl">
-          <path d="M46 208 H374 L364 262 H56 Z" fill="#1E3A5F" fill-opacity=".125" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="231" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Pricing</text>
-          <text class="lvl-sub" x="210" y="249" font-size="10.5" fill="#4A5568" text-anchor="middle">Arquitectura tarifaria · Pricing dinámico · Paridad</text>
-        </g>
-
-        <g class="lvl">
-          <path d="M56 268 H364 L354 332 H66 Z" fill="#1E3A5F" fill-opacity=".15" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="290" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Conversión</text>
-          <text class="lvl-sub" x="210" y="307" font-size="10.5" fill="#4A5568" text-anchor="middle">UX · Motor de reservas · Medios de pago</text>
-          <text class="lvl-sub" x="210" y="323" font-size="10.5" fill="#4A5568" text-anchor="middle">Upsell · Cross-sell · Contact center</text>
-        </g>
-
-        <g class="lvl">
-          <path d="M66 338 H354 L344 392 H76 Z" fill="#1E3A5F" fill-opacity=".175" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="361" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Fidelización</text>
-          <text class="lvl-sub" x="210" y="380" font-size="10.5" fill="#4A5568" text-anchor="middle">CRM · Remarketing · Reputación · Reactivación</text>
-        </g>
-
-        <g class="lvl">
-          <path d="M76 398 H344 L334 452 H86 Z" fill="#1E3A5F" fill-opacity=".21" stroke="#1E3A5F" stroke-width="1.5"/>
-          <text class="lvl-title" x="210" y="421" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Medición</text>
-          <text class="lvl-sub" x="210" y="440" font-size="10.5" fill="#4A5568" text-anchor="middle">Analítica · Atribución · Dashboards · KPIs</text>
-        </g>
-
-        <g class="end">
-          <path d="M86 452 L210 488 L334 452" fill="none" stroke="#E85D1A" stroke-width="1.8" opacity=".65"/>
-          <rect x="94" y="484" width="232" height="58" rx="11" fill="#E85D1A"/>
-          <text x="210" y="511" font-size="19" font-weight="700" fill="#FFFFFF" text-anchor="middle">Rentabilidad</text>
-          <text x="210" y="530" font-size="10.5" fill="#FFE0CE" text-anchor="middle">Ingreso · Margen</text>
-        </g>
-      </svg>
+      <div class="hero-proof fade-in delay-3">
+        <p class="hero-proof-label">Confían en nosotros</p>
+        <div class="hero-proof-logos">
+          <img src="/brand/logos/clientes/magnolia.png" alt="Hotel Magnolia" loading="eager" />
+          <img src="/brand/logos/clientes/futangue.png" alt="Futangue Hotel &amp; Spa" loading="eager" />
+          <img src="/brand/logos/clientes/corralco.png" alt="Corralco" loading="eager" />
+          <img src="/brand/logos/clientes/termas-chillan.png" alt="Hotel Termas de Chillán" loading="eager" />
+          <span class="hero-proof-more is-lg">+5 más</span>
+          <span class="hero-proof-more is-sm">+6 más</span>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="hero-media" role="img" aria-label="Ilustración abstracta: partículas azules y crema girando en espiral hacia un núcleo naranja."></div>
 </section>
 
 <!-- ============ STATS ============ -->
@@ -1585,7 +1692,7 @@
       <div>
         <span class="eyebrow">El problema</span>
         <h2>Tu negocio puede estar perdiendo ventas sin verlo</h2>
-        <p style="margin-top: var(--space-3);">En negocios con inventario perecible o capacidad limitada, cada oportunidad perdida hoy no vuelve mañana. El problema rara vez es falta de esfuerzo. Es que el embudo tiene fugas.</p>
+        <p style="margin-top: var(--space-3);">Cuando el inventario es perecible o la capacidad es limitada, cada oportunidad perdida hoy no vuelve mañana. El problema rara vez es falta de esfuerzo. Es que el embudo tiene fugas.</p>
         <div class="quote-card" style="margin-top: var(--space-4);">
           "En negocios con inventario perecible, los pequeños errores repetidos tienen impacto enorme. El margen se pierde en silencio, día a día."
         </div>
@@ -1599,6 +1706,11 @@
           <li><strong style="color: var(--navy); font-weight: 600;">Campañas que generan tráfico pero no reservas</strong> — inversión sin retorno medible</li>
         </ul>
       </div>
+    </div>
+
+    <div class="problema-causa">
+      <h3>Casi todas tienen la misma causa: nadie mira el embudo entero.</h3>
+      <p>En hoteles con equipo, marketing, ventas y operaciones trabajan como islas: cada área ve una parte y rara vez comparten la misma lectura del negocio. En los más chicos, la misma persona lo hace todo y no alcanza a mirarlo junto. El efecto es idéntico: las decisiones se toman pieza por pieza, y lo que se gana en una se pierde en la siguiente.</p>
     </div>
   </div>
 </section>
@@ -1657,50 +1769,87 @@
     <div class="que-intro">
       <span class="eyebrow">Qué hacemos</span>
       <h2>Diagnosticamos y optimizamos el funnel de punta a punta</h2>
+      <p style="margin-top: var(--space-3);">OptimUp trabaja sobre el embudo entero para que tus canales, equipos y datos hablen el mismo idioma — y el crecimiento deje de ser reactivo.</p>
     </div>
-    <div class="que-callout">
-      <span class="eyebrow">El problema real</span>
-      <h3>Marketing, ventas y operaciones suelen trabajar como islas.</h3>
-      <p>Marketing invierte en tráfico que no convierte. Ventas cierra a precios que erosionan margen. Operaciones no tiene visibilidad sobre qué canales generan más rentabilidad. Cada área ve una parte del problema, nadie ve el sistema completo. OptimUp trabaja sobre el embudo entero para que tus canales, equipos y datos hablen el mismo idioma — y el crecimiento deje de ser reactivo.</p>
-      <ul class="que-callout-flags">
-        <li>→ Menos fricción entre áreas</li>
-        <li>→ Una sola lectura del negocio</li>
-        <li>→ Decisiones basadas en datos</li>
-        <li>→ Crecimiento predecible, no reactivo</li>
-      </ul>
+    <div class="que-sistema">
+      <div class="que-funnel">
+    <div class="ou-funnel-wrap">
+      <svg class="ou-funnel" viewBox="0 0 420 560" role="img"
+           aria-label="Embudo comercial de siete niveles: demanda, tráfico, canales, pricing, conversión, fidelización y medición, que converge en rentabilidad.">
+
+        <g class="lvl">
+          <path d="M16 18 H404 L394 72 H26 Z" fill="#1E3A5F" fill-opacity=".05" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="41" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Demanda</text>
+          <text class="lvl-sub" x="210" y="60" font-size="10.5" fill="#4A5568" text-anchor="middle">Forecast · Estacionalidad · Anticipación · Segmentación</text>
+        </g>
+
+        <g class="lvl">
+          <path d="M26 78 H394 L384 132 H36 Z" fill="#1E3A5F" fill-opacity=".075" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="101" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Tráfico</text>
+          <text class="lvl-sub" x="210" y="120" font-size="10.5" fill="#4A5568" text-anchor="middle">SEO · SEM · GEO · Metabuscadores · Contenido</text>
+        </g>
+
+        <g class="lvl">
+          <path d="M36 138 H384 L374 202 H46 Z" fill="#1E3A5F" fill-opacity=".10" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="160" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Canales</text>
+          <text class="lvl-sub" x="210" y="177" font-size="10.5" fill="#4A5568" text-anchor="middle">Directo: online · contact center · fuerza de venta</text>
+          <text class="lvl-sub" x="210" y="193" font-size="10.5" fill="#4A5568" text-anchor="middle">OTAs · agencias · convenios · mix y margen por canal</text>
+        </g>
+
+        <g class="lvl">
+          <path d="M46 208 H374 L364 262 H56 Z" fill="#1E3A5F" fill-opacity=".125" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="231" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Pricing</text>
+          <text class="lvl-sub" x="210" y="249" font-size="10.5" fill="#4A5568" text-anchor="middle">Arquitectura tarifaria · Pricing dinámico · Paridad</text>
+        </g>
+
+        <g class="lvl">
+          <path d="M56 268 H364 L354 332 H66 Z" fill="#1E3A5F" fill-opacity=".15" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="290" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Conversión</text>
+          <text class="lvl-sub" x="210" y="307" font-size="10.5" fill="#4A5568" text-anchor="middle">UX · Motor de reservas · Medios de pago</text>
+          <text class="lvl-sub" x="210" y="323" font-size="10.5" fill="#4A5568" text-anchor="middle">Upsell · Cross-sell · Contact center</text>
+        </g>
+
+        <g class="lvl">
+          <path d="M66 338 H354 L344 392 H76 Z" fill="#1E3A5F" fill-opacity=".175" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="361" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Fidelización</text>
+          <text class="lvl-sub" x="210" y="380" font-size="10.5" fill="#4A5568" text-anchor="middle">CRM · Remarketing · Reputación · Reactivación</text>
+        </g>
+
+        <g class="lvl">
+          <path d="M76 398 H344 L334 452 H86 Z" fill="#1E3A5F" fill-opacity=".21" stroke="#1E3A5F" stroke-width="1.5"/>
+          <text class="lvl-title" x="210" y="421" font-size="16.5" font-weight="700" fill="#1E3A5F" text-anchor="middle">Medición</text>
+          <text class="lvl-sub" x="210" y="440" font-size="10.5" fill="#4A5568" text-anchor="middle">Analítica · Atribución · Dashboards · KPIs</text>
+        </g>
+
+        <g class="end">
+          <path d="M86 452 L210 488 L334 452" fill="none" stroke="#E85D1A" stroke-width="1.8" opacity=".65"/>
+          <rect x="94" y="484" width="232" height="58" rx="11" fill="#E85D1A"/>
+          <text x="210" y="511" font-size="19" font-weight="700" fill="#FFFFFF" text-anchor="middle">Rentabilidad</text>
+          <text x="210" y="530" font-size="10.5" fill="#FFE0CE" text-anchor="middle">Ingreso · Margen</text>
+        </g>
+      </svg>
     </div>
-    <div class="que-grid">
-      <div class="que-card">
-        <div class="que-num">01</div>
-        <h3>Tráfico</h3>
-        <p>Campañas, SEO, GEO, pauta digital, calidad de visitas. Traer el visitante correcto, no solo más visitantes.</p>
       </div>
-      <div class="que-card">
-        <div class="que-num">02</div>
-        <h3>Conversión y UX</h3>
-        <p>Sitio web, landing pages, motor de reservas, formularios, WhatsApp, contact center. Menos fricción, más cierres.</p>
-      </div>
-      <div class="que-card">
-        <div class="que-num">03</div>
-        <h3>Pricing</h3>
-        <p>Tarifas, revenue management, estacionalidad, sensibilidad de demanda. El precio correcto en el momento correcto.</p>
-      </div>
-      <div class="que-card">
-        <div class="que-num">04</div>
-        <h3>Canales</h3>
-        <p>Venta directa, OTAs, intermediarios, partners. Optimizar el mix para maximizar margen, no solo volumen.</p>
-      </div>
-      <div class="que-card">
-        <div class="que-num">05</div>
-        <h3>Cierre y pagos</h3>
-        <p>Medios de pago, abandono, velocidad de respuesta, seguimiento comercial. El último tramo donde se gana o se pierde.</p>
-      </div>
-      <div class="que-card">
-        <div class="que-num">06</div>
-        <h3>Medición</h3>
-        <p>KPIs, dashboards, trazabilidad. Decisiones con datos, no intuición. Saber qué funciona y dónde está el potencial.</p>
+      <div>
+        <ul class="que-notas">
+          <li style="--y: 8.036%"><span class="qt">Demanda</span>Anticipar cuánta viene y de dónde, en vez de reaccionar cuando ya pasó.</li>
+          <li style="--y: 18.750%"><span class="qt">Tráfico</span>Traer el visitante correcto, no solo más visitantes.</li>
+          <li style="--y: 30.357%"><span class="qt">Canales</span>Optimizar el mix para maximizar margen, no solo volumen.</li>
+          <li style="--y: 41.964%"><span class="qt">Pricing</span>El precio correcto en el momento correcto.</li>
+          <li style="--y: 53.571%"><span class="qt">Conversión</span>Menos fricción, más cierres. Es el último tramo donde se gana o se pierde.</li>
+          <li style="--y: 65.179%"><span class="qt">Fidelización</span>El cliente que vuelve cuesta una fracción de lo que costó el primero.</li>
+          <li style="--y: 75.893%"><span class="qt">Medición</span>Decisiones con datos, no intuición. Saber qué funciona y dónde está el potencial.</li>
+        </ul>
+        <p class="que-cierre" style="--y: 91.6%">Las etapas se multiplican entre sí. Por eso arreglar el embudo entero rinde mucho más que perfeccionar una sola pieza.</p>
       </div>
     </div>
+
+    <ul class="que-resultados">
+      <li>→ Menos fricción entre áreas</li>
+      <li>→ Una sola lectura del negocio</li>
+      <li>→ Decisiones basadas en datos</li>
+      <li>→ Crecimiento predecible, no reactivo</li>
+    </ul>
   </div>
 </section>
 
