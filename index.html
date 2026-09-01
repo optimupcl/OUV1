@@ -332,6 +332,8 @@
     @media (min-width: 1024px) {
       .hero { padding-top: var(--space-6); padding-bottom: var(--space-8); }
     }
+    /* el texto siempre por encima de la imagen */
+    .hero > .container { position: relative; z-index: 2; }
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -343,7 +345,16 @@
       .hero-copy { max-width: 560px; }
     }
 
-    /* --- Imagen del hero: al lado del texto, a sangre por la derecha --- */
+    /* --- Imagen del hero --------------------------------------------------
+       Una sola imagen a sangre por todo el ancho. La foto es apaisada 2:1 —casi
+       la misma proporcion que el hero (2,05:1)— asi que con `cover` entra
+       practicamente entera y sin ampliar: a 1440 px se pinta a 1440 de ancho
+       desde un original de 1774, o sea reducida. El nucleo de la espiral esta
+       al 80 % del ancho de la foto, ya despejado de la columna de texto, de modo
+       que no hace falta ni ampliar ni desplazar nada.
+       La legibilidad la da un velo de crema encima, mas denso a la izquierda,
+       que deja pasar entre un 16 y un 26 % de imagen sobre el texto.
+       ---------------------------------------------------------------------- */
     .hero-media {
       position: relative;
       width: 100vw;
@@ -356,46 +367,54 @@
       background-image: url('/brand/hero-espiral.jpg');
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: 50% 50%;
+      /* en la banda de movil el recorte es horizontal: anclar a la derecha deja
+         el nucleo dentro del encuadre */
+      background-position: 100% 50%;
     }
     @media (min-width: 1024px) {
       .hero-media {
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: auto;
-        width: 46vw;
-        max-width: 880px;
+        inset: 0;
+        width: 100%;
+        max-width: none;
         height: auto;
         max-height: none;
         margin: 0;
         order: 0;
+        z-index: 0;
         pointer-events: none;
-        /* encuadre: la esfera cae en el centro óptico del panel */
-        background-size: cover;
-        background-position: 50% 50%;
-        /* disuelve el borde izquierdo en el crema del hero: curva larga, sin banda visible */
-        -webkit-mask-image: linear-gradient(to right,
-            transparent 0%,
-            rgba(0,0,0,.04) 9%,
-            rgba(0,0,0,.13) 16%,
-            rgba(0,0,0,.28) 23%,
-            rgba(0,0,0,.47) 30%,
-            rgba(0,0,0,.68) 36%,
-            rgba(0,0,0,.86) 41%,
-            rgba(0,0,0,.96) 45%,
-            #000 50%);
-                mask-image: linear-gradient(to right,
-            transparent 0%,
-            rgba(0,0,0,.04) 9%,
-            rgba(0,0,0,.13) 16%,
-            rgba(0,0,0,.28) 23%,
-            rgba(0,0,0,.47) 30%,
-            rgba(0,0,0,.68) 36%,
-            rgba(0,0,0,.86) 41%,
-            rgba(0,0,0,.96) 45%,
-            #000 50%);
+        background-color: var(--cream);
+        background-image:
+          linear-gradient(96deg,
+            rgba(247,244,239,0.84) 0px,
+            rgba(247,244,239,0.82) 180px,
+            rgba(247,244,239,0.80) 380px,
+            rgba(247,244,239,0.74) 545px,
+            rgba(247,244,239,0.50) 640px,
+            rgba(247,244,239,0.20) 720px,
+            rgba(247,244,239,0) 800px),
+          url('/brand/hero-espiral.jpg');
+        background-repeat: no-repeat, no-repeat;
+        background-size: 100% 100%, cover;
+        background-position: 0 0, 50% 50%;
+      }
+    }
+    @media (min-width: 1200px) {
+      .hero-media {
+        /* con el contenedor centrado, el borde derecho del texto queda fijo en
+           calc(50% - 36px): el velo se ancla ahi y suelta mucho antes del nucleo */
+        background-image:
+          linear-gradient(96deg,
+            rgba(247,244,239,0.84) 0%,
+            rgba(247,244,239,0.82) calc(50% - 480px),
+            rgba(247,244,239,0.80) calc(50% - 260px),
+            rgba(247,244,239,0.74) calc(50% - 40px),
+            rgba(247,244,239,0.50) calc(50% + 80px),
+            rgba(247,244,239,0.20) calc(50% + 180px),
+            rgba(247,244,239,0) calc(50% + 280px)),
+          url('/brand/hero-espiral.jpg');
+        background-size: 100% 100%, cover;
+        background-position: 0 0, 50% 50%;
       }
     }
 
