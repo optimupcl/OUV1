@@ -554,6 +554,48 @@
       .orden-palancas { flex-direction: column; gap: 0.75rem; }
     }
 
+    /* Rótulo de los dos diagramas. El embudo de "Qué hacemos" es el recorrido
+       del cliente; la secuencia numerada de "Orden de intervención" es otra cosa.
+       Sin rotularlos, que Pricing y Canales aparezcan en orden distinto se lee
+       como una contradicción en vez de como dos lecturas del mismo sistema. */
+    .diagrama-label {
+      margin: var(--space-5) 0 var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--text-mid);
+    }
+    .diagrama-label b { color: var(--navy); font-weight: 600; }
+    .diagrama-label + .orden-seq { margin-top: 0; }
+    .diagrama-label + .que-sistema { margin-top: var(--space-3); }
+
+    /* Consentimiento del formulario (Ley 21.719, vigente 01-12-2026): casilla
+       real, jamás marcada por defecto. Anula el width:100% de .form-card input. */
+    .form-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      margin-top: var(--space-3);
+    }
+    .form-card .form-consent input[type="checkbox"] {
+      width: 1.05rem;
+      height: 1.05rem;
+      min-width: 1.05rem;
+      margin: 0.2rem 0 0;
+      padding: 0;
+      accent-color: var(--orange);
+    }
+    .form-card .form-consent label {
+      margin: 0;
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .form-consent a {
+      color: var(--orange-deep);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
     /* ====== STATS BAR ====== */
     .stats {
       background: var(--navy);
@@ -1617,15 +1659,15 @@
     <div class="stats-grid">
       <div>
         <div class="stat-num">3×</div>
-        <div class="stat-label">aumento de reservas directas en hoteles asesorados</div>
+        <div class="stat-label">en reservas directas de clientes asesorados</div>
       </div>
       <div>
         <div class="stat-num">−50%</div>
-        <div class="stat-label">reducción en comisiones a intermediarios</div>
+        <div class="stat-label">en comisiones a intermediarios</div>
       </div>
       <div>
-        <div class="stat-num">15+</div>
-        <div class="stat-label">años dirigiendo áreas comerciales y de revenue</div>
+        <div class="stat-num">20+</div>
+        <div class="stat-label">años en dirección comercial: marketing, revenue y canales</div>
       </div>
     </div>
   </div>
@@ -1690,7 +1732,7 @@
         <h2>Tu negocio puede estar perdiendo ventas sin verlo</h2>
         <p style="margin-top: var(--space-3);">Cuando el inventario es perecible o la capacidad es limitada, cada oportunidad perdida hoy no vuelve mañana. El problema rara vez es falta de esfuerzo. Es que el embudo tiene fugas.</p>
         <div class="quote-card" style="margin-top: var(--space-4);">
-          "En negocios con inventario perecible, los pequeños errores repetidos tienen impacto enorme. El margen se pierde en silencio, día a día."
+          En negocios con inventario perecible, los pequeños errores repetidos tienen impacto enorme. El margen se pierde en silencio, día a día.
         </div>
       </div>
       <div>
@@ -1699,14 +1741,14 @@
           <li><strong style="color: var(--navy); font-weight: 600;">Precios mal calibrados</strong> — sin lógica de revenue management, sin estacionalidad, sin lectura de demanda real</li>
           <li><strong style="color: var(--navy); font-weight: 600;">Dependencia excesiva de OTAs o intermediarios</strong> — pagando comisiones que pueden quedarse en la empresa</li>
           <li><strong style="color: var(--navy); font-weight: 600;">Falta de métricas útiles</strong> — decisiones reactivas, sin trazabilidad entre marketing, reservas y revenue</li>
-          <li><strong style="color: var(--navy); font-weight: 600;">Campañas que generan tráfico pero no reservas</strong> — inversión sin retorno medible</li>
+          <li><strong style="color: var(--navy); font-weight: 600;">Clientes que no vuelven</strong> — sin CRM ni reactivación, cada venta empieza de cero</li>
         </ul>
       </div>
     </div>
 
     <div class="problema-causa">
       <h3>Casi todas tienen la misma causa: nadie mira el embudo entero.</h3>
-      <p>En hoteles con equipo, marketing, ventas y operaciones trabajan como islas: cada área ve una parte y rara vez comparten la misma lectura del negocio. En los más chicos, la misma persona lo hace todo y no alcanza a mirarlo junto. El efecto es idéntico: las decisiones se toman pieza por pieza, y lo que se gana en una se pierde en la siguiente.</p>
+      <p>En hoteles con equipo, marketing, ventas y operaciones trabajan como islas: cada área ve una parte y rara vez comparten la misma lectura del negocio. En los más chicos, la operación se come el día: no queda tiempo para pensar el negocio con el análisis fino que dan la especialidad y los años. El efecto es idéntico: las decisiones se toman pieza por pieza, y lo que se gana en una se pierde en la siguiente.</p>
     </div>
   </div>
 </section>
@@ -1719,7 +1761,7 @@
         <span class="eyebrow">Por qué importa tanto</span>
         <h2>Cada peso adicional de ventas cae casi entero a la utilidad</h2>
         <p class="lead" style="color: rgba(255,255,255,0.88); margin-top: var(--space-3);">En hotelería, rent a car y servicios con capacidad instalada, la mayor parte de los costos ya están comprometidos: arriendo, personal base, sistemas, mantención.</p>
-        <p style="margin-top: var(--space-2);">Vender una unidad más —o venderla mejor— casi no agrega costo, y esa venta llega casi entera al resultado. Por eso optimizar el embudo en estos negocios no es solo vender más: es ganar mucho más.</p>
+        <p style="margin-top: var(--space-2);">Vender una unidad más —o venderla mejor— casi no agrega costo: esa venta llega íntegra al resultado. Por eso optimizar el embudo en estos negocios no es solo vender más: es ganar mucho más.</p>
       </div>
       <div class="leverage-card">
         <span class="eyebrow" style="margin: 0;">Ejemplo simplificado · Hotel</span>
@@ -1753,7 +1795,7 @@
           <div><span class="m">si tu margen hoy es 20%</span><span class="e">+43%</span></div>
         </div>
 
-        <p class="leverage-disclaimer">Ejemplo ilustrativo con 15% de costo variable sobre la venta adicional. En hotelería, entre 60% y 90% de cada peso adicional llega al resultado según venga de más ocupación o de mejor tarifa y mix de canales. Mientras más ajustada está la utilidad hoy, mayor es el salto.</p>
+        <p class="leverage-disclaimer">Ejemplo ilustrativo con 15% de costo variable sobre la venta adicional. Una tarifa más alta llega casi entera al resultado; más ocupación deja algo menos, porque cada unidad vendida tiene costo. Mientras más ajustada está la utilidad hoy, mayor es el salto.</p>
       </div>
     </div>
   </div>
@@ -1764,9 +1806,10 @@
   <div class="container">
     <div class="que-intro">
       <span class="eyebrow">Qué hacemos</span>
-      <h2>Diagnosticamos y optimizamos el funnel de punta a punta</h2>
+      <h2>Diagnosticamos y optimizamos el embudo de punta a punta</h2>
       <p style="margin-top: var(--space-3);">OptimUp trabaja sobre el embudo entero para que tus canales, equipos y datos hablen el mismo idioma — y el crecimiento deje de ser reactivo.</p>
     </div>
+    <p class="diagrama-label"><b>El recorrido del cliente</b>, de la demanda a la rentabilidad.</p>
     <div class="que-sistema">
       <div class="que-funnel">
     <div class="ou-funnel-wrap">
@@ -1829,23 +1872,16 @@
       <div>
         <ul class="que-notas">
           <li style="--y: 8.036%"><span class="qt">Demanda</span>Anticipar cuánta viene y de dónde, en vez de reaccionar cuando ya pasó.</li>
-          <li style="--y: 18.750%"><span class="qt">Tráfico</span>Traer el visitante correcto, no solo más visitantes.</li>
+          <li style="--y: 18.750%"><span class="qt">Tráfico</span>Traer al visitante correcto, no solo más tráfico.</li>
           <li style="--y: 30.357%"><span class="qt">Canales</span>Optimizar el mix para maximizar margen, no solo volumen.</li>
-          <li style="--y: 41.964%"><span class="qt">Pricing</span>El precio correcto en el momento correcto.</li>
+          <li style="--y: 41.964%"><span class="qt">Pricing</span>Cobrar lo que la demanda permite, cada día.</li>
           <li style="--y: 53.571%"><span class="qt">Conversión</span>Menos fricción, más cierres. Es el último tramo donde se gana o se pierde.</li>
-          <li style="--y: 65.179%"><span class="qt">Fidelización</span>El cliente que vuelve cuesta una fracción de lo que costó el primero.</li>
+          <li style="--y: 65.179%"><span class="qt">Fidelización</span>El cliente que vuelve cuesta una fracción de lo que costó traerlo la primera vez.</li>
           <li style="--y: 75.893%"><span class="qt">Medición</span>Decisiones con datos, no intuición. Saber qué funciona y dónde está el potencial.</li>
         </ul>
         <p class="que-cierre" style="--y: 91.6%">Las etapas se multiplican entre sí. Por eso arreglar el embudo entero rinde mucho más que perfeccionar una sola pieza.</p>
       </div>
     </div>
-
-    <ul class="que-resultados">
-      <li>→ Menos fricción entre áreas</li>
-      <li>→ Una sola lectura del negocio</li>
-      <li>→ Decisiones basadas en datos</li>
-      <li>→ Crecimiento predecible, no reactivo</li>
-    </ul>
   </div>
 </section>
 
@@ -1855,44 +1891,44 @@
     <div class="industrias-intro">
       <span class="eyebrow">Industrias</span>
       <h2>Donde generamos más valor</h2>
-      <p style="margin-top: var(--space-3);">Nos especializamos en negocios con inventario perecible, demanda variable y venta digital: sectores donde optimizar el embudo tiene impacto directo en el resultado — y donde los costos fijos hacen que cada peso adicional de ventas se traduzca casi entero en utilidad.</p>
+      <p style="margin-top: var(--space-3);">Nos especializamos en negocios con inventario perecible, demanda variable y venta digital: sectores donde optimizar el embudo tiene impacto directo en el resultado.</p>
     </div>
     <div class="ind-grid">
       <article class="ind-card">
         <h3>Hoteles</h3>
-        <div class="ind-tag">Hoteles boutique, lodges, cabañas, apart-hoteles</div>
+        <div class="ind-tag">Hoteles boutique · Lodges · Cabañas · Apart-hoteles</div>
         <ul>
-          <li>Optimización de venta directa y motor de reservas</li>
+          <li>Venta directa y motor de reservas</li>
           <li>Pricing dinámico y revenue management</li>
           <li>Reducción de dependencia de OTAs</li>
           <li>Mejora de conversión web y UX</li>
           <li>Integración con tecnología hotelera (IBE, PMS, Channel Manager)</li>
         </ul>
-        <a href="#contacto" class="ind-link">Ver solución →</a>
+        <a href="#contacto" class="ind-link">Hablemos de tu caso →</a>
       </article>
       <article class="ind-card">
         <h3>Rent a Car</h3>
-        <div class="ind-tag">Utilización · Tarifa media · Conversión digital</div>
+        <div class="ind-tag">Flotas locales · Turismo · Corporativo · Reemplazo</div>
         <ul>
-          <li>Optimización de utilización de flota</li>
+          <li>Utilización de flota y tarifa media</li>
           <li>Pricing por segmento, categoría y anticipación</li>
-          <li>Mejora del funnel de cotización y reserva</li>
+          <li>Mejora del embudo de cotización y reserva</li>
           <li>Análisis de canales: corporativos, turismo, reemplazo</li>
           <li>Revenue management y benchmarking tarifario</li>
         </ul>
-        <a href="#contacto" class="ind-link">Ver solución →</a>
+        <a href="#contacto" class="ind-link">Hablemos de tu caso →</a>
       </article>
       <article class="ind-card">
         <h3>Servicios</h3>
         <div class="ind-tag">Tours · Spa · Espacios · B2B con leads</div>
         <ul>
           <li>Diagnóstico de embudo para empresas de servicios</li>
-          <li>Optimización de tráfico, UX y conversión digital</li>
+          <li>Tráfico, UX y conversión digital</li>
           <li>Pricing y gestión de capacidad</li>
           <li>Mejora de cierre: formularios, WhatsApp, respuesta</li>
           <li>Métricas de conversión y rentabilidad por canal</li>
         </ul>
-        <a href="#contacto" class="ind-link">Ver solución →</a>
+        <a href="#contacto" class="ind-link">Hablemos de tu caso →</a>
       </article>
     </div>
   </div>
@@ -1903,7 +1939,7 @@
   <div class="container">
     <div class="metodo-intro">
       <span class="eyebrow">Método</span>
-      <h2>No intervenimos piezas sueltas. Trabajamos sobre el sistema completo.</h2>
+      <h2>Ninguna recomendación antes de entender el negocio.</h2>
       <p style="margin-top: var(--space-3);">Nuestro método parte siempre por entender el negocio real antes de recomendar cualquier acción. Primero diagnosticamos, luego priorizamos, luego optimizamos.</p>
     </div>
     <div class="metodo-list">
@@ -1914,7 +1950,7 @@
       </div>
       <div class="metodo-step">
         <div class="metodo-num">02</div>
-        <h4>Mapeamos el funnel</h4>
+        <h4>Mapeamos el embudo</h4>
         <p>Revisamos cómo llega, avanza y convierte cada oportunidad. Buscamos las fugas donde se pierde tráfico, conversión o margen.</p>
       </div>
       <div class="metodo-step">
@@ -1925,12 +1961,12 @@
       <div class="metodo-step">
         <div class="metodo-num">04</div>
         <h4>Entregamos el diagnóstico</h4>
-        <p>Mapa del funnel, fugas detectadas, oportunidades priorizadas y plan de acción concreto. Implementable.</p>
+        <p>Mapa del embudo, fugas detectadas, oportunidades priorizadas y plan de acción concreto. Implementable.</p>
       </div>
       <div class="metodo-step">
         <div class="metodo-num">05</div>
         <h4>Acompañamos la ejecución</h4>
-        <p>Apoyamos la implementación, la medición y la optimización continua — desde el acompañamiento al equipo hasta asumir un rol ejecutivo en la gestión, según el nivel que cada empresa necesite. El diagnóstico es el punto de partida, no el final.</p>
+        <p>Apoyamos la implementación, la medición y la optimización continua — desde el apoyo al equipo hasta asumir el rol ejecutivo, según lo que cada empresa necesite. El diagnóstico es el punto de partida, no el final.</p>
       </div>
     </div>
   </div>
@@ -1941,10 +1977,11 @@
   <div class="container">
     <div class="orden-intro">
       <span class="eyebrow">El orden de intervención</span>
-      <h2>Casi todos parten por tráfico. <em>Nosotros partimos por el final.</em></h2>
+      <h2>Casi todos parten por tráfico. <em>Nosotros lo dejamos para el final.</em></h2>
       <p style="margin-top: var(--space-3);">Invertir en tráfico sobre un embudo que gotea multiplica el gasto, no el resultado. Por eso ordenamos la intervención al revés de lo habitual: primero la demanda proyectada y el precio, después los canales y la conversión, luego la fidelización y la medición. El tráfico va último — cuando cada peso que entra ya tiene dónde convertirse en margen.</p>
     </div>
 
+    <p class="diagrama-label"><b>Nuestro orden de intervención</b>, que no es el recorrido del cliente: es el orden en que lo arreglamos.</p>
     <div class="orden-seq">
       <div class="orden-item"><span class="on">01</span><span class="ot">Demanda</span></div>
       <div class="orden-item"><span class="on">02</span><span class="ot">Pricing</span></div>
@@ -1956,13 +1993,13 @@
     </div>
     <div class="orden-cap">
       <span>Primero se arregla la máquina</span>
-      <span class="r">…y recién entonces se le echa combustible</span>
+      <span class="r">…y solo entonces se le echa combustible</span>
     </div>
 
     <div class="orden-palancas">
       <div class="big">120+</div>
       <div class="txt">
-        <b>palancas diagnosticadas.</b> Así elegimos por dónde empezar: revisamos el sistema completo y el plan que sale de ahí es corto — las pocas que mueven tu resultado.
+        <b>palancas revisadas.</b> Así elegimos por dónde empezar: miramos el sistema entero y el plan que sale de ahí es corto — las pocas que mueven tu resultado.
         <div class="orden-chips">
           <span>Forecast y estacionalidad</span>
           <span>Segmentación de demanda</span>
@@ -2021,7 +2058,7 @@
       <!-- Dirección Comercial Fraccional -->
       <article class="serv-card">
         <h3>Dirección Comercial Fraccional</h3>
-        <p class="serv-lead">Capacidad ejecutiva senior integrada a tu operación, sin incorporar un director full time. No solo recomendamos: ejecutamos contigo.</p>
+        <p class="serv-lead">Capacidad ejecutiva senior integrada a tu operación, sin sumar un cargo ejecutivo a tiempo completo en la planilla. No solo recomendamos: ejecutamos contigo.</p>
         <p class="serv-desc">Asumimos un rol activo en la ejecución, el seguimiento y la coordinación.</p>
         <div class="serv-decision">
           <div class="serv-price"><span>Desde</span> <strong>50 UF / mes</strong> <span>+ IVA</span></div>
@@ -2043,8 +2080,8 @@
         <p class="serv-desc">Elegimos e implementamos la solución adecuada con partners seleccionados.</p>
         <div class="serv-decision">
           <div>
-            <div class="serv-price serv-price--tech"><strong>Mismo precio de la tecnología</strong></div>
-            <p class="serv-note">Acompañamiento experto incluido. Aplica a soluciones de partners seleccionados y según alcance del proyecto.</p>
+            <div class="serv-price serv-price--tech"><strong>Sin costo adicional sobre la tecnología</strong></div>
+            <p class="serv-note">El acompañamiento experto va incluido. Aplica a soluciones de partners seleccionados y según alcance del proyecto.</p>
           </div>
           <a href="#contacto" class="serv-cta">Agendar diagnóstico →</a>
         </div>
@@ -2165,7 +2202,7 @@
       <div>
         <span class="eyebrow">Contacto</span>
         <h2>Agenda un diagnóstico comercial</h2>
-        <p style="margin-top: var(--space-3); margin-bottom: var(--space-4);">Cuéntanos brevemente sobre tu negocio. Si vemos potencial real de mejora, te lo decimos. Si no, también.</p>
+        <p style="margin-top: var(--space-3); margin-bottom: var(--space-4);">Cuéntanos brevemente sobre tu negocio y en qué quieres mejorar.</p>
         <form class="form-card" name="diagnostico-optimup" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias.html">
           <input type="hidden" name="form-name" value="diagnostico-optimup" />
           <input type="hidden" name="subject" data-remove-prefix value="Nuevo diagnóstico OptimUp desde la web" />
@@ -2211,11 +2248,15 @@
               <textarea id="mensaje" name="mensaje" rows="3"></textarea>
             </div>
           </div>
+          <div class="form-consent">
+            <input id="consentimiento" name="consentimiento" type="checkbox" value="si" required />
+            <label for="consentimiento">Autorizo a OptimUp a tratar mis datos para responder esta solicitud y contactarme comercialmente. He leído la <a href="/privacidad.html" target="_blank" rel="noopener">Política de privacidad</a> y sé que puedo revocar esta autorización cuando quiera.</label>
+          </div>
           <button type="submit" class="form-submit">Enviar solicitud →</button>
         </form>
       </div>
       <aside class="contacto-side">
-        <div class="contacto-quote">"El primer paso es detectar dónde está el mayor potencial de mejora."</div>
+        <div class="contacto-quote">Respondemos con una lectura concreta de tu embudo, no con un catálogo de servicios.</div>
         <ul class="contacto-checks">
           <li>Diagnóstico inicial gratuito y sin compromiso</li>
           <li>Respuesta en menos de 24 horas hábiles</li>
@@ -2237,7 +2278,7 @@
           <img src="/brand/optimup_logo_512.png" alt="" width="40" height="40" />
           <span>Optim<span class="up">Up</span></span>
         </a>
-        <p>Optimización del embudo comercial para hoteles, rent a car y empresas de servicios. Diagnosticamos, priorizamos y ejecutamos, desde la asesoría hasta la dirección comercial fraccional.</p>
+        <p>Optimización del embudo comercial para hoteles, rent a car y empresas de servicios. Diagnosticamos, priorizamos y ejecutamos — desde la asesoría hasta la dirección comercial fraccional.</p>
       </div>
       <div class="footer-col">
         <h5>Navegación</h5>
@@ -2271,8 +2312,7 @@
     <div class="footer-bottom">
       <span>© 2026 OptimUp. Todos los derechos reservados.</span>
       <div class="footer-bottom-links">
-        <a href="#">Política de privacidad</a>
-        <a href="#">Términos de uso</a>
+        <a href="/privacidad.html">Política de privacidad</a>
       </div>
     </div>
   </div>
