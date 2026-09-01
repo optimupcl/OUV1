@@ -145,6 +145,9 @@
     /* ====== BASE ====== */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    /* El header es sticky (~69px). Sin esto, al saltar por ancla el borde
+       de la sección queda tapado por el propio header. */
+    :target, [id] { scroll-margin-top: 72px; }
     body {
       margin: 0;
       font-family: var(--font-base);
@@ -236,12 +239,32 @@
       .nav-links { display: flex; }
     }
     .nav-links a {
+      position: relative;
       color: var(--text-dark);
       font-size: var(--text-base);
       font-weight: 500;
       transition: color 200ms ease;
     }
     .nav-links a:hover { color: var(--orange-deep); }
+
+    /* Scroll-spy: barra bajo el ítem de la sección visible.
+       Se usa ::after (no cambio de peso) para no provocar reflow del menú. */
+    .nav-links a:not(.nav-cta)::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -6px;
+      height: 2px;
+      background: var(--orange-deep);
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 220ms ease;
+    }
+    .nav-links a.active { color: var(--orange-deep); }
+    .nav-links a.active::after { transform: scaleX(1); }
+    @media (prefers-reduced-motion: reduce) {
+      .nav-links a:not(.nav-cta)::after { transition: none; }
+    }
     .nav-cta {
       background: var(--orange);
       color: var(--white) !important;
@@ -285,6 +308,11 @@
       border-bottom: 1px solid var(--border);
     }
     .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a.active {
+      color: var(--orange-deep);
+      box-shadow: inset 3px 0 0 var(--orange-deep);
+      padding-left: var(--space-2);
+    }
 
     /* ====== HERO ====== */
     .hero {
@@ -1530,7 +1558,7 @@
       <a href="#que-hacemos">Qué hacemos</a>
       <a href="#verticales">Industrias</a>
       <a href="#metodo">Método</a>
-      <a href="#servicios">Servicios</a>
+      <a href="#servicios">Precios</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#contacto" class="nav-cta">Agendar diagnóstico</a>
     </div>
@@ -1542,7 +1570,7 @@
     <a href="#que-hacemos" onclick="toggleMenu()">Qué hacemos</a>
     <a href="#verticales" onclick="toggleMenu()">Industrias</a>
     <a href="#metodo" onclick="toggleMenu()">Método</a>
-    <a href="#servicios" onclick="toggleMenu()">Servicios</a>
+    <a href="#servicios" onclick="toggleMenu()">Precios</a>
     <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
     <a href="#contacto" onclick="toggleMenu()">Agendar diagnóstico</a>
   </div>
@@ -1557,7 +1585,7 @@
       <p class="lead hero-lead fade-in delay-2">Más venta directa, mejor mix de canales y más margen. Trabajamos pricing, marketing, canales y conversión como un solo sistema, no como piezas sueltas. Hoteles, rent a car y empresas de servicios.</p>
       <div class="hero-actions fade-in delay-3">
         <a href="#contacto" class="btn btn-primary">Agenda un diagnóstico gratuito</a>
-        <a href="#que-hacemos" class="btn btn-secondary">Cómo trabajamos →</a>
+        <a href="#que-hacemos" class="btn btn-secondary">Ver el embudo completo →</a>
       </div>
     </div>
   </div>
@@ -2198,7 +2226,6 @@
           <li><a href="#que-hacemos">Qué hacemos</a></li>
           <li><a href="#verticales">Industrias</a></li>
           <li><a href="#metodo">Método</a></li>
-          <li><a href="#servicios">Servicios</a></li>
           <li><a href="#servicios">Precios</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#contacto">Contacto</a></li>
@@ -2260,6 +2287,66 @@
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
+
+  // Scroll-spy: marca en el header la sección visible.
+  // En una one-page el menú funciona como índice; sin estado activo el
+  // usuario pierde la referencia de dónde está dentro del scroll.
+  (function () {
+    var links = Array.prototype.slice.call(
+      document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta), .mobile-menu a[href^="#"]')
+    );
+    if (!links.length) return;
+
+    var seen = {}, targets = [];
+    links.forEach(function (a) {
+      var id = a.getAttribute('href').slice(1);
+      if (!id || seen[id] || !document.getElementById(id)) return;
+      seen[id] = true;
+      targets.push(id);
+    });
+    function topOf(id) {
+      return document.getElementById(id).getBoundingClientRect().top + window.scrollY;
+    }
+    targets.sort(function (a, b) { return topOf(a) - topOf(b); });
+
+    var current = null, ticking = false;
+
+    function setActive(id) {
+      if (id === current) return;
+      current = id;
+      links.forEach(function (a) {
+        var on = a.getAttribute('href') === '#' + id;
+        a.classList.toggle('active', on);
+        if (on) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
+      });
+    }
+
+    function update() {
+      ticking = false;
+      var navH = document.getElementById('topnav').offsetHeight;
+      var line = window.scrollY + navH + 24;
+      var active = null;
+      for (var i = 0; i < targets.length; i++) {
+        if (topOf(targets[i]) <= line) active = targets[i];
+      }
+      // Al final del documento siempre gana la última sección, aunque sea corta.
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+        active = targets[targets.length - 1];
+      }
+      setActive(active);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  })();
 
   // Animación de entrada del embudo del hero
   (function () {
