@@ -177,11 +177,12 @@
     p  { margin: 0 0 var(--space-2) 0; color: var(--text-mid); }
 
     .eyebrow {
-      font-size: 0.75rem; /* 12px — subido desde 10px para mejor ancla visual con el H2 que sigue */
+      font-size: var(--text-sm); /* 13px — valor de la escala. Venía de 10px (ilegible
+                                    en mayúsculas) y pasó por 12px, que no estaba en la escala. */
       font-weight: 600;
       color: var(--orange-text);
       text-transform: uppercase;
-      letter-spacing: 0.10em;
+      letter-spacing: 0.08em;
       margin-bottom: var(--space-1); /* reducido desde --space-2 para anclar mejor al título */
       display: inline-block;
     }
