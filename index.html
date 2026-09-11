@@ -533,30 +533,6 @@
       margin-top: 0.75rem; font-size: var(--text-sm); font-weight: 600; color: var(--text-light);
     }
     .orden-cap .r { color: var(--orange-deep); }
-    .orden-palancas {
-      display: flex; align-items: flex-start; gap: 1.5rem;
-      margin-top: var(--space-5); padding: 1.5rem 1.625rem;
-      background: rgba(232,93,26,0.07);
-      border-left: 3px solid var(--orange);
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-    }
-    .orden-palancas .big {
-      font-size: 2.6rem; font-weight: 700; color: var(--orange-deep);
-      line-height: 1; white-space: nowrap; padding-top: 2px;
-    }
-    .orden-palancas .txt { font-size: var(--text-base); color: var(--navy); }
-    .orden-chips { display: flex; flex-wrap: wrap; gap: 0.4375rem; margin-top: 0.875rem; }
-    .orden-chips span {
-      font-size: 0.76rem; font-weight: 500; color: var(--navy);
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 20px; padding: 0.3125rem 0.6875rem; white-space: nowrap;
-    }
-    .orden-chips span.is-more {
-      border-color: var(--orange);
-      color: var(--orange-deep);
-      font-weight: 600;
-      background: rgba(232,93,26,0.06);
-    }
     .orden-kicker {
       margin-top: var(--space-3); padding: 1.125rem 1.375rem;
       background: rgba(30,58,95,0.04); border-radius: var(--radius-md);
@@ -565,7 +541,6 @@
     .orden-kicker b { color: var(--navy); font-weight: 600; }
     @media (max-width: 820px) {
       .orden-seq { grid-template-columns: repeat(2, 1fr); }
-      .orden-palancas { flex-direction: column; gap: 0.75rem; }
     }
 
     /* Rótulo de los dos diagramas. El embudo de "Qué hacemos" es el recorrido
@@ -984,6 +959,36 @@
     .metodo-step h4 { margin-bottom: 0.5rem; font-size: var(--text-md); }
     .metodo-step p { font-size: var(--text-base); margin: 0; }
 
+    /* 120+ palancas: se revisan en el diagnóstico, por eso viven en Método.
+       "Así elegimos por dónde empezar" hace de puente a Orden de intervención. */
+    .palancas {
+      display: flex; align-items: flex-start; gap: 1.5rem;
+      margin-top: var(--space-5); padding: 1.5rem 1.625rem;
+      background: rgba(232,93,26,0.07);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .palancas .big {
+      font-size: 2.6rem; font-weight: 700; color: var(--orange-deep);
+      line-height: 1; white-space: nowrap; padding-top: 2px;
+    }
+    .palancas .txt { font-size: var(--text-base); color: var(--navy); }
+    .palancas-chips { display: flex; flex-wrap: wrap; gap: 0.4375rem; margin-top: 0.875rem; }
+    .palancas-chips span {
+      font-size: 0.76rem; font-weight: 500; color: var(--navy);
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 20px; padding: 0.3125rem 0.6875rem; white-space: nowrap;
+    }
+    .palancas-chips span.is-more {
+      border-color: var(--orange);
+      color: var(--orange-deep);
+      font-weight: 600;
+      background: rgba(232,93,26,0.06);
+    }
+    @media (max-width: 820px) {
+      .palancas { flex-direction: column; gap: 0.75rem; }
+    }
+
     /* ====== SERVICIOS ====== */
     .servicios-intro { max-width: 760px; margin-bottom: var(--space-4); }
     /* Cabecera más corta que el resto de las secciones: el trabajo de esta sección
@@ -1117,8 +1122,10 @@
     .serv-cta:hover { color: var(--orange-deep); }
 
     /* ====== CTA CENTRAL ====== */
+    /* Fondos alternados tras mover Equipo antes del primer paso:
+       Servicios (blanco) → Equipo (crema) → Primer paso (blanco) → Contacto (navy). */
     .cta-central {
-      background: var(--cream);
+      background: var(--white);
       text-align: center;
     }
     .cta-central h2 {
@@ -1128,6 +1135,7 @@
     .cta-central p { max-width: 580px; margin: 0 auto var(--space-4); }
 
     /* ====== EQUIPO ====== */
+    #nosotros { background: var(--cream); }
     .equipo-intro { max-width: 720px; margin-bottom: var(--space-5); }
     .equipo-grid {
       display: grid;
@@ -1983,6 +1991,32 @@
         <p>Apoyamos la implementación, la medición y la optimización continua — desde el apoyo al equipo hasta asumir el rol ejecutivo, según lo que cada empresa necesite. El diagnóstico es el punto de partida, no el final.</p>
       </div>
     </div>
+
+    <div class="palancas">
+      <div class="big">120+</div>
+      <div class="txt">
+        <b>palancas revisadas en el diagnóstico.</b> Así elegimos por dónde empezar: miramos el sistema entero y el plan que sale de ahí es corto — las pocas que mueven tu resultado.
+        <div class="palancas-chips">
+          <span>Forecast y estacionalidad</span>
+          <span>Segmentación de demanda</span>
+          <span>Arquitectura tarifaria</span>
+          <span>Pricing dinámico</span>
+          <span>Paridad</span>
+          <span>Mix y margen por canal</span>
+          <span>Dependencia de OTAs</span>
+          <span>Convenios y B2B</span>
+          <span>Metabuscadores</span>
+          <span>Motor de reservas</span>
+          <span>Relato y ruta de venta</span>
+          <span>Fricción de pago</span>
+          <span>Upselling y extras</span>
+          <span>Reputación y reseñas</span>
+          <span>CRM y recompra</span>
+          <span>Atribución</span>
+          <span class="is-more">··· y 100 más</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2008,32 +2042,6 @@
     <div class="orden-cap">
       <span>Primero se arregla la máquina</span>
       <span class="r">…y solo entonces se le echa combustible</span>
-    </div>
-
-    <div class="orden-palancas">
-      <div class="big">120+</div>
-      <div class="txt">
-        <b>palancas revisadas.</b> Así elegimos por dónde empezar: miramos el sistema entero y el plan que sale de ahí es corto — las pocas que mueven tu resultado.
-        <div class="orden-chips">
-          <span>Forecast y estacionalidad</span>
-          <span>Segmentación de demanda</span>
-          <span>Arquitectura tarifaria</span>
-          <span>Pricing dinámico</span>
-          <span>Paridad</span>
-          <span>Mix y margen por canal</span>
-          <span>Dependencia de OTAs</span>
-          <span>Convenios y B2B</span>
-          <span>Metabuscadores</span>
-          <span>Motor de reservas</span>
-          <span>Relato y ruta de venta</span>
-          <span>Fricción de pago</span>
-          <span>Upselling y extras</span>
-          <span>Reputación y reseñas</span>
-          <span>CRM y recompra</span>
-          <span>Atribución</span>
-          <span class="is-more">··· y 100 más</span>
-        </div>
-      </div>
     </div>
 
     <div class="orden-kicker"><b>Por qué la medición va antes que el tráfico:</b> sin atribución instalada, no sabes qué campaña trajo qué reserva. Escalar inversión a ciegas es la forma más cara de aprender.</div>
@@ -2109,16 +2117,6 @@
       </article>
 
     </div>
-  </div>
-</section>
-
-<!-- ============ CTA CENTRAL ============ -->
-<section class="cta-central">
-  <div class="container">
-    <span class="eyebrow">El primer paso</span>
-    <h2>Si tu empresa ya vende, casi seguro puede vender mejor</h2>
-    <p>Conversemos 30 minutos. Sin compromiso. Te decimos dónde vemos el mayor potencial de mejora — y si no lo vemos, también te lo decimos.</p>
-    <a href="#contacto" class="btn btn-primary">Agenda una conversación</a>
   </div>
 </section>
 
@@ -2206,6 +2204,16 @@
         </a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ CTA CENTRAL ============ -->
+<section class="cta-central">
+  <div class="container">
+    <span class="eyebrow">El primer paso</span>
+    <h2>Si tu empresa ya vende, casi seguro puede vender mejor</h2>
+    <p>Conversemos 30 minutos. Sin compromiso. Te decimos dónde vemos el mayor potencial de mejora — y si no lo vemos, también te lo decimos.</p>
+    <a href="#contacto" class="btn btn-primary">Agenda una conversación</a>
   </div>
 </section>
 
