@@ -100,6 +100,11 @@
       --orange: #E85D1A;
       --orange-deep: #C44A12;
       --orange-light: #FF7A3D;
+      /* Naranjas solo para TEXTO. El #C44A12 del manual cumple AA sobre blanco
+         (4,84) pero no sobre crema (4,42) ni sobre el hero con velo (4,27).
+         Estos dos cierran el mínimo en los dos fondos. No afectan logo ni botones. */
+      --orange-text: #A03B0E;          /* texto naranja sobre blanco o crema */
+      --orange-text-ondark: #FF8F5C;   /* texto naranja sobre navy */
       --cream: #F7F4EF;
       --white: #FFFFFF;
       --text-dark: #1E3A5F;
@@ -174,11 +179,19 @@
     .eyebrow {
       font-size: 0.75rem; /* 12px — subido desde 10px para mejor ancla visual con el H2 que sigue */
       font-weight: 600;
-      color: var(--orange-deep);
+      color: var(--orange-text);
       text-transform: uppercase;
       letter-spacing: 0.10em;
       margin-bottom: var(--space-1); /* reducido desde --space-2 para anclar mejor al título */
       display: inline-block;
+    }
+    /* Solo el hero: este texto no es una etiqueta de sección, es el que dice
+       qué tipo de empresa es OptimUp. Sube a --text-base (16px), que sí está en
+       la escala. El resto de los eyebrows de la web no se toca. */
+    .hero .eyebrow {
+      font-size: var(--text-base);   /* 16px */
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-2); /* 16px */
     }
     .lead { font-size: var(--text-lg); color: var(--text-mid); line-height: 1.5; font-weight: 400; }
 
@@ -676,7 +689,7 @@
     }
     .leverage h2 { color: var(--white); }
     .leverage p { color: rgba(255,255,255,0.82); }
-    .leverage .eyebrow { color: var(--orange-light); }
+    .leverage .eyebrow { color: var(--orange-text-ondark); }
     .leverage-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -1223,7 +1236,7 @@
     .contacto { background: var(--navy); color: var(--white); }
     .contacto h2 { color: var(--white); }
     .contacto p { color: rgba(255,255,255,0.85); }
-    .contacto .eyebrow { color: var(--orange-light); }
+    .contacto .eyebrow { color: var(--orange-text-ondark); }
     .contacto-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -1642,7 +1655,7 @@
   <div class="container hero-grid">
     <div class="hero-copy">
       <span class="eyebrow fade-in">Consultoría de revenue y marketing</span>
-      <h1 class="fade-in delay-1">Ingeniería para tu <span class="accent">embudo de ventas.</span></h1>
+      <h1 class="fade-in delay-1">Ingeniería para tu <span class="accent">embudo de ventas</span></h1>
       <p class="lead hero-lead fade-in delay-2">Más venta directa, mejor mix de canales y más margen. Trabajamos pricing, marketing, canales y conversión como un solo sistema, no como piezas sueltas. Hoteles, rent a car y empresas de servicios.</p>
       <div class="hero-actions fade-in delay-3">
         <a href="#contacto" class="btn btn-primary">Agenda un diagnóstico gratuito</a>
