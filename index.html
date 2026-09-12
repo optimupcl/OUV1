@@ -458,7 +458,10 @@
       transition: all 200ms ease;
       border: 1.5px solid transparent;
     }
-    .btn-primary { background: var(--orange); color: var(--white); }
+    /* Texto a 19px/700: a partir de 19px en negrita el mínimo de contraste baja de
+       4,5 a 3,0, y blanco sobre #E85D1A da 3,49. Así el naranjo de marca se conserva
+       intacto y el botón cumple. Con texto de 16px este naranjo no cumple. */
+    .btn-primary { background: var(--orange); color: var(--white); font-size: 19px; font-weight: 700; }
     .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); }
     .btn-secondary { background: transparent; color: var(--navy); border-color: var(--navy); }
     .btn-secondary:hover { background: var(--navy); color: var(--white); }
