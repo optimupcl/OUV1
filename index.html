@@ -1124,19 +1124,6 @@
     }
     .serv-cta:hover { color: var(--orange-deep); }
 
-    /* ====== CTA CENTRAL ====== */
-    /* Fondos alternados tras mover Equipo antes del primer paso:
-       Servicios (blanco) → Equipo (crema) → Primer paso (blanco) → Contacto (navy). */
-    .cta-central {
-      background: var(--white);
-      text-align: center;
-    }
-    .cta-central h2 {
-      max-width: 720px;
-      margin: 0 auto var(--space-3);
-    }
-    .cta-central p { max-width: 580px; margin: 0 auto var(--space-4); }
-
     /* ====== EQUIPO ====== */
     #nosotros { background: var(--cream); }
     .equipo-intro { max-width: 720px; margin-bottom: var(--space-5); }
@@ -1245,7 +1232,11 @@
     }
 
     /* ====== CONTACTO ====== */
+    /* "El primer paso" era una sección propia cuyo botón solo bajaba hasta aquí.
+       Fusionada con Contacto: el titular abre la sección y el formulario es el CTA. */
     .contacto { background: var(--navy); color: var(--white); }
+    .contacto-intro { max-width: 720px; margin-bottom: var(--space-4); }
+    .contacto-intro p { margin-top: var(--space-3); }
     .contacto h2 { color: var(--white); }
     .contacto p { color: rgba(255,255,255,0.85); }
     .contacto .eyebrow { color: var(--orange-text-ondark); }
@@ -1316,7 +1307,7 @@
     .contacto-side {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       gap: var(--space-3);
     }
     .contacto-quote {
@@ -2210,24 +2201,18 @@
   </div>
 </section>
 
-<!-- ============ CTA CENTRAL ============ -->
-<section class="cta-central">
-  <div class="container">
-    <span class="eyebrow">El primer paso</span>
-    <h2>Si tu empresa ya vende, casi seguro puede vender mejor</h2>
-    <p>Conversemos 30 minutos. Sin compromiso. Te decimos dónde vemos el mayor potencial de mejora — y si no lo vemos, también te lo decimos.</p>
-    <a href="#contacto" class="btn btn-primary">Agenda una conversación</a>
-  </div>
-</section>
-
 <!-- ============ CONTACTO ============ -->
 <section id="contacto" class="contacto">
   <div class="container">
+    <div class="contacto-intro">
+      <span class="eyebrow">El primer paso</span>
+      <h2>Si tu empresa ya vende, casi seguro puede vender mejor</h2>
+      <p>Conversemos 30 minutos. Sin compromiso. Te decimos dónde vemos el mayor potencial de mejora — y si no lo vemos, también te lo decimos.</p>
+    </div>
+
     <div class="contacto-grid">
       <div>
-        <span class="eyebrow">Contacto</span>
-        <h2>Agenda un diagnóstico comercial</h2>
-        <p style="margin-top: var(--space-3); margin-bottom: var(--space-4);">Cuéntanos brevemente sobre tu negocio y en qué quieres mejorar.</p>
+        <p style="margin-bottom: var(--space-3);">Cuéntanos brevemente sobre tu negocio y en qué quieres mejorar.</p>
         <form class="form-card" name="diagnostico-optimup" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias.html">
           <input type="hidden" name="form-name" value="diagnostico-optimup" />
           <input type="hidden" name="subject" data-remove-prefix value="Nuevo diagnóstico OptimUp desde la web" />
@@ -2283,9 +2268,8 @@
       <aside class="contacto-side">
         <div class="contacto-quote">Respondemos con una lectura concreta de tu embudo, no con un catálogo de servicios.</div>
         <ul class="contacto-checks">
-          <li>Diagnóstico inicial gratuito y sin compromiso</li>
+          <li>Diagnóstico inicial sin costo, online</li>
           <li>Respuesta en menos de 24 horas hábiles</li>
-          <li>Primera reunión: 30 minutos online</li>
           <li>Sin contratos a largo plazo para empezar</li>
           <li>Nos adaptamos a tu industria y tamaño</li>
         </ul>
