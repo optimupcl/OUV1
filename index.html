@@ -169,6 +169,11 @@
       --radius-lg: 12px;
       --radius-xl: 24px;
 
+      /* Anclas — ver "section[id] { scroll-margin-top }" en BASE */
+      --header-h: 69px;        /* alto real del header sticky */
+      --anchor-gap: 40px;      /* aire entre el header y el eyebrow al saltar */
+      --section-pt: var(--space-7); /* padding superior por defecto de section */
+
       /* Sombras */
       --shadow-sm: 0 2px 20px rgba(30,58,95,0.08);
       --shadow-md: 0 8px 32px rgba(30,58,95,0.12);
@@ -179,7 +184,17 @@
     html { scroll-behavior: smooth; }
     /* El header es sticky (~69px). Sin esto, al saltar por ancla el borde
        de la sección queda tapado por el propio header. */
-    :target, [id] { scroll-margin-top: 72px; }
+    :target, [id] { scroll-margin-top: calc(var(--header-h) + 3px); }
+
+    /* Anclas de sección: alinear el BORDE de la sección bajo el header dejaba
+       visible todo el padding superior (128px en desktop), o sea ~130px de vacío
+       antes del eyebrow. El destino útil es el contenido, no el borde: se
+       descuenta el padding propio de cada sección y se deja --anchor-gap de aire.
+       El resultado puede ser negativo (la sección arranca sobre el viewport):
+       es intencional y scroll-margin admite valores negativos. */
+    section[id] {
+      scroll-margin-top: calc(var(--header-h) + var(--anchor-gap) - var(--section-pt));
+    }
     body {
       margin: 0;
       font-family: var(--font-base);
@@ -232,11 +247,11 @@
       padding-right: var(--space-3);
     }
     section {
-      padding-top: var(--space-7);
+      padding-top: var(--section-pt);
       padding-bottom: var(--space-7);
     }
     @media (min-width: 1024px) {
-      section { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+      section { --section-pt: var(--space-8); padding-bottom: var(--space-8); }
     }
 
     /* ====== NAV ====== */
@@ -1023,8 +1038,10 @@
     .servicios-intro { max-width: 760px; margin-bottom: var(--space-4); }
     /* Cabecera más corta que el resto de las secciones: el trabajo de esta sección
        es comparar los tres planes de un vistazo, así que el precio tiene que entrar en pantalla. */
-    #servicios { padding-top: var(--space-6); }
-    @media (min-width: 1024px) { #servicios { padding-top: var(--space-6); } }
+    /* Se declara como --section-pt (y no como padding-top) para que el cálculo
+       de scroll-margin-top de las anclas use el padding real de esta sección. */
+    #servicios { --section-pt: var(--space-6); }
+    @media (min-width: 1024px) { #servicios { --section-pt: var(--space-6); } }
     .serv-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -1702,7 +1719,6 @@
       <p class="lead hero-lead fade-in delay-2">Más venta directa, mejor mix de canales y más margen. Trabajamos pricing, marketing, canales y conversión como un solo sistema, no como piezas sueltas. Hoteles, rent a car y empresas de servicios.</p>
       <div class="hero-actions fade-in delay-3">
         <a href="#contacto" class="btn btn-primary">Agenda un diagnóstico gratuito</a>
-        <a href="#que-hacemos" class="btn btn-secondary">Ver el embudo completo →</a>
       </div>
     </div>
   </div>
