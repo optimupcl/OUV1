@@ -37,6 +37,7 @@
     "url": "https://optimup.cl/",
     "logo": "https://optimup.cl/brand/optimup_logo_512.png",
     "image": "https://optimup.cl/brand/og-image.png",
+    "sameAs": ["https://www.linkedin.com/company/optimupcl/"],
     "description": "Mejoramos los ingresos de hoteles, rent a car y empresas de servicios integrando revenue management, marketing y canales de venta. Asesoría, dirección comercial fraccional y tecnología aplicada.",
     "email": "contacto@optimup.cl",
     "telephone": "+56959622236",
@@ -1455,6 +1456,24 @@
       height: 36px;
       flex-shrink: 0;
     }
+    /* Página de OptimUp en LinkedIn: va en el footer y no en header/hero,
+       para no competir con el CTA principal (diagnóstico). */
+    .footer-social {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      margin-top: 0; /* el <p> ya deja 16px debajo */
+      font-size: var(--text-base);
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: color 200ms ease;
+    }
+    .footer-social svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+    .footer-social .footer-social-ext { font-size: 0.8em; line-height: 1; }
+    .footer-social:hover { color: var(--orange-deep); }
+    .footer-social:focus-visible { outline: 2px solid var(--orange-deep); outline-offset: 4px; }
     .footer-col h5 {
       font-size: var(--text-xs);
       color: var(--navy);
@@ -2465,6 +2484,13 @@
           <span>Optim<span class="up">Up</span></span>
         </a>
         <p>Optimización del embudo comercial para hoteles, rent a car y empresas de servicios. Diagnosticamos, priorizamos y ejecutamos — desde la asesoría hasta la dirección comercial fraccional.</p>
+        <a class="footer-social"
+           href="https://www.linkedin.com/company/optimupcl/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Seguir a OptimUp en LinkedIn (se abre en una pestaña nueva)">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          <span>Síguenos en LinkedIn</span><span class="footer-social-ext" aria-hidden="true">↗</span>
+        </a>
       </div>
       <div class="footer-col">
         <h5>Navegación</h5>
