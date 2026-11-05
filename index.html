@@ -99,6 +99,28 @@
           "Tecnología aplicada"
         ]
       }
+    ],
+    "employee": [
+      {
+        "@type": "Person",
+        "name": "Francisco Bórquez",
+        "jobTitle": "Especialista en Pricing y Revenue Management",
+        "image": "https://optimup.cl/brand/equipo/francisco-borquez-288.jpg",
+        "sameAs": "https://www.linkedin.com/in/francisco-borquez/",
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Universidad Adolfo Ibáñez" },
+          { "@type": "CollegeOrUniversity", "name": "EUHT Sant Pol, Barcelona" }
+        ],
+        "knowsAbout": ["Pricing", "Revenue management", "Forecast y demanda", "Distribución y OTAs", "Promociones"]
+      },
+      {
+        "@type": "Person",
+        "name": "Marco Antonio Villa",
+        "jobTitle": "Especialista en Contenido, Video e Influencers",
+        "image": "https://optimup.cl/brand/equipo/marco-antonio-villa-288.jpg",
+        "sameAs": "https://www.linkedin.com/in/marco-antonio-villa-pereira/",
+        "knowsAbout": ["Marketing de contenidos", "Video", "Influencers", "Redes sociales", "Branding", "Storytelling"]
+      }
     ]
   }
   </script>
@@ -1177,6 +1199,16 @@
     @media (min-width: 768px) {
       .equipo-grid { grid-template-columns: repeat(2, 1fr); }
     }
+    /* Especialistas: van bajo los socios con el mismo componente de ficha.
+       La jerarquía la dan el orden y este subtítulo con filete fino (sin fondos). */
+    .equipo-especialistas {
+      margin-top: var(--space-5);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--border);
+      margin-bottom: var(--space-3);
+    }
+    .equipo-especialistas h3 { font-size: var(--text-lg); }
+    .equipo-especialistas p { margin: 0.5rem 0 0; color: var(--text-mid); }
     .persona {
       background: var(--white);
       border: 1px solid var(--border);
@@ -2255,6 +2287,89 @@
            href="https://www.linkedin.com/in/jos%C3%A9-ignacio-sarmiento-parcha-3b12a453/"
            target="_blank" rel="noopener noreferrer"
            aria-label="Perfil de LinkedIn de José Ignacio Sarmiento (se abre en una pestaña nueva)">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          <span>LinkedIn</span><span class="persona-linkedin-ext" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+    <!-- Especialistas: bajo los socios, mismo componente de ficha -->
+    <div class="equipo-especialistas">
+      <h3>Especialistas</h3>
+      <p>Cada uno a cargo de una palanca del embudo, bajo la dirección de los socios.</p>
+    </div>
+    <div class="equipo-grid">
+      <div class="persona">
+        <div class="persona-head">
+          <div class="persona-foto">
+            <picture>
+              <source type="image/avif"
+                      srcset="/brand/equipo/francisco-borquez-96.avif 96w, /brand/equipo/francisco-borquez-192.avif 192w, /brand/equipo/francisco-borquez-288.avif 288w"
+                      sizes="96px" />
+              <source type="image/webp"
+                      srcset="/brand/equipo/francisco-borquez-96.webp 96w, /brand/equipo/francisco-borquez-192.webp 192w, /brand/equipo/francisco-borquez-288.webp 288w"
+                      sizes="96px" />
+              <img src="/brand/equipo/francisco-borquez-192.jpg"
+                   srcset="/brand/equipo/francisco-borquez-96.jpg 96w, /brand/equipo/francisco-borquez-192.jpg 192w, /brand/equipo/francisco-borquez-288.jpg 288w"
+                   sizes="96px" width="96" height="120"
+                   alt="Francisco Bórquez, especialista de OptimUp"
+                   loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <div class="persona-info">
+            <h4>Francisco Bórquez</h4>
+            <span class="persona-role">Pricing y Revenue Management</span>
+          </div>
+        </div>
+        <p>Fue Jefe de Revenue Management y Ancillary en <strong>Tánica Hoteles</strong>. Hoy asesora hoteles boutique y de lujo en pricing y distribución.</p>
+        <p class="persona-credenciales">Ing. Comercial UAI · Máster en Hospitality, Sant Pol</p>
+        <div class="persona-tags">
+          <span>Pricing</span>
+          <span>Forecast y demanda</span>
+          <span>Distribución y OTAs</span>
+          <span>Promociones</span>
+        </div>
+        <a class="persona-linkedin"
+           href="https://www.linkedin.com/in/francisco-borquez/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Perfil de LinkedIn de Francisco Bórquez (se abre en una pestaña nueva)">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          <span>LinkedIn</span><span class="persona-linkedin-ext" aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="persona">
+        <div class="persona-head">
+          <div class="persona-foto">
+            <picture>
+              <source type="image/avif"
+                      srcset="/brand/equipo/marco-antonio-villa-96.avif 96w, /brand/equipo/marco-antonio-villa-192.avif 192w, /brand/equipo/marco-antonio-villa-288.avif 288w"
+                      sizes="96px" />
+              <source type="image/webp"
+                      srcset="/brand/equipo/marco-antonio-villa-96.webp 96w, /brand/equipo/marco-antonio-villa-192.webp 192w, /brand/equipo/marco-antonio-villa-288.webp 288w"
+                      sizes="96px" />
+              <img src="/brand/equipo/marco-antonio-villa-192.jpg"
+                   srcset="/brand/equipo/marco-antonio-villa-96.jpg 96w, /brand/equipo/marco-antonio-villa-192.jpg 192w, /brand/equipo/marco-antonio-villa-288.jpg 288w"
+                   sizes="96px" width="96" height="120"
+                   alt="Marco Antonio Villa, especialista de OptimUp"
+                   loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <div class="persona-info">
+            <h4>Marco Antonio Villa</h4>
+            <span class="persona-role">Contenido, Video e Influencers</span>
+          </div>
+        </div>
+        <p>Dirigió el marketing de marcas líderes de retail y e-commerce, y fue rostro de marca en sus videos y comerciales. Aporta la mirada creativa del equipo.</p>
+        <p class="persona-credenciales">Profesor de Filosofía</p>
+        <div class="persona-tags">
+          <span>Redes sociales</span>
+          <span>Branding</span>
+          <span>Storytelling</span>
+          <span>Campañas digitales</span>
+        </div>
+        <a class="persona-linkedin"
+           href="https://www.linkedin.com/in/marco-antonio-villa-pereira/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Perfil de LinkedIn de Marco Antonio Villa (se abre en una pestaña nueva)">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
           <span>LinkedIn</span><span class="persona-linkedin-ext" aria-hidden="true">↗</span>
         </a>
